@@ -59,5 +59,23 @@ def check_salary(offer_salary: str, filter_salary: int | None) -> bool:
     return True
 
 
+def filter_offers(offers: dict[dict[str | list[str]]], filter_params: dict) -> list:
+    if not filter_params:
+        return list(offers.keys())
+    accepted = []
+    localizations = set(filter_params['localizations']) if 'localizations' in filter_params else set()
+    level = set(filter_params['levels']) if 'levels' in filter_params else set()
+    salary = filter_params['salary'] if 'salary' in filter_params else None
+    forms = set(filter_params['forms']) if 'forms' in filter_params else set()
+    contract_type = set(filter_params['contract_types']) if 'contract_types' in filter_params else set()
+    for offer_id, offer in offers.items():
+        if check_list_filter_param(offer['localizations'], localizations) and check_list_filter_param(
+                offer['levels'], level) and check_list_filter_param(
+                offer['forms'], forms) and check_salary(offer['min_salary'], salary) and check_list_filter_param(
+                offer['contract_types'], contract_type):
+            accepted.append(offer_id)
+    return accepted
+
+
 def get_dict_part(dictionary: dict, keys_to_get: list[str]) -> dict:
     return {key: dictionary[key] for key in keys_to_get if key in dictionary}
