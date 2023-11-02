@@ -5,7 +5,7 @@ from file_reader import *
 
 def get_counter():
     companies = read_json('../files/companies.json')
-    offers = read_json('../files/offers_final.json')
+    offers = read_json('../files/offers.json')
     counter = {key: 0 for key in companies}
     for offer in offers.values():
         counter[offer['company']] += 1
@@ -13,7 +13,7 @@ def get_counter():
 
 
 def check_companies():
-    companies = read_json('../files/companies_final.json')
+    companies = read_json('../files/companies.json')
     offers_counter = get_counter()
     counter = {}
     i = 0
@@ -34,7 +34,7 @@ def check_companies():
 
 def find_single_offer_companies():
     companies = read_json('../files/companies.json')
-    offers = read_json('../files/offers_final.json')
+    offers = read_json('../files/offers.json')
     counter = {key: 0 for key in companies}
     for offer in offers.values():
         counter[offer['company']] += 1
@@ -49,12 +49,12 @@ def find_single_offer_companies():
 
 def remove_small_companies(percent: float = 0.8):
     companies = read_json('../files/companies.json')
-    offers = read_json('../files/offers_final.json')
+    offers = read_json('../files/offers.json')
     counter = {key: 0 for key in companies}
     for offer in offers.values():
         counter[offer['company']] += 1
     new_companies = {name: company for name, company in companies.items() if counter[name] > 1 or counter[name] > 0 and random.uniform(0, 1) > percent}
-    write_json('../files/companies_final.json', new_companies, 2)
+    write_json('../files/companies.json', new_companies, 2)
 
 
 def get_companies_branches(companies: dict, offers: dict):
@@ -70,8 +70,8 @@ def get_companies_branches(companies: dict, offers: dict):
 
 
 def change_company():
-    companies = read_json('../files/companies_final.json')
-    offers = read_json('../files/offers_final.json')
+    companies = read_json('../files/companies.json')
+    offers = read_json('../files/offers.json')
     branches_dict = get_companies_branches(companies, offers)
     for offer in offers.values():
         if not offer['company'] in companies:
@@ -84,7 +84,7 @@ def change_company():
 
 
 def check_offers_companies():
-    companies = read_json('../files/companies_final.json')
+    companies = read_json('../files/companies.json')
     offers = read_json('../files/offers_companies_filled.json')
     for offer in offers.values():
         if offer['company'] not in companies:
@@ -102,11 +102,11 @@ def generate_phone_number(long_chance: float = 0.3):
 
 
 def fill_phone():
-    companies = read_json('../files/companies_final.json')
+    companies = read_json('../files/companies.json')
     for company in companies.values():
         if not company['contact_phone']:
             company['contact_phone'] = generate_phone_number()
-    write_json('../files/companies_final.json', companies)
+    write_json('../files/companies.json', companies)
 
 
 def generate_email(name: str):
@@ -117,12 +117,12 @@ def generate_email(name: str):
 
 
 def fill_email():
-    companies = read_json('../files/companies_final.json')
+    companies = read_json('../files/companies.json')
     for name, company in companies.items():
         if not company['contact_email']:
             company['contact_email'] = generate_email(name)
             print(name, company['contact_email'])
-    write_json('../files/companies_final.json', companies, 2)
+    write_json('../files/companies.json', companies, 2)
 
 
 # check_companies()

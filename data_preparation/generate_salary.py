@@ -67,6 +67,6 @@ def fill_salaries(offers, salaries_ranges):
     return new_offers
 
 
-write_json('../files/offers_final.json', fill_salaries(offers, get_salaries_ranges(offers)))
+write_json('../files/offers.json', fill_salaries(offers, get_salaries_ranges(offers)))
 
 
