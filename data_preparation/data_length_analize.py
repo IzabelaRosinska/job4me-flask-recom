@@ -16,6 +16,7 @@ def check_companies_lengths():
         lengths['description'][str(math.ceil(len(company['description']) / 100) * 100)] += 1
     print(lengths)
 
+
 def sort_dict_by_numeric_value(input_dict):
     sorted_items = sorted(input_dict.items(), key=lambda item: int(item[0]))
     sorted_dict = dict(sorted_items)
