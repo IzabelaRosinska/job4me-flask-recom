@@ -1,6 +1,7 @@
 from sentence_transformers import SentenceTransformer, util
 from matcher import Labels_Matcher
 from file_reader import *
+from utils import filter_offers
 
 
 class Recommender:
@@ -106,12 +107,12 @@ class Recommender:
                 total_weight += weight
         return score / total_weight if total_weight != 0 else 0
 
-    def get_offers_ranking(self, employee_data: dict[str, str | list[str]],
+    def get_offers_ranking(self, employee_data: dict[str, str | list[str]], filter_params: dict,
                            branches_weights: dict[str, float]) -> list[dict[str, str | list[str]]]:
         employee_labels = self.get_labels(employee_data, False, branches_weights)
         employee_embeddings = self.get_embeddings(employee_data, False)
         ranking = [(offer_id, self.get_labels_sim(employee_labels, self.offers_labels[offer_id]))
-                   for offer_id in self.offers]
+                   for offer_id in filter_offers(self.offers, filter_params)]
         ranking = sorted(ranking, key=lambda x: x[1], reverse=True)
         new_ranking = []
         for offer, score in ranking[:100]:
