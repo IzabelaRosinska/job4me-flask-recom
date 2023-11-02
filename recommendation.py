@@ -1,6 +1,5 @@
 from sentence_transformers import SentenceTransformer, util
 from matcher import Labels_Matcher
-from utils import filter_offers
 from file_reader import *
 
 
