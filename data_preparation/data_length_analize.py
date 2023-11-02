@@ -22,6 +22,7 @@ def sort_dict_by_numeric_value(input_dict):
     sorted_dict = dict(sorted_items)
     return sorted_dict
 
+
 employees = read_json('../files/employees.json')
 lengths = {'email': {}, 'password': {}, 'first_name': {}, 'last_name': {}, 'education_1': {}, 'education_2': {},
            'work_experience_1': {}, 'work_experience_2': {}, 'skills_1': {}, 'skills_2': {}, 'projects_1': {},
@@ -56,7 +57,7 @@ for employee in employees.values():
     lengths['projects_1'][str(len(employee['projects']))] += 1
     lengths['projects_2'].setdefault(str(math.ceil(max([0] + [len(req) for req in employee['projects']]) / 10) * 10), 0)
     lengths['projects_2'][str(math.ceil(max([0] + [len(req) for req in employee['projects']]) / 10) * 10)] += 1
-# print(lengths)
+
 
 def check_employees_lengths():
     employees = read_json('../files/employees.json')

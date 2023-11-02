@@ -1,6 +1,7 @@
 from sentence_transformers import SentenceTransformer, util
 from matcher import Labels_Matcher
 from file_reader import *
+from utils import filter_offers
 
 
 class Recommender:
