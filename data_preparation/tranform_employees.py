@@ -4,9 +4,9 @@ from file_reader import *
 def make_dict(employees):
     return {str(i): {'email': employee['email'], "password": employee['password'], "name": employee['name'],
                      "phone": employee['phone'], "branches": employee["branches"], "education": employee['education'],
-                     "work_experience": employee['work_experience'], "skills": employee['skills'],
-                     "about_me": employee['about_me'], "hobbies": employee['hobbies']} for i, employee in
-            enumerate(employees)}
+                     "work_experience": employee['work_experience'], "projects": employees['projects'],
+                     "skills": employee['skills'], "about_me": employee['about_me'], "hobbies": employee['hobbies']}
+            for i, employee in enumerate(employees)}
 
 
 def count_length(employees):
@@ -14,12 +14,23 @@ def count_length(employees):
         print(email, '; '.join([f'{key}: {len(val)}' for key, val in employee.items()]))
 
 
-employees = read_json('../files/employees.json')
+# employees = read_json('../files/employees.json')
 # employees = read_jsonl('../files/cv.jsonl')
 
 # new_employees = make_dict(employees)
-count_length(employees)
+# count_length(employees)
 
 # write_json('../files/employees.json', new_employees)
 # with open('../files/employees.json', 'w', encoding='utf-8') as file:
 #     json.dump(new_employees, file, ensure_ascii=False, indent=2)
+
+
+def fix_it():
+    employees = read_json('../files/employees.json')
+    cvs = read_jsonl('../files/cv.jsonl')
+    for employee, cv in zip(employees.values(), cvs):
+        employee['projects'] = cv['projects'] if 'projects' in cv else []
+    write_json('../files/employees.json', employees, 2)
+
+
+fix_it()
