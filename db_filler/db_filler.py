@@ -20,7 +20,7 @@ cursor = conn.cursor()
 def cut(text, char_limit):
     if len(text) < char_limit:
         return text
-    while len(text) > char_limit-1:
+    while len(text) > char_limit - 1:
         if (index := max(text.rfind("."), text.rfind("\n"), text.rfind(","))) != -1:
             text = text[:index]
         else:
@@ -60,7 +60,7 @@ def add_employers():
     companies = read_json('../files/companies.json')
     for name, company in companies.items():
         email = company['contact_email']
-        locked = 1
+        locked = 0
         password = '12345'
         telephone = company['contact_phone']
         role = b"\x00\x01\x02\x03\x04"
@@ -71,7 +71,8 @@ def add_employers():
         photo = "https://picsum.photos/100/100"
         query = f'INSERT INTO dbo.employers (email, locked, password, telephone, role, address, company_name, ' \
                 f'description, display_description, photo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?); '
-        cursor.execute(query, (email, locked, password, telephone, role, address, company_name, description, display_description, photo))
+        cursor.execute(query, (email, locked, password, telephone, role, address, company_name, description,
+                               display_description, photo))
     conn.commit()
 
 
@@ -107,9 +108,18 @@ def reset_offers():
 
 
 def add_offers(with_embeddings=False):
+    cursor.execute("SELECT IDENT_CURRENT('dbo.job_offers') AS last_inserted_id")
+    last_inserted_id = int(row.last_inserted_id) if (row := cursor.fetchone()) else 0
+
     offers = read_json('../files/offers.json')
     embeddings = read_json('../files/offers_embeddings.json')
     companies = read_json('../files/companies.json')
+
+    cursor.execute('SELECT id, city FROM dbo.localizations;')
+    localizations = {city: c_id for c_id, city in cursor.fetchall()}
+    cursor.execute("SELECT IDENT_CURRENT('dbo.locations') AS loc_id")
+    loc_id = int(row.loc_id) if (row := cursor.fetchone()) and row.loc_id else 0
+
     i = 0
     companies_dict = {name: str(i := i + 1) for name in companies}
     localizations = {}
@@ -148,15 +158,15 @@ def add_offers(with_embeddings=False):
             add_connections_to_offer(j + 1, 'dbo.job_offer_localizations', 'localization_id',
                                      [localizations[localization]])
 
-        add_list_values_to_offer(j + 1, 'dbo.extra_skills', offer['extra_skills'], 180)
-        add_list_values_to_offer(j + 1, 'dbo.requirements', offer['requirements'], 220)
-        add_connections_to_offer(j + 1, 'dbo.job_offer_levels', 'level_id',
+        add_list_values_to_offer(j + last_inserted_id + 1, 'dbo.extra_skills', offer['extra_skills'], 180)
+        add_list_values_to_offer(j + last_inserted_id + 1, 'dbo.requirements', offer['requirements'], 220)
+        add_connections_to_offer(j + last_inserted_id + 1, 'dbo.job_offer_levels', 'level_id',
                                  [levels.index(level) + 1 for level in offer['levels']])
-        add_connections_to_offer(j + 1, 'dbo.job_offer_contract_types', 'contract_type_id',
+        add_connections_to_offer(j + last_inserted_id + 1, 'dbo.job_offer_contract_types', 'contract_type_id',
                                  [contract_types.index(val) + 1 for val in offer['contract_types']])
-        add_connections_to_offer(j + 1, 'dbo.job_offer_employment_forms',
+        add_connections_to_offer(j + last_inserted_id + 1, 'dbo.job_offer_employment_forms',
                                  'employment_form_id', [forms.index(val) + 1 for val in offer['forms']])
-        add_connections_to_offer(j + 1, 'dbo.job_offer_industries', 'industry_id',
+        add_connections_to_offer(j + last_inserted_id + 1, 'dbo.job_offer_industries', 'industry_id',
                                  [industries.index(val) + 1 for val in offer['branches']])
         conn.commit()
 
@@ -175,7 +185,7 @@ def add_employees():
 
     for i, employee in enumerate(employees.values()):
         email = employee['email']
-        locked = 1
+        locked = 0
         password = employee['password']
         telephone = employee['phone']
         role = b"\x00\x01\x02\x03\x04"
