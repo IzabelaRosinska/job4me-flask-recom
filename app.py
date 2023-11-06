@@ -2,10 +2,10 @@ import os
 
 from flask import Flask, jsonify, request
 
+from api_autentication import *
 from recommendation import Recommender
 from file_reader import *
 from db_connection.db_connect import *
-
 
 app = Flask(__name__)
 
@@ -34,12 +34,13 @@ recommender.load_offers(offers, branches_weights,
                         embeddings=offers_embeddings)
 
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def index():
     return 'Hello!'
 
 
-@app.route('/recommend/<job_fairs_id>/<employee_id>')
+@app.route('/recommend/<job_fairs_id>/<employee_id>', methods=['GET'])
+@api_key_recommend
 def recommend(job_fairs_id, employee_id: str):
     filter_params = {}
     if loc := request.args.get('loc'):
@@ -73,10 +74,11 @@ def recommend(job_fairs_id, employee_id: str):
     ranking = recommender.get_offers_ranking(employee, filter_params, branches_weights)
     for offer in ranking:
         response.append(offer)
-    return jsonify(data=response), 200, {'Content-Type': 'application/json; charset=utf-8'}
+    return jsonify(data=response)
 
 
-@app.route('/process/<offer_id>')
+@app.route('/process/<offer_id>', methods=['GET'])
+@api_key_process
 def process(offer_id):
     try:
         if not (offer := get_offer_by_id(cursor, int(offer_id))):
@@ -85,7 +87,3 @@ def process(offer_id):
         return {'error': 'Wrong id'}
     recommender.load_and_save_offer(offer_id, offer, branches_weights)
     return "Success"
-
-
-if __name__ == '__main__':
-    app.run()
