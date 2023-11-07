@@ -181,22 +181,3 @@ with open('offers_administracja_biurowa.jsonl', 'r', encoding='utf-8') as file:
     offers = [json.loads(offer) for offer in file]
 
 transform_data(offers, "Administracja Biurowa")
-
-# levels = {}
-# for offer in offers:
-#     print(offer['localization'][0].split(", ")[-1])
-# # #     levels.add(offer['localization'][0].split(", ")[-1])
-# # # print(len(levels))
-# #     print(len(offer['what_we_offer']) + len(offer['about_project']))
-# #     print(len(get_description(offer['about_project'], offer['what_we_offer'])))
-#     if offer['working_time'] in levels:
-#         levels[offer['working_time']] += 1
-#     else:
-#         levels[offer['working_time']] = 1
-# # #
-# print(levels)
-
-# stats = check_data(offers)
-#
-# for key, val in stats.items():
-#     print(key, val)
