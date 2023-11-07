@@ -1,5 +1,6 @@
 import re
 
+
 def delete_ending(word: str):
     rules = [
         (r'(em|am|o|eś|aś|e|ka)$', ''),
