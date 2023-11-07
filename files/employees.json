@@ -1,0 +1,989 @@
+{
+  "0": {
+    "email": "wiktor.jezowski@gmail.com",
+    "password": "pASSword",
+    "name": "Wiktor Jeżowski",
+    "phone": "601592839",
+    "branches": [
+      "IT"
+    ],
+    "education": [
+      "2020 - obecnie\nPolitechnika Wrocławska\nStudia inżynierskie na kierunku Informatyka Stosowana 3 rok"
+    ],
+    "work_experience": [
+      "6 miesięcy w projekcie Clarin-PL podlegającej pod Politechnikę Wrocławską na stanowisku referenta informatycznego. Podczas pracy odpowiedzialny byłem za generowanie i obrabianie danych pod szkolenie modeli NLP oraz wykorzystywanie AI do przygotowania systemu rekomendacyjnego."
+    ],
+    "skills": [
+      "Angielski C1",
+      "Niemiecki A2",
+      "Hiszpański A1",
+      "Python",
+      "Java",
+      "C++",
+      "C#",
+      "Unity",
+      "HTML",
+      "PHP",
+      "Spring",
+      "Scala",
+      "MySQL",
+      "MongoDB",
+      "GitHub",
+      "Visual Paradigm"
+    ],
+    "about_me": "Jestem studentem informatyki, który ceni sobie pracę zespołową i ciągły rozwój umiejętności. Na co dzień zdobywam wiedzę z zakresu inżynierii oprogramowania, baz danych i testów, ale równie wielką przyjemność sprawiają mi algorytmy, których uczę się samodzielnie. W swoich projektach zwracam uwagę na wartość rzeczywistych potrzeb oraz detale.",
+    "hobbies": "Pasjonuję się grami z elementami strategicznymi i logicznymi. Największą przyjemność sprawia mi spędzanie czasu ze znajomymi przy grach planszowych lub RPG. W wolnym czasie rozwiązuję zagadki logiczne i poszerzam swoją wiedzę z zakresu algorytmów. Uwielbiam sport, szczególnie biegi krótkodystansowe oraz karate."
+  },
+  "1": {
+    "email": "izabela.w.rosinska@gmail.com",
+    "password": "izaurusrex",
+    "name": "Izabela Rosińska",
+    "phone": "+48 517 120 215",
+    "branches": [
+      "IT"
+    ],
+    "education": [
+      "2020 - obecnie\nPolitechnika Wrocławska, Informatyka Stosowana\nIII rok studiów inżynierskich."
+    ],
+    "work_experience": [
+      "2021 - Obecnie\nQubit, informatyka kwantowa\nKoło naukowe działające na Politechnice Wrocławskiej zajmujące się informatyką kwantową. W ramach działalności zrealizowałam kursy QBronze i QSilver stworzone przez organizację QWorld. Do moich głównych odpowiedzialności należy implementacja projektu dotyczącego optymalizacji zarządzania przestrzenią w magazynie."
+    ],
+    "skills": [
+      "Java",
+      "Spring",
+      "Spring Boot",
+      "HTML",
+      "PHP",
+      "CSS",
+      "Python",
+      "C++",
+      "Scala",
+      "Git, Github",
+      "Jira",
+      "Scrum",
+      "Angielski – C1"
+    ],
+    "about_me": "Pasjonuję się poszukiwaniem jak najlepszych rozwiązań dotyczących zarówno dobrze zgłębionych, jak i kompletnie nowych problemów, przed którymi staje społeczeństwo. Szczególnie interesują mnie technologie webowe. W swoich projektach dążę to dostarczania rozwiązań wysokiej jakości, odpowiadających aktualnym standardom oraz potrzebom biznesu.",
+    "hobbies": "Informatyka kwantowa\nRozwiązywanie zagadek\nGry fabularne\nJoga"
+  },
+  "2": {
+    "email": "20mehow01@gmail.com",
+    "password": "1234",
+    "name": "Michał Wiktorowski",
+    "phone": "+48 697 212 711",
+    "branches": [
+      "IT"
+    ],
+    "education": [
+      "WYDZIAŁ MATEMATYKI POLITECHNIKI WROCŁAWSKIEJ - MATEMATYKA STOSOWANA\n2020 - obecnie"
+    ],
+    "work_experience": [],
+    "skills": [
+      "Python",
+      "R",
+      "SQL",
+      "LaTeX",
+      "Git",
+      "Analityczne myślenie",
+      "Praca indywidualna jak i zespołowa",
+      "Otwartość na nowe rozwiązania",
+      "Sumienność",
+      "Angielski - poziom B2/C1"
+    ],
+    "about_me": "Jestem studentem trzeciego roku matematyki stosowanej na Politechnice Wrocławskiej. Tematyką, która mnie najbardziej pasjonuje jest komputerowa analiza danych, a obecnie zgłębiam swoją wiedzę w zakresie języka SQL. Stawiam również swoje pierwsze kroki w dziedzinie uczenia maszynowego. Wolne chwile lubię spędzać na górskich wędrówkach.",
+    "hobbies": ""
+  },
+  "3": {
+    "email": "magda.brejna@gmail.com",
+    "password": "1234",
+    "name": "MAGDALENA BREJNA",
+    "phone": "+48 508838984",
+    "branches": [
+      "IT",
+      "Administracja Biura"
+    ],
+    "education": [
+      "01.10.2020 – teraz\nInformatyka Stosowana, Politechnika Wrocławska"
+    ],
+    "work_experience": [
+      "07.2022 – 09.2022 Procter & Gamble\nIT Managerial Summer Internship – projekt budowy kompleksowego monitoringu infrastruktury, krytycznych funkcjonalności systemu oraz zachowania użytkowników globalnej aplikacji w chmurze przy wykorzystaniu zaawansowanych narzędzi monitorujących\nObowiązki:\n• Analiza techniczna zewnętrznego narzędzia monitorującego\n• Zebranie realnych potrzeb biznesowych międzynarodowych zespołów pracujących nad migracją aplikacji do chmury\n• Stworzenie roadmapy implementacji monitoringu w chmurze\n• Budowa połączenia aplikacji z narzędziem monitorującym\n• Prowadzenie dokumentacji technicznej projektu",
+      "Projekt Scorpio – członek 16-osobowego zespołu tworzącego oprogramowanie łazika marsjańskiego\nObowiązki:\n• lider dokumentacji technicznej łazika Scorpio X\n• migracja oprogramowania na Robot Operating System (ROS)\n• rozwój aplikacji webowej służącej do kontroli łazika\n• komunikacja z działami nietechnicznymi\nTechnologie: C++, ROS, JavaScript, GIT, Confluence, ClickUp"
+    ],
+    "skills": [
+      "Java 11",
+      "Mockito",
+      "C++",
+      "Spring Boot 5",
+      "JUnit 4, 5",
+      "Git",
+      "Hibernate 5",
+      "MySQL",
+      "Jira (Align)",
+      "Java FX 11",
+      "Pyhon",
+      "Confluence",
+      "Maven",
+      "Scala",
+      "Azure",
+      "Język Angielski – C2",
+      "Język Niemiecki – B1/B2",
+      "dobre umiejętności komunikacyjne i organizacyjne"
+    ],
+    "about_me": "Kocham świat i ludzi. Nie potrafię stać w miejscu. Rezygnuję z wymówek, kieruję się tym, co dla mnie ważne, a jeśli coś robię, to wkładam w to całe serce. Łapię pojawiające się szanse i możliwości. Od wielu lat pracuję jako wolontariusz oraz biorę udział w różnorodnych konkursach, kursach i wydarzeniach. Oprócz studiów angażuję się w pracę koła strategicznego i spędzam każdą wolną chwilę pracując nad swoimi własnymi projektami.",
+    "hobbies": "patent żeglarski, interesuję się tańcem, filmem oraz sportami wodnymi"
+  },
+  "4": {
+    "email": "mateusz.pietrych@gmail.com",
+    "password": "krasnal",
+    "name": "Mateusz Pietrych",
+    "phone": "+48 792-713-587",
+    "branches": [
+      "IT"
+    ],
+    "education": [
+      "Politechnika Wrocławska 2020 – 2024 (oczekiwane ukończenie)\nKierunek: Informatyka Stosowana\nPoziom wykształcenia: Inżynier"
+    ],
+    "work_experience": [
+      ""
+    ],
+    "skills": [
+      "Średnio zaawansowany: Python, C++, Java, Scala (doświadczenie studenckie)",
+      "Początkujący: C#",
+      "Początkowa znajomość Git.",
+      "Zaawansowany język angielski."
+    ],
+    "about_me": "",
+    "hobbies": "We własnym zakresie uczę się korzystać z silnika Unreal Engine 5."
+  },
+  "5": {
+    "email": "bednarskii.sebastian@gmail.com",
+    "password": "1234",
+    "name": "Sebastian Bednarski",
+    "phone": "(+48) 694 250 108",
+    "branches": [
+      "IT",
+      "Administracja Biura"
+    ],
+    "education": [
+      "Politechnika Wrocławska | 10.2020 - teraz\nInżynieria Biomedyczna III rok spec. Informatyka\nmedyczna",
+      "Politechnika Wrocławska | 10.2020 - teraz\nInformatykę Stosowaną - III rok."
+    ],
+    "work_experience": [
+      "Koordynator ,,Asystent Pacjenta\" | 10.2022 - teraz\nKontakt między szpitalem oraz uczelnią - organizacja praktyk studenckich\nZarządzanie zasobami ludzkimi - HR",
+      "Stażysta ,,Asystent Pacjenta\" | 03.2023 - 06.2023\nStudencka praktyka zawodowa\nObserwowanie pracy lekarzy podczas operacji",
+      "Panorama Projekt | 07.2022 - 09.2022\nStaż IT Mariusz Nowakowski\nProgramowanie monitoringu\nAdministracja strony webowej"
+    ],
+    "skills": [
+      "Frontend, UI/UX, Prototypowanie Figma",
+      "Prawo jazdy kat. B",
+      "Chęć do nauki i samorozwoju",
+      "Organizacja czasu i wielozadaniowość",
+      "Skuteczne rozwiązywanie problemów",
+      "Angielski (poziom B2)",
+      "Niemiecki (poziom A2)",
+      "Python",
+      "JS",
+      "docker",
+      "Visual Studio",
+      "Sass",
+      "Power B",
+      "PostgreSQL"
+    ],
+    "about_me": "Aktualnie poszukuję letniego stażu, w trakcie którego mógłbym zdobywać praktyczne umiejętności w branży IT. Głównie chciałbym skupić się na aktualnej pasji do tworzenia aplikacji webowych i rozwijać swoje umiejętności w tym zakresie. Jestem również w trakcie pisania prac inżynierskich z zakresu Web Development'u.",
+    "hobbies": "W moim czasie wolnym, czerpię radość z pływania oraz uprawiania sportów motorowodnych. Ponadto, uwielbiam odkrywać nowe miejsca i kultury podczas podróży, które są dla mnie nie tylko przygodą, ale także sposobem na poszerzanie horyzontów. Głęboko cenię sobie również czas spędzany z rodziną i znajomymi, który uważam za niezwykle ważny dla budowania relacji oraz tworzenia niezapomnianych chwil."
+  },
+  "6": {
+    "email": "Hubert.Paszkowski@outlook.com",
+    "password": "1234",
+    "name": "Hubert Paszkowski",
+    "phone": "+48 664 978 063",
+    "branches": [
+      "IT"
+    ],
+    "education": [
+      "University of Lodz\nBachelor's Degree, Business Process Automation\n2020 - 2023"
+    ],
+    "work_experience": [
+      "Junior Business Development Representative\nDevoteam G Cloud\nMay 2023 - Present (4 months)\nProspecting and Lead Generation: Identified and reached out to potential customers through strategic cold-calling, email campaigns, and social media outreach to generate new business opportunities. Qualifying Leads: Assessed and qualified leads based on specific criteria to ensure the sales team pursued the most promising prospects.\nCollaboration: Worked closely with the sales and marketing teams to refine outreach strategies and messaging.",
+      "Member\nEuropejska Fundacja Rozwoju Człowieka\nJul 2021 - Present (2 years 2 months)\nWith EuroFRC I participate in the 4 Erasmus+ projects\n- We are Europe! Re:Load A2 - Italy\n- eMPL@Y\n- We are Europe! Re:Load\n- Digital Tools for Youth Work: TC Digitalization of Youth Work\nDuring these international projects I worked on my language skills, made a lot of friends, and learned useful skills such as entrepreneurship, presentation and teamwork",
+      "Junior Project Manager\nHappy Team\nSep 2022 - Nov 2022 (3 months)\nIn Happy Team I got to manage an inside project about developing internal tool for recruiting,\nProject was managed using Agile methodology (Scrum, Kanban)\nWith my help, our team managed to finish and launch MVP of our solution.\nI managed a team of 4 people (2 Junior Developers, Senior Developer and UI&UX Designer)\nMy roles were Scrum Master, Business Analyst and Project Manager\nI've been working closely with product owners",
+      "Business Consultant\nAccenture\nJan 2022 - Aug 2022 (8 months)\nIn Accenture I worked as a business consultant and business analyst in an automotive insurance project. As a business consultant I helped with presentations for our partners. As a business analyst I helped to come up with new solutions for our platform, I was also responsible for UX and UI design of the solutions created by me.",
+      "Office Intern\nABB\nOct 2021 - Dec 2021 (3 months)\nIn ABB I helped with day-to-day work in our office in Lodz. I was also helping with on-site IT support."
+    ],
+    "skills": [
+      "Microsoft Office",
+      "Adobe Creative Suite",
+      "Project Management",
+      "Teamwork",
+      "Team Management",
+      "Team Leadership",
+      "English",
+      "Business Analysis",
+      "Business Process",
+      "Communication"
+    ],
+    "about_me": "I’m about to finish my Business Process Automation studies. It’s the perfect subject for me because I enjoy discovering ways of making my life easier. I've got my first job opportunities back in high school, I was a freelance graphic designer and public speaker. I complemented those experiences by doing voluntary work for the community. During my university years i started gaining experience in corporations and I already have over 2 years of professional experience in project management and sales.\nMy superpower is creativity, and I am incredibly good at learning new skills, which makes me very adaptable. I also like to speak publicly, I did so for my whole high school. As a side project I am currently working on my own computer science classes for children.",
+    "hobbies": "In my free time I watch videos about productivity, cooking, and graphic design. I also like to paint miniatures; it helps me to wind down and stimulate my creativity."
+  },
+  "7": {
+    "email": "marcingawlo@gmail.com",
+    "password": "1234",
+    "name": "Marcin Gawłowski",
+    "phone": "883 426 461",
+    "branches": [
+      "Zdrowie"
+    ],
+    "education": [
+      "Szkoła Muzyczna I Stopnia w Uniejowie",
+      "Collegium Medicum im. Ludwika Rydygiera w Bydgoszczy Uniwersytet\nMikołaja Kopernika w Toruniu\nKierunek: Fizjoterapia 1 st. studia stacjonarne",
+      "Studium Kształcenia Kadr w Bydgoszczy\nKierunek: Technik Masażysta (Ukończone 2 semestry)",
+      "Uniwersytet Medyczny im. Piastów Śląskich we Wrocławiu\nKierunek: Fizjoterapia 2 st. studia stacjonarne"
+    ],
+    "work_experience": [
+      "PPHU \"TOMKAR\" s.c.. Halina Styśko, Piotr Styśko, Zespół Poradni ,,Zdrowie”,",
+      "pracownia rehabilitacji",
+      "Care Solutions spółka cywilna ul. Popowicka 142/8, 54-238 Wrocław, wykonywanie masaży biurowych",
+      "Niepubliczny Zakład Opieki Zdrowotnej „Przychodnia Kosmonautów” Sp. z o.o. we Wrocławiu, Zakład Fizjoterapii",
+      "Lux Med ul. Swobodna 1, 50-088 Wrocław",
+      "Uniwersytecki Szpital Kliniczny im. Jana Mikulicza-Radeckiego we Wrocławiu, Instytut Chorób Serca"
+    ],
+    "skills": [
+      "Kinesio Taping KT1/KT2 17-18.03.2018",
+      "Manipulacja powięzi – Fascial Manipulation (FM) wg Luigi Stecco moduł 1 i 2 20.02.2020-29.08.2020",
+      "Manipulacja powięzi – Fascial Manipulation (FM) wg Luigi Stecco w dysfunkcjach narządów wewnętrznych 27.10.2022-11.12.2022 (moduł 3)",
+      "Nowe podejście do powięziowego leczenia autonomicznego układu nerwowego (AUN) prowadzonego przez dr Jarosława Ciechomskiego 12-14.01.2023",
+      "Pinoterapia w koncepcji FRSc wg Radosława Składowskiego 17-19.08.2020",
+      "Globalna terapia stopy 23-25.09.2022",
+      "Planowanie terapii dopasowanej do dolegliwości pacjenta.",
+      "Budowanie dobrych relacji z pacjentem",
+      "Znajomość języka angielskiego na poziomie średnio zaawansowanym",
+      "Prawo jazdy kat. B"
+    ],
+    "about_me": "",
+    "hobbies": "Gra na instrumentach (flet poprzeczny, gitara), rolkarstwo, gry planszowe, muzyka rockowa (Led Zeppelin, Pink Floyd)."
+  },
+  "8": {
+    "email": "anon.anomski@gmail.com",
+    "password": "1234",
+    "name": "Anon Anomski",
+    "phone": "(+48) 791 291 002",
+    "branches": [
+      "IT"
+    ],
+    "education": [
+      "Politechnika Wrocławska\nInformatyka Stosowana\n2021 – obecnie",
+      "I Liceum Ogólnokształcące w Głogowie\nklasa matematyczno-fizyczna"
+    ],
+    "work_experience": [
+      ""
+    ],
+    "skills": [
+      "Java (Swing , AWT, Eclipse)",
+      "Polski - ojczysty",
+      "Angielski - zaawansowany",
+      "Niemiecki - podstawowy"
+    ],
+    "about_me": "",
+    "hobbies": "Szachy, matematyka, piłka nożna, kino"
+  },
+  "9": {
+    "email": "ag.biesiekierska@gmail.com",
+    "password": "1234",
+    "name": "Agata Biesiekierska",
+    "phone": "+48 692443109",
+    "branches": [
+      "Inżynieria"
+    ],
+    "education": [
+      "2020-obecnie - Politechnika Wrocławska\nStudia inżynierskie na kierunku Chemia i Analityka Przemysłowa"
+    ],
+    "work_experience": [
+      "sierpień 2022 - VenturoLab\nPraktykant - Analityka Chemiczna\nwykonywanie analiz chemicznych, mających na celu sprawdzenie składu, stopnia zanieczyszczenia oraz zużycia olejów oraz paliw"
+    ],
+    "skills": [
+      "Angielski C1",
+      "wykonywanie oznaczeń chemicznych",
+      "krytyczna analiza wyników pomiarów",
+      "komunikacja i praca w zespole",
+      "Znajomość pakietu MS Office",
+      "prawo jazdy kategorii B"
+    ],
+    "about_me": "Nazywam się Agata Biesiekierska i jestem studentką III roku Chemii i Analityki przemysłowej na Politechnice Wrocławskiej. Zawodowo interesuję się zagadnieniami związanymi z analityką próbek środowiskowych i przemysłowych.",
+    "hobbies": "W wolnym czasie jeżdżę na rolkach oraz gram w gry planszowe."
+  },
+  "10": {
+    "email": "juliannafilio@gmail.com",
+    "password": "1234",
+    "name": "JULIANNA FILIO",
+    "phone": "882 111 936",
+    "branches": [
+      "Zdrowie"
+    ],
+    "education": [
+      "2020 r. - obecnie - Uniwersytet Medyczny im. Karola\nMarcinkowskiego w Poznaniu, kierunek: fizjoterapia",
+      "2017-2020 r. -Liceum Ogólnokształcące nr VII im. Krzysztofa Kamila Baczyńskiego we Wrocławiu - profil biologiczno-chemiczno-mateamtyczny"
+    ],
+    "work_experience": [
+      "09.2023r. - praca sezonowa, zbiory owoców na terenie Francji",
+      "10.2021- 12.2022 r. - praca w kiosku gastronomicznym na terenie stadionu miejskiego - obsługa klienta, przyrządzanie posiłków, porządkowanie, praca w zespole",
+      "09.2021 r. - praca w Zarządzie Zasobu Komunalnego we Wrocławiu - skanowanie, archiwizacja dokumentacji windykacyjnej",
+      "06-08.2019 r. - praca na terenie sklepu H&M - porządkowanie, układanie, pomoc klientom, obsługa kasy fiskalnej",
+      "Praktyka fizjoterapeutyczna:\n07.2023 r. - w Szpitalu Klinicznym im. Heliodora Święcickiego na oddziale poudarowym i neurologii w Poznaniu",
+      "03.2023 r. - Praktyka fizjoterapeutyczna w klinice Izomed s.c.w Poznaniu",
+      "2021 - 2022 r. - w Ortopedyczno-Rehabilitacyjnym Szpitalu\nKlinicznym im. W. Degi w Poznaniu\n07 2021 r. - Klinika Rehabilitacji\n07 2022 r. - Klinika Ortopedii i Traumatologii",
+      "27-29.01.2023 r. - wolontariusz podczas międzynarodowych warsztatów Capoeira \"Ela me leva Pelo mundo\" - wykonywanie masażu sportowego i leczniczego"
+    ],
+    "skills": [
+      "znajomość języka angielskiego w stopniu komunikatywnym B2",
+      "znajomość programów komputerowych Microsoft Office",
+      "posiadanie prawa jazdy kategorii B",
+      "umiejętność pracy w zespole",
+      "wysoka kultura osobista",
+      "reprezentatywność",
+      "odpowiedzialność",
+      "punktualność",
+      "optymizm",
+      "chęć rozwoju"
+    ],
+    "about_me": "Jestem studentką fizjoterapii, która codziennie stara się pomagać innym poprawić swoją kondycję. Chcę z pasją nieść pomoc innym ludziom, łącząc to z moimi zainteresowaniami, a zdobyte nowe i różnorodne doświadczenia wykorzystywać w przyszłej wymarzonej pracy.",
+    "hobbies": "W wolnym czasie lubię uprawiać sport i spędzać czas ze znajomymi. Pasjonuje się również podróżami."
+  },
+  "11": {
+    "email": "boski.cesarz@gmail.fr",
+    "password": "1234",
+    "name": "Napoleon Bonaparte",
+    "phone": "1810 1812 1815",
+    "branches": [
+      "IT"
+    ],
+    "education": [
+      "2012 - 2015 LO im. Władysława Broniewskiego w Strzelcach Op.",
+      "2015 - 2019 Politechnika Wrocławska\nStudia inżynierskie kierunek: Mechanika i Budowa Maszyn,\nSpecjalizacja: Inżynieria lotnicza",
+      "2019 - 2020 Politechnika Wrocławska\nStudia magisterskie kierunek: Mechanika i Budowa Maszyn,\nSpecjalizacja: Inżynieria lotnicza"
+    ],
+    "work_experience": [
+      "Sierpień 2017 BMW AG, zakład w Monachium\nPracownik produkcji",
+      "Lipiec 2018 Wojskowe Zakłady Lotnicze nr 2 S.A. w Bydgoszczy\nPraktyki na dziale konstrukcyjnym",
+      "2018 - nadal\nKoło naukowe PWR Aerospace\nProjekt rakiety, konstruowanie korpusu, wykonywanie symulacji wytrzymałościoweychoraz z wykorzystaniem numerycznej mechaniki płynów\nProjekt nanosatelity WroSat, tworzenie symulacji zachowania obiektu na orbicie, tworzenie dokumentacji",
+      "Lipiec 2019 – Wrzesień 2019\nAstronika sp. z o.o.\nStaż w dziale konstrukcyjnym, konstruowanie elementów mechanicznych dla przemysłu kosmicznego, tworzenie koncepcji mechanizmów, wykonywanie symulacji wytrzymałościowych, tworzenie dokumentacji",
+      "Lipiec 2019 – nadal\nHemolens sp. z o.o.\nPraca w dziale CFD, wykonywanie symulacji przepływu krwi w tętnicach wieńcowych, opracowywanie wyników, praca z danymi, praca z modelami trójwymiarowymi, praca z danymi medycznymi (min. obrazami tomografii komputerowej)"
+    ],
+    "skills": [
+      ""
+    ],
+    "about_me": "",
+    "hobbies": ""
+  },
+  "12": {
+    "email": "maryla.s@op.pl",
+    "password": "1234",
+    "name": "Maryla Sylwestrzak",
+    "phone": "790 333 005",
+    "branches": [
+      "IT",
+      "Zdrowie"
+    ],
+    "education": [
+      "Wroclaw University of Science and Technology 2020-now\nBachelor’s degree studies in engineering | Wrocław, Poland\nSpecialty: Medical informatics\nField of study: Biomedical engineering"
+    ],
+    "work_experience": [
+      ""
+    ],
+    "skills": [
+      "Java (JDBC, Hibernate)",
+      "SQL, MySQL, GitHub",
+      "Python (Pandas, NumPy, MatPlotLib, PySimpleGUI, SciPy)",
+      "Firebase, Android Studio",
+      "English (level B2)",
+      "Polish (native)"
+    ],
+    "about_me": "",
+    "hobbies": ""
+  },
+  "13": {
+    "email": "Tarmus04@gmail.com",
+    "password": "1234",
+    "name": "Michał Brzeziński",
+    "phone": "518088879",
+    "branches": [
+      "Logistyka"
+    ],
+    "education": [
+      "Lo XXX we Wrocławiu"
+    ],
+    "work_experience": [
+      "Magazynier - Natural\nOddział: Psary (pow. trzebnicki) Pakowanie paczek, dbanie o czystość na magazynie, odbieranie dostaw, rozkładanie towaru na magazyn, segregowanie paczek, zbieranie towaru do pakowania.",
+      "Detailer - Na własną rękę\nOddział: Wrocław\nMycie auta, odkurzanie wnętrza, sprzątanie wnętrza samochodu, zabezpieczanie pojazdów, szczegółowe pielęgnowanie auta.",
+      "Detailer, Magazynier - pielęgnacja aut\nOddział: Wrocław\nPakowanie paczek, zbieranie zamówień z urządzeń do tego przeznaczonych, dbanie o porządek na magazynie, odbieranie dostaw, sprawdzanie dostaw, rozkładanie towaru na sklep, pilnowanie aby towar był łatwy do znalezienia na magazynie, pomoc przy szczegółowym detailingu pojazdów."
+    ],
+    "skills": [
+      "Siła fizyczna",
+      "Pomysłowość",
+      "Kreatywność",
+      "Praca w grupie",
+      "Kompetentność",
+      "Punktualność",
+      "Pokojowość"
+    ],
+    "about_me": "",
+    "hobbies": "Moim hobby jest motoryzacja, a także sport. Nie narzekam na pracę fizyczną sprawia mi to przyjemność. Trenowałem lekkoatletyke 4 lata zdobywając wysokie miejsca na zawodach, aktualnie ćwiczę sam dla siebie. Uwielbiam także spędzać czas na zajmowaniu się samochodami i doprowadzać ich do perfekcyjnej czystości."
+  },
+  "14": {
+    "email": "it.geek@email.com",
+    "password": "securePass123",
+    "name": "Jan Kowalski",
+    "phone": "123-456-789",
+    "branches": [
+      "IT"
+    ],
+    "education": [
+      "2017 - 2021\nPolitechnika Warszawska\nInformatyka, studia magisterskie"
+    ],
+    "work_experience": [
+      "2 lata pracy jako programista Java w firmie XYZ. Współpraca przy projektach z obszaru e-commerce oraz rozwoju aplikacji mobilnych.",
+      "Staż w firmie ABC jako tester oprogramowania. Testowanie aplikacji webowych oraz tworzenie testów automatycznych."
+    ],
+    "skills": [
+      "Java",
+      "Python",
+      "JavaScript",
+      "React",
+      "Django",
+      "Spring Boot",
+      "SQL",
+      "HTML/CSS",
+      "Git",
+      "Testowanie oprogramowania",
+      "Bazy danych",
+      "React Native"
+    ],
+    "about_me": "Jestem pasjonatem informatyki i programowania. Mam doświadczenie w tworzeniu aplikacji webowych oraz mobilnych. Chętnie uczę się nowych technologii i lubię wyzwania. Moje umiejętności programistyczne pozwalają mi tworzyć wysokiej jakości oprogramowanie.",
+    "hobbies": "W wolnym czasie lubię eksperymentować z nowymi technologiami, grać w gry komputerowe oraz udzielać się w społeczności programistycznej. Interesuję się także sztuczną inteligencją i uczeniem maszynowym."
+  },
+  "15": {
+    "email": "dev.guru@email.com",
+    "password": "securePass456",
+    "name": "Anna Nowak",
+    "phone": "987-654-321",
+    "branches": [
+      "IT"
+    ],
+    "education": [
+      "2016 - 2020\nUniwersytet Technologiczny\nInformatyka, studia licencjackie"
+    ],
+    "work_experience": [
+      "3 lata pracy jako programistka C++ w firmie Tech Solutions. Tworzenie systemów embedded oraz oprogramowania sterującego.",
+      "Staż w firmie SoftWareHouse jako tester oprogramowania. Tworzenie test cases oraz raportowanie błędów."
+    ],
+    "skills": [
+      "C++",
+      "Python",
+      "JavaScript",
+      "Django",
+      "React Native",
+      "R",
+      "Embedded Systems",
+      "SQL",
+      "Git",
+      "Testowanie oprogramowania",
+      "Linux"
+    ],
+    "about_me": "Jestem programistką z zamiłowaniem do tworzenia oprogramowania. Mam doświadczenie w pracy z systemami embedded oraz rozwoju aplikacji webowych. Lubię wyzwania i stawiam na jakość w każdym projekcie.",
+    "hobbies": "W wolnym czasie lubię jeździć na rowerze, gotować i uczyć się nowych technologii. Interesuję się również astronomią i robotyką."
+  },
+  "16": {
+    "email": "code.ninja@email.com",
+    "password": "ninjaPass123",
+    "name": "Marek Wójcik",
+    "phone": "555-123-789",
+    "branches": [
+      "IT"
+    ],
+    "education": [
+      "2018 - 2022\nAkademia Informatyki\nInformatyka, studia magisterskie"
+    ],
+    "work_experience": [
+      "2 lata pracy jako programista Python w firmie DataTech. Tworzenie narzędzi analizy danych oraz aplikacji webowych.",
+      "Staż w firmie TestMasters jako tester oprogramowania. Tworzenie test cases oraz analiza wydajności aplikacji."
+    ],
+    "skills": [
+      "Python",
+      "Django",
+      "JavaScript",
+      "React Native",
+      "R",
+      "SQL",
+      "Git",
+      "Testowanie oprogramowania",
+      "Aplikacje webowe",
+      "Analiza danych"
+    ],
+    "about_me": "Jestem entuzjastą programowania i analizy danych. Mam doświadczenie w tworzeniu aplikacji webowych oraz narzędzi do analizy danych. Dążę do doskonałości i jestem gotów na nowe wyzwania.",
+    "hobbies": "W wolnym czasie lubię czytać książki, uprawiać jogę i eksplorować nowe technologie. Interesuję się również psychologią i sztuką."
+  },
+  "17": {
+    "email": "it.wizard@email.com",
+    "password": "securePass789",
+    "name": "Katarzyna Piotrowska",
+    "phone": "555-789-456",
+    "branches": [
+      "IT"
+    ],
+    "education": [
+      "2015 - 2019\nPolitechnika Krakowska\nInformatyka, studia licencjackie"
+    ],
+    "work_experience": [
+      "4 lata pracy jako programistka Java w firmie InnovateTech. Rozwój aplikacji korporacyjnych oraz zarządzanie bazami danych.",
+      "Staż w firmie QualityTesters jako tester oprogramowania. Przeprowadzanie testów automatycznych i manualnych."
+    ],
+    "skills": [
+      "Java",
+      "Python",
+      "JavaScript",
+      "Angular",
+      "React Native",
+      "Spring Boot",
+      "SQL",
+      "Git",
+      "Testowanie oprogramowania",
+      "Bazy danych",
+      "Salesforce"
+    ],
+    "about_me": "Jestem entuzjastką informatyki i rozwoju oprogramowania. Mam szerokie doświadczenie w pracy z aplikacjami korporacyjnymi oraz analizie danych. Dążę do doskonałości i stawiam na efektywność w każdym projekcie.",
+    "hobbies": "W wolnym czasie lubię podróżować, góry, i eksplorować nowe technologie. Interesuję się także psychologią i marketingiem."
+  },
+  "18": {
+    "email": "tech.guru@email.com",
+    "password": "guruPass123",
+    "name": "Piotr Lewandowski",
+    "phone": "555-987-654",
+    "branches": [
+      "IT"
+    ],
+    "education": [
+      "2014 - 2018\nUniwersytet Warszawski\nInformatyka, studia magisterskie"
+    ],
+    "work_experience": [
+      "5 lat pracy jako programista Python w firmie Tech Innovators. Tworzenie zaawansowanych algorytmów i aplikacji webowych.",
+      "Staż w firmie QualityAssurance jako tester oprogramowania. Testowanie aplikacji mobilnych oraz tworzenie test cases."
+    ],
+    "skills": [
+      "Python",
+      "Django",
+      "JavaScript",
+      "React Native",
+      "R",
+      "SQL",
+      "Git",
+      "Testowanie oprogramowania",
+      "Algorytmy",
+      "JIRA"
+    ],
+    "about_me": "Jestem pasjonatem technologii i programowania. Mam doświadczenie w tworzeniu zaawansowanych algorytmów oraz aplikacji edukacyjnych. Lubię wyzwania i dążę do doskonałości w każdym projekcie.",
+    "hobbies": "W wolnym czasie lubię uprawiać sport, zwiedzać muzea i śledzić nowości technologiczne. Interesuję się także sztuczną inteligencją i uczeniem maszynowym."
+  },
+  "19": {
+    "email": "it.pro@email.com",
+    "password": "proPass123",
+    "name": "Kamil Nowak",
+    "phone": "555-123-987",
+    "branches": [
+      "IT"
+    ],
+    "education": [
+      "2014 - 2019\nPolitechnika Łódzka\nInformatyka, studia magisterskie"
+    ],
+    "work_experience": [
+      "6 lat pracy jako programista Java w firmie ProTech. Rozwój systemów zarządzania i integracji.",
+      "Staż w firmie SoftwareMasters jako tester oprogramowania. Testowanie aplikacji webowych oraz opracowanie dokumentacji."
+    ],
+    "skills": [
+      "Java",
+      "Python",
+      "C++",
+      "JavaScript",
+      "Spring Framework",
+      "React Native",
+      "SQL",
+      "Git",
+      "Testowanie oprogramowania",
+      "Systemy ERP"
+    ],
+    "about_me": "Jestem profesjonalistą w dziedzinie informatyki i programowania. Mam duże doświadczenie w tworzeniu systemów zarządzania oraz analizie danych finansowych. Dążę do doskonałości i stawiam na efektywność w każdym projekcie.",
+    "hobbies": "W wolnym czasie lubię uprawiać sport, czytać książki i eksplorować nowe technologie. Interesuję się także kryptografią i cyberbezpieczeństwem."
+  },
+  "20": {
+    "email": "ninja@email.com",
+    "password": "ninjaPass789",
+    "name": "Alicja Kowalczyk",
+    "phone": "555-987-123",
+    "branches": [
+      "IT"
+    ],
+    "education": [
+      "2013 - 2017\nUniwersytet Poznański\nInformatyka, studia magisterskie"
+    ],
+    "work_experience": [
+      "7 lat pracy jako programistka Python w firmie SoftWorks. Rozwój aplikacji webowych i analiza danych.",
+      "Staż w firmie QualityAssurance jako tester oprogramowania. Testowanie aplikacji mobilnych oraz tworzenie test cases."
+    ],
+    "skills": [
+      "Python",
+      "Django",
+      "JavaScript",
+      "React Native",
+      "SQL",
+      "Git",
+      "Testowanie oprogramowania",
+      "Analiza danych",
+      "Aplikacje webowe"
+    ],
+    "about_me": "Jestem programistką z pasją do tworzenia oprogramowania i analizy danych. Mam szerokie doświadczenie w pracy z aplikacjami webowymi oraz analizą rynku. Dążę do ciągłego rozwoju i stawiam na jakość w każdym projekcie.",
+    "hobbies": "W wolnym czasie lubię podróżować, malować obrazy i uczyć się nowych technologii. Interesuję się również sztuczną inteligencją i uczeniem maszynowym."
+  },
+  "21": {
+    "email": "nurse@email.com",
+    "password": "nursePass123",
+    "name": "Anna Kowalska",
+    "phone": "555-123-456",
+    "branches": [
+      "Zdrowie"
+    ],
+    "education": [
+      "2016 - 2020\nAkademia Medyczna\nPielęgniarstwo, studia magisterskie"
+    ],
+    "work_experience": [
+      "2 lata pracy jako pielęgniarka w szpitalu ogólnym. Opieka nad pacjentami, podawanie leków oraz udział w procedurach medycznych."
+    ],
+    "skills": [
+      "Opieka nad pacjentami",
+      "Podawanie leków",
+      "Umiejętność pracy w zespole",
+      "Etyka zawodowa"
+    ],
+    "about_me": "Jestem pielęgniarką z zamiłowaniem do opieki nad pacjentami. Mam doświadczenie w pracy w szpitalu i dbam o ich komfort oraz zdrowie. Moją misją jest świadczenie profesjonalnej opieki medycznej.",
+    "hobbies": "W wolnym czasie lubię czytać książki z zakresu medycyny, spacerować i pomagać potrzebującym."
+  },
+  "22": {
+    "email": "doctor@email.com",
+    "password": "doctorPass456",
+    "name": "Marek Nowak",
+    "phone": "555-789-123",
+    "branches": [
+      "Zdrowie"
+    ],
+    "education": [
+      "2009 - 2015\nAkademia Medyczna\nMedycyna, studia magisterskie"
+    ],
+    "work_experience": [
+      "7 lat pracy jako lekarz ogólny w przychodni zdrowia. Diagnoza i leczenie pacjentów, prowadzenie konsultacji medycznych."
+    ],
+    "skills": [
+      "Diagnoza medyczna",
+      "Leczenie pacjentów",
+      "Komunikacja z pacjentami",
+      "Etyka zawodowa"
+    ],
+    "about_me": "Jestem lekarzem ogólnym z pasją do medycyny. Mam doświadczenie w diagnozowaniu i leczeniu pacjentów w różnym wieku. Dążę do zapewnienia kompleksowej opieki medycznej.",
+    "hobbies": "W wolnym czasie lubię podróżować, czytać o nowościach medycznych i uprawiać jogging."
+  },
+  "23": {
+    "email": "pharmacist@email.com",
+    "password": "pharmaPass789",
+    "name": "Karolina Wojcik",
+    "phone": "555-456-789",
+    "branches": [
+      "Zdrowie"
+    ],
+    "education": [
+      "2015 - 2019\nWydział Farmaceutyczny\nFarmacja, studia magisterskie"
+    ],
+    "work_experience": [
+      "5 lat pracy jako farmaceuta w aptece. Doradztwo w doborze leków, obsługa recept oraz zarządzanie stanem magazynowym."
+    ],
+    "skills": [
+      "Doradztwo farmaceutyczne",
+      "Obsługa recept",
+      "Zarządzanie apteką",
+      "Etyka zawodowa"
+    ],
+    "about_me": "Jestem farmaceutką z zamiłowaniem do pracy w aptece. Mam doświadczenie w doradztwie farmaceutycznym i dbam o zdrowie pacjentów. Moim celem jest zapewnienie bezpiecznych leków.",
+    "hobbies": "W wolnym czasie lubię gotować, uprawiać jogę i rozwijać swoją wiedzę z zakresu farmacji."
+  },
+  "24": {
+    "email": "physio@email.com",
+    "password": "physioPass123",
+    "name": "Tomasz Nowak",
+    "phone": "555-789-456",
+    "branches": [
+      "Zdrowie"
+    ],
+    "education": [
+      "2017 - 2021\nWydział Fizjoterapii\nFizjoterapia, studia magisterskie"
+    ],
+    "work_experience": [
+      "3 lata pracy jako fizjoterapeuta w klinice rehabilitacyjnej. Wykonywanie ćwiczeń rehabilitacyjnych, masaże, terapia manualna."
+    ],
+    "skills": [
+      "Ćwiczenia rehabilitacyjne",
+      "Masaże",
+      "Terapia manualna",
+      "Komunikacja z pacjentami"
+    ],
+    "about_me": "Jestem fizjoterapeutą z zamiłowaniem do pracy z pacjentami. Mam doświadczenie w rehabilitacji pacjentów po urazach i zabiegach chirurgicznych. Moim celem jest poprawa jakości życia pacjentów.",
+    "hobbies": "W wolnym czasie lubię uprawiać sport, czytać o nowościach w dziedzinie fizjoterapii i podróżować."
+  },
+  "25": {
+    "email": "dietitian@email.com",
+    "password": "dietPass456",
+    "name": "Ewa Kowalczyk",
+    "phone": "555-123-987",
+    "branches": [
+      "Zdrowie"
+    ],
+    "education": [
+      "2016 - 2020\nWydział Dietetyki\nDietetyka, studia magisterskie"
+    ],
+    "work_experience": [
+      "4 lata pracy jako dietetyk w klinice zdrowego odżywiania. Indywidualne konsultacje żywieniowe, opracowywanie planów dietetycznych."
+    ],
+    "skills": [
+      "Konsultacje żywieniowe",
+      "Planowanie dietetyczne",
+      "Edukacja pacjentów",
+      "Zdrowy styl życia"
+    ],
+    "about_me": "Jestem dietetykiem z pasją do zdrowego odżywiania. Mam doświadczenie w pomaganiu pacjentom osiągać cele związane z dietą i zdrowiem. Moją misją jest promowanie zdrowego stylu życia.",
+    "hobbies": "W wolnym czasie lubię gotować zdrowe potrawy, aktywność fizyczną i edukację żywieniową."
+  },
+  "26": {
+    "email": "sales.manager@email.com",
+    "password": "salesPass123",
+    "name": "Marcin Kowalski",
+    "phone": "555-123-456",
+    "branches": [
+      "Sprzedaż"
+    ],
+    "education": [
+      "2009 - 2013\nUniwersytet Ekonomiczny\nZarządzanie i Marketing, studia magisterskie"
+    ],
+    "work_experience": [
+      "8 lat doświadczenia jako Kierownik Sprzedaży w firmie XYZ. Zarządzanie zespołem sprzedaży, planowanie strategii, negocjacje handlowe."
+    ],
+    "skills": [
+      "Zarządzanie zespołem",
+      "Planowanie strategii sprzedaży",
+      "Negocjacje handlowe",
+      "Etyka w sprzedaży"
+    ],
+    "about_me": "Jestem profesjonalistą w dziedzinie sprzedaży z pasją do osiągania wyników. Moim celem jest rozwijanie zespołu oraz osiąganie sukcesów w sprzedaży.",
+    "hobbies": "W wolnym czasie lubię grać w tenisa, podróżować i rozwijać swoje umiejętności negocjacyjne."
+  },
+  "27": {
+    "email": "sales.specialist@email.com",
+    "password": "salesPass456",
+    "name": "Agnieszka Nowak",
+    "phone": "555-789-123",
+    "branches": [
+      "Sprzedaż"
+    ],
+    "education": [
+      "2013 - 2017\nAkademia Handlowa\nZarządzanie Sprzedażą, studia magisterskie"
+    ],
+    "work_experience": [
+      "5 lat doświadczenia jako Specjalista ds. Sprzedaży B2B w firmie ABC. Akwizycja klientów, negocjacje kontraktów, budowanie długotrwałych relacji biznesowych."
+    ],
+    "skills": [
+      "Akwizycja klientów",
+      "Negocjacje kontraktów",
+      "Budowanie relacji biznesowych",
+      "Obsługa klienta B2B"
+    ],
+    "about_me": "Jestem specjalistką ds. sprzedaży B2B z zamiłowaniem do nawiązywania relacji biznesowych. Moim celem jest osiąganie sukcesów i rozwijanie klientów w długotrwałe partnerskie relacje.",
+    "hobbies": "W wolnym czasie lubię uprawiać sport, czytać książki z zakresu zarządzania i marketingu oraz uczestniczyć w networkingowych wydarzeniach branżowych."
+  },
+  "28": {
+    "email": "customer.advisor@email.com",
+    "password": "advisorPass123",
+    "name": "Katarzyna Kowalczyk",
+    "phone": "555-123-789",
+    "branches": [
+      "Sprzedaż"
+    ],
+    "education": [
+      "2015 - 2019\nWyższa Szkoła Biznesu\nZarządzanie i Marketinag, studia licencjackie"
+    ],
+    "work_experience": [
+      "4 lata doświadczenia jako Doradca Klienta w branży usług finansowych. Obsługa klienta, doradztwo finansowe, sprzedaż produktów i usług."
+    ],
+    "skills": [
+      "Obsługa klienta",
+      "Doradztwo finansowe",
+      "Sprzedaż produktów",
+      "Negocjacje z klientem"
+    ],
+    "about_me": "Jestem doradczynią klienta z pasją do obsługi klienta oraz doradztwa finansowego. Moim celem jest pomoc klientom w osiągnięciu swoich celów finansowych.",
+    "hobbies": "W wolnym czasie lubię podróżować, śledzić rynek finansowy i rozwijać swoją wiedzę z zakresu inwestycji."
+  },
+  "29": {
+    "email": "key.account.manager@email.com",
+    "password": "accountPass456",
+    "name": "Piotr Lewandowski",
+    "phone": "555-456-789",
+    "branches": [
+      "Sprzedaż"
+    ],
+    "education": [
+      "2010 - 2014\nUniwersytet Ekonomiczny\nZarządzanie Sprzedażą, studia magisterskie"
+    ],
+    "work_experience": [
+      "6 lat doświadczenia jako Key Account Manager w firmie KLM. Zarządzanie klientami, negocjacje kontraktów, rozwijanie działań sprzedażowych."
+    ],
+    "skills": [
+      "Zarządzanie klientami",
+      "Negocjacje kontraktów",
+      "Rozwijanie działań sprzedażowych",
+      "Budowanie relacji z klientami"
+    ],
+    "about_me": "Jestem Key Account Managerem z pasją do zarządzania klientami i osiągania wyników w sprzedaży. Moim celem jest budowanie trwałych relacji biznesowych i rozwijanie działań sprzedażowych.",
+    "hobbies": "W wolnym czasie lubię uprawiać sport, podróżować i czytać o nowościach z dziedziny zarządzania."
+  },
+  "30": {
+    "email": "sales.representative@email.com",
+    "password": "representativePass123",
+    "name": "Ewa Malinowska",
+    "phone": "555-789-456",
+    "branches": [
+      "Sprzedaż"
+    ],
+    "education": [
+      "2017 - 2021\nWyższa Szkoła Handlowa\nZarządzanie Sprzedażą, studia licencjackie"
+    ],
+    "work_experience": [
+      "3 lata doświadczenia jako Reprezentant ds. Sprzedaży w branży FMCG. Obsługa klientów, prezentacje produktów, realizacja planów sprzedażowych."
+    ],
+    "skills": [
+      "Obsługa klientów",
+      "Prezentacje produktów",
+      "Realizacja planów sprzedażowych",
+      "Negocjacje handlowe"
+    ],
+    "about_me": "Jestem Reprezentantem ds. Sprzedaży z zamiłowaniem do pracy z klientami i promocji produktów. Moim celem jest osiąganie wyników sprzedażowych i rozwijanie biznesu.",
+    "hobbies": "W wolnym czasie lubię gotować, podróżować i uczestniczyć w szkoleniach z zakresu sprzedaży i marketingu."
+  },
+  "31": {
+    "email": "accountant@email.com",
+    "password": "accountantPass123",
+    "name": "Anna Kowalska",
+    "phone": "555-123-456",
+    "branches": [
+      "Adinistracja Biura"
+    ],
+    "education": [
+      "2014 - 2018\nUniwersytet Ekonomiczny\nFinanse i Rachunkowość, studia magisterskie"
+    ],
+    "work_experience": [
+      "6 lat doświadczenia jako Księgowy w firmie XYZ. Księgowanie dokumentów, rozliczenia podatkowe, przygotowanie raportów finansowych."
+    ],
+    "skills": [
+      "Księgowanie dokumentów",
+      "Rozliczenia podatkowe",
+      "Umiejętność pracy z oprogramowaniem księgowym",
+      "Dokładność w pracy"
+    ],
+    "about_me": "Jestem Księgową z zamiłowaniem do finansów i rachunkowości. Mam doświadczenie w prowadzeniu pełnej księgowości firmy oraz dbam o prawidłowe rozliczenia podatkowe.",
+    "hobbies": "W wolnym czasie lubię czytać książki z zakresu finansów, podróżować i udzielać się w organizacjach branżowych."
+  },
+  "32": {
+    "email": "receptionist@email.com",
+    "password": "receptionistPass456",
+    "name": "Marta Nowak",
+    "phone": "555-789-123",
+    "branches": [
+      "Adinistracja Biura"
+    ],
+    "education": [
+      "2017 - 2021\nWyższa Szkoła Hotelarstwa\nZarządzanie Recepcją, studia licencjackie"
+    ],
+    "work_experience": [
+      "4 lata doświadczenia jako Recepcjonistka w hotelu XYZ. Obsługa gości, rezerwacje, udzielanie informacji o hotelu."
+    ],
+    "skills": [
+      "Obsługa gości",
+      "Rezerwacje",
+      "Komunikacja interpersonalna",
+      "Znajomość oprogramowania hotelowego"
+    ],
+    "about_me": "Jestem Recepcjonistką z zamiłowaniem do obsługi gości i zapewniania im komfortu. Mam doświadczenie w obszarze recepcji hotelowej oraz dbam o pozytywne wrażenia gości.",
+    "hobbies": "W wolnym czasie lubię podróżować, zwiedzać nowe miejsca i doskonalić swoje umiejętności interpersonalne."
+  },
+  "33": {
+    "email": "recruitment.specialist@email.com",
+    "password": "recruitmentPass123",
+    "name": "Jan Kowalczyk",
+    "phone": "555-123-789",
+    "branches": [
+      "Adinistracja Biura"
+    ],
+    "education": [
+      "2013 - 2017\nUniwersytet Humanistyczny\nPsychologia, studia magisterskie"
+    ],
+    "work_experience": [
+      "6 lat doświadczenia jako Specjalista ds. Rekrutacji w firmie ABC. Rekrutacja kandydatów, prowadzenie rozmów kwalifikacyjnych, selekcja kandydatów."
+    ],
+    "skills": [
+      "Rekrutacja kandydatów",
+      "Prowadzenie rozmów kwalifikacyjnych",
+      "Umiejętność oceny kompetencji kandydatów",
+      "Dobra organizacja pracy"
+    ],
+    "about_me": "Jestem Specjalistą ds. Rekrutacji z pasją do znajdowania odpowiednich kandydatów. Mam doświadczenie w prowadzeniu procesów rekrutacyjnych i dbam o dopasowanie kandydatów do wymagań firmy.",
+    "hobbies": "W wolnym czasie lubię czytać literaturę psychologiczną, uczestniczyć w konferencjach branżowych i rozwijać swoje umiejętności rekrutacyjne."
+  },
+  "34": {
+    "email": "executive.assistant@email.com",
+    "password": "executivePass456",
+    "name": "Piotr Lewandowski",
+    "phone": "555-456-789",
+    "branches": [
+      "Adinistracja Biura"
+    ],
+    "education": [
+      "2012 - 2016\nUniwersytet Ekonomiczny\nZarządzanie Biznesem, studia magisterskie"
+    ],
+    "work_experience": [
+      "5 lat doświadczenia jako Asystent Zarządu w firmie KLM. Obsługa biura zarządu, przygotowywanie dokumentów, organizacja podróży służbowych."
+    ],
+    "skills": [
+      "Obsługa biura zarządu",
+      "Organizacja podróży służbowych",
+      "Dobra organizacja pracy",
+      "Dyskrecja i poufność"
+    ],
+    "about_me": "Jestem Asystentem Zarządu z zamiłowaniem do organizacji pracy i wspierania działalności zarządu. Mam doświadczenie w zarządzaniu biurem oraz dbam o poufność informacji.",
+    "hobbies": "W wolnym czasie lubię podróżować, czytać o nowościach w zarządzaniu i angażować się w działalność charytatywną."
+  },
+  "35": {
+    "email": "customer.service@email.com",
+    "password": "customerPass123",
+    "name": "Ewa Malinowska",
+    "phone": "555-789-456",
+    "branches": [
+      "Adinistracja Biura"
+    ],
+    "education": [
+      "2015 - 2019\nWyższa Szkoła Biznesu\nZarządzanie Obsługą Klienta, studia licencjackie"
+    ],
+    "work_experience": [
+      "4 lata doświadczenia jako Specjalista ds. Obsługi Klienta w firmie ABC. Obsługa klientów, rozwiązywanie problemów, udzielanie informacji."
+    ],
+    "skills": [
+      "Obsługa klienta",
+      "Rozwiązywanie problemów",
+      "Komunikacja z klientem",
+      "Znajomość produktów/usług"
+    ],
+    "about_me": "Jestem Specjalistą ds. Obsługi Klienta z zamiłowaniem do pracy z klientami i rozwiązywania ich problemów. Mam doświadczenie w obszarze obsługi klienta i dbam o satysfakcję klientów.",
+    "hobbies": "W wolnym czasie lubię podróżować, uczestniczyć w szkoleniach z zakresu obsługi klienta oraz angażować się w działalność społecznościową."
+  }
+}
