@@ -20,8 +20,6 @@ def update_json(file_path, data: dict):
     old_data = read_json(file_path)
     old_data.update(data)
     write_json(file_path, old_data)
-    # with open(file_path, 'w', encoding='utf-8') as file:
-    #     json.dump(old_data, file, ensure_ascii=False)
 
 
 def write_jsonl(file_path, data: list[dict]):
@@ -42,8 +40,6 @@ def load_embeddings(file_path) -> dict[str, dict]:
     embeddings = read_json(file_path)
     return {text_id: {tuple(keys.split('+')): val for keys, val in text_embeddings.items()} for
             text_id, text_embeddings in embeddings.items()}
-    # with open(file_path, 'r', encoding="utf-8") as file:
-    #     return [{tuple(keys.split('+')): val for keys, val in json.loads(row).items()} for row in file]
 
 
 def load_labels(labels_to_load: list[tuple[str, str, float]]

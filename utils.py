@@ -1,7 +1,5 @@
 import re
 
-from file_reader import *
-
 
 def delete_ending(word: str):
     rules = [
