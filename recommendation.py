@@ -90,7 +90,6 @@ class Recommender:
 
     @staticmethod
     def get_labels_sim(employee_labels: dict[str, float], offer_labels: dict[str, float]) -> float:
-        # needs change / update
         score = 0
         shared = set(employee_labels.keys()) & set(offer_labels.keys())
         for label in shared:
