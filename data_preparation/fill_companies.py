@@ -23,11 +23,6 @@ def check_companies():
         if not company['description']:
             print(name, offers_counter[name])
             i += 1
-        # for key, val in company.items():
-        #     if not val:
-        #         counter.setdefault(key, 0)
-        #         counter[key] += 1
-        #         print(name)
     print(i, j)
     print(counter)
 
@@ -123,13 +118,3 @@ def fill_email():
             company['contact_email'] = generate_email(name)
             print(name, company['contact_email'])
     write_json('../files/companies.json', companies, 2)
-
-
-# check_companies()
-# find_single_offer_companies()
-# remove_small_companies()
-change_company()
-# check_offers_companies()
-# fill_phone()
-
-# fill_email()

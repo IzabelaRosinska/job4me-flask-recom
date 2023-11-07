@@ -191,8 +191,3 @@ def get_all_offers(url: str):
             for element in list(offers_dict.values()):
                 json.dump(element, file, ensure_ascii=False)
                 file.write('\n')
-
-
-# get_offer('https://www.pracuj.pl/praca/release-tester-katowice-bracka-28a,oferta,1002890062?s=8a082c87&searchId=MTY5NjkyMjgyMjAwNC42MDc0', True, True)
-get_all_offers("https://www.pracuj.pl/praca/sprzeda%C5%BC;cc,5028?pn=5&content=869178782752856141%2C-8712487292646447305&campaignid=20330707368&adgroupid=153698629569&twdr=10872205446335339352&twdnt=g&gclid=Cj0KCQjw7JOpBhCfARIsAL3bobdxnvvAXGAevvja1tosZXsX7zN6A35d9xctJ49PgkYrKcUAVcXszvEaAhPiEALw_wcB")
-

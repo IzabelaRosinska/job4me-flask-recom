@@ -65,8 +65,3 @@ def fill_salaries(offers, salaries_ranges):
         new_offer['description'] = offer['description']
         new_offers[offer_id] = new_offer
     return new_offers
-
-
-write_json('../files/offers.json', fill_salaries(offers, get_salaries_ranges(offers)))
-
-

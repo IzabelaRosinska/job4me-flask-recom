@@ -1,4 +1,3 @@
-import random
 
 from tqdm import tqdm
 
@@ -13,7 +12,6 @@ def cut(text, char_limit):
     if len(text) < char_limit:
         return text
     while len(text) > char_limit-1:
-        # text = text[:-1]
         if (index := max(text.rfind("."), text.rfind("\n"), text.rfind(","))) != -1:
             text = text[:index]
         else:
@@ -52,14 +50,10 @@ def cut_requirements():
 def check_requirements():
     for offer_id, offer in tqdm(offers.items()):
         if len(offer["requirements"]) > 15:
-            print(1)
-            reqs = [(req, len(req)) for req in offer["requirements"]]
-            lengths = sorted([pair[0] for pair in reqs])[:15]
             for req in offer["requirements"]:
                 if len(req) > 250:
                     print(2)
         else:
-            new_reqs = []
             for req in offer["requirements"]:
                 if len(req) > 250:
                     print(3)
@@ -87,13 +81,10 @@ def check_extra_skills():
     for offer_id, offer in tqdm(offers.items()):
         if len(offer["extra_skills"]) > 10:
             print(5)
-            reqs = [(req, len(req)) for req in offer["extra_skills"]]
-            lengths = sorted([pair[0] for pair in reqs])[:10]
             for req in offer["extra_skills"]:
                 if len(req) > 200:
                     print(6)
         else:
-            new_reqs = []
             for req in offer["extra_skills"]:
                 if len(req) > 200:
                     print(7)

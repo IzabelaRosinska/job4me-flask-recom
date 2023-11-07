@@ -20,6 +20,3 @@ def fix_it():
     for employee, cv in zip(employees.values(), cvs):
         employee['projects'] = cv['projects'] if 'projects' in cv else []
     write_json('../files/employees.json', employees, 2)
-
-
-fix_it()
