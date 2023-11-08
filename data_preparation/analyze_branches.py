@@ -4,7 +4,7 @@ from file_reader import *
 from recommendation import Recommender
 
 
-def analyze_branches(recommender, branches_weights):
+def analyze_branches(recommender: Recommender, branches_weights):
 
     offers = read_json('../files/offers.json')
 
