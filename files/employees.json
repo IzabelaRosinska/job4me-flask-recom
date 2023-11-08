@@ -32,7 +32,14 @@
       "Visual Paradigm"
     ],
     "about_me": "Jestem studentem informatyki, który ceni sobie pracę zespołową i ciągły rozwój umiejętności. Na co dzień zdobywam wiedzę z zakresu inżynierii oprogramowania, baz danych i testów, ale równie wielką przyjemność sprawiają mi algorytmy, których uczę się samodzielnie. W swoich projektach zwracam uwagę na wartość rzeczywistych potrzeb oraz detale.",
-    "hobbies": "Pasjonuję się grami z elementami strategicznymi i logicznymi. Największą przyjemność sprawia mi spędzanie czasu ze znajomymi przy grach planszowych lub RPG. W wolnym czasie rozwiązuję zagadki logiczne i poszerzam swoją wiedzę z zakresu algorytmów. Uwielbiam sport, szczególnie biegi krótkodystansowe oraz karate."
+    "hobbies": "Pasjonuję się grami z elementami strategicznymi i logicznymi. Największą przyjemność sprawia mi spędzanie czasu ze znajomymi przy grach planszowych lub RPG. W wolnym czasie rozwiązuję zagadki logiczne i poszerzam swoją wiedzę z zakresu algorytmów. Uwielbiam sport, szczególnie biegi krótkodystansowe oraz karate.",
+    "contact_email": "wiktor.jeżowski@gmail.com",
+    "projects": [
+      "Wyszukiwanie tras w komunikacji miejskiej (Python)\nImplementacja wyszukiwania grafowego w celu znalezienia optymalnych\ntras pod względem czasu i liczby połączeń z wykorzystaniem algorytmów\ndijkstra, A* i Tabu Search.",
+      "Gra w Kółko i Krzyżyk do 5 (Unity/C#)\nWielkoformatowa gra w Kółko i Krzyżyk na planszy o modyfikowalnym\nrozmiarze przeciwko sztucznej inteligencji wykorzystującej funkcję\nrekurencyjną do sprawdzania jakości pól.",
+      "Księgarnia internetowa (Java/Spring)\nStrona internetowa dla księgarni z logiką biznesową z perspektywy pracownika obejmującą zarządzanie katalogiem.",
+      "Solver dla nonogramów (Python)\nProgram rozwiązujący obrazki logiczne dla zadanej planszy."
+    ]
   },
   "1": {
     "email": "izabela.w.rosinska@gmail.com",
@@ -46,7 +53,7 @@
       "2020 - obecnie\nPolitechnika Wrocławska, Informatyka Stosowana\nIII rok studiów inżynierskich."
     ],
     "work_experience": [
-      "2021 - Obecnie\nQubit, informatyka kwantowa\nKoło naukowe działające na Politechnice Wrocławskiej zajmujące się informatyką kwantową. W ramach działalności zrealizowałam kursy QBronze i QSilver stworzone przez organizację QWorld. Do moich głównych odpowiedzialności należy implementacja projektu dotyczącego optymalizacji zarządzania przestrzenią w magazynie."
+      "2021 - Obecnie\nQubit, informatyka kwantowa\nKoło naukowe na Politechnice Wrocławskiej zajmujące się informatyką kwantową. Zrealizowałam kursy QBronze i QSilver od organizacji QWorld. Mój główny projekt skupiał się na problemie optymalizacji zarządzania przestrzenią w magazynie."
     ],
     "skills": [
       "Java",
@@ -64,7 +71,13 @@
       "Angielski – C1"
     ],
     "about_me": "Pasjonuję się poszukiwaniem jak najlepszych rozwiązań dotyczących zarówno dobrze zgłębionych, jak i kompletnie nowych problemów, przed którymi staje społeczeństwo. Szczególnie interesują mnie technologie webowe. W swoich projektach dążę to dostarczania rozwiązań wysokiej jakości, odpowiadających aktualnym standardom oraz potrzebom biznesu.",
-    "hobbies": "Informatyka kwantowa\nRozwiązywanie zagadek\nGry fabularne\nJoga"
+    "hobbies": "Informatyka kwantowa\nRozwiązywanie zagadek\nGry fabularne\nJoga",
+    "contact_email": "izabela.rosińska@gmail.com",
+    "projects": [
+      "Gra Kalaha oparta o model klient-serwer. Oferuje tryby rozgrywki dla dwóch graczy i przeciwko AI. logika gry zaimplementowana w Scali, drzewo decyzyjne odpowiadające za przeciwnika AI zaimplementowane w Scali, asynchroniczna komunikacja klient-serwer oparta o akka.",
+      "Aplikacja oparta o Spring Boot dla księgarni internetowej.\nZakres odpowiedzialności:\nlogika biznesowa zaimplementowana w Java Spring Boot,\nprojekt bazy danych w mySql,\nPoC w oparciu o standard UML.",
+      "Algorytm genetyczny dla Problemu Spełnialności, który wygrał konkurs akademicki na najbardziej efektywne rozwiązanie.\nAlgorytm genetyczny zaimplementowany w C++, kompleksowe testy w celu znalezienia parametrów algorytmu zapewniających rozwiązania najlepszej jakości."
+    ]
   },
   "2": {
     "email": "20mehow01@gmail.com",
@@ -91,7 +104,12 @@
       "Angielski - poziom B2/C1"
     ],
     "about_me": "Jestem studentem trzeciego roku matematyki stosowanej na Politechnice Wrocławskiej. Tematyką, która mnie najbardziej pasjonuje jest komputerowa analiza danych, a obecnie zgłębiam swoją wiedzę w zakresie języka SQL. Stawiam również swoje pierwsze kroki w dziedzinie uczenia maszynowego. Wolne chwile lubię spędzać na górskich wędrówkach.",
-    "hobbies": ""
+    "hobbies": "",
+    "contact_email": "michał.wiktorowski@op.pl",
+    "projects": [
+      "BAZA DANYCH SKLEPU Z GRAMI\nNa podstawie danych rzeczywistych została utworzona baza danych dotycząca sklepu z grami nieelektronicznymi. Następnie na jej podstawie została przyrządzona zautomatyzowana analiza danych.",
+      "CO WPŁYWA NA DŁUGOŚĆ ŻYCIA?\nPo dokonaniu analizy danych WHO dotyczących żywotności ludzi stwierdzono, które czynniki najbardziej wpływają na długość życia."
+    ]
   },
   "3": {
     "email": "magda.brejna@gmail.com",
@@ -106,8 +124,8 @@
       "01.10.2020 – teraz\nInformatyka Stosowana, Politechnika Wrocławska"
     ],
     "work_experience": [
-      "07.2022 – 09.2022 Procter & Gamble\nIT Managerial Summer Internship – projekt budowy kompleksowego monitoringu infrastruktury, krytycznych funkcjonalności systemu oraz zachowania użytkowników globalnej aplikacji w chmurze przy wykorzystaniu zaawansowanych narzędzi monitorujących\nObowiązki:\n• Analiza techniczna zewnętrznego narzędzia monitorującego\n• Zebranie realnych potrzeb biznesowych międzynarodowych zespołów pracujących nad migracją aplikacji do chmury\n• Stworzenie roadmapy implementacji monitoringu w chmurze\n• Budowa połączenia aplikacji z narzędziem monitorującym\n• Prowadzenie dokumentacji technicznej projektu",
-      "Projekt Scorpio – członek 16-osobowego zespołu tworzącego oprogramowanie łazika marsjańskiego\nObowiązki:\n• lider dokumentacji technicznej łazika Scorpio X\n• migracja oprogramowania na Robot Operating System (ROS)\n• rozwój aplikacji webowej służącej do kontroli łazika\n• komunikacja z działami nietechnicznymi\nTechnologie: C++, ROS, JavaScript, GIT, Confluence, ClickUp"
+      "07.2022 – 09.2022 Procter & Gamble\nIT Managerial Summer Internship – projekt budowy kompleksowego monitoringu infrastruktury, krytycznych funkcjonalności systemu oraz zachowania użytkowników globalnej aplikacji w chmurze przy wykorzystaniu zaawansowanych narzędzi monitorujących",
+      "Projekt Scorpio – tworzenie oprogramowania łazika marsjańskiego\nZadania: prowadzenie dokumentacji technicznej, migracja na Robot Operating System, rozwój aplikacji webowej do kontroli łazika, komunikacja z działami nietechnicznymi\nTechnologie: C++, ROS, JavaScript, GIT, Confluence, ClickUp"
     ],
     "skills": [
       "Java 11",
@@ -130,7 +148,12 @@
       "dobre umiejętności komunikacyjne i organizacyjne"
     ],
     "about_me": "Kocham świat i ludzi. Nie potrafię stać w miejscu. Rezygnuję z wymówek, kieruję się tym, co dla mnie ważne, a jeśli coś robię, to wkładam w to całe serce. Łapię pojawiające się szanse i możliwości. Od wielu lat pracuję jako wolontariusz oraz biorę udział w różnorodnych konkursach, kursach i wydarzeniach. Oprócz studiów angażuję się w pracę koła strategicznego i spędzam każdą wolną chwilę pracując nad swoimi własnymi projektami.",
-    "hobbies": "patent żeglarski, interesuję się tańcem, filmem oraz sportami wodnymi"
+    "hobbies": "patent żeglarski, interesuję się tańcem, filmem oraz sportami wodnymi",
+    "contact_email": "magdalena.brejna@gmail.com",
+    "projects": [
+      "SeeMeApp\nAplikacja do rezerwacji terminów usług z możliwością przęglądu historii aktywności.\nTechnologie: Java 11, Spring Boot, Maven, MySQL, Thymeleaf, Hibernate, JUnit 5, Mockito, Git",
+      "ColourTheWorldApp\nAplikacja do tworzenia kolorowanki ze zdjęcia na użądzeniu\nTechnologie: Java 11, JavaFX, Maven, GIT, MySQL, JUnit 4, Algorytmy wyszukiwania krawędzi i negacji obrazu"
+    ]
   },
   "4": {
     "email": "mateusz.pietrych@gmail.com",
@@ -153,7 +176,13 @@
       "Zaawansowany język angielski."
     ],
     "about_me": "",
-    "hobbies": "We własnym zakresie uczę się korzystać z silnika Unreal Engine 5."
+    "hobbies": "We własnym zakresie uczę się korzystać z silnika Unreal Engine 5.",
+    "contact_email": "mateusz.pietrych@wp.pl",
+    "projects": [
+      "Gra Kalaha (Scala):\nPozwalająca na granie przeciwko innemu graczowi lub komputerowi. Sztuczna inteligencja przeciwnika oparta jest na przeszukiwaniu wszerz drzewa rozwiązań. Wykorzystana jest wielowątkowość.",
+      "Gra Wordle (Python):\nGra polegająca na zgadywaniu słów. Wykorzystuje algorytm drzewiasty przyspieszający wyszukiwanie słów oraz plik konfiguracyjny do zarządzania możliwościami gry. Zawiera interfejs graficzny.",
+      "Max3Sat (C++):\nProjekt rozwiązujący problem Max3Sat. Oparty jest na algorytmie ewolucyjnym, działającym na danej populacji rozwiązań i mieszający ich geny w celu znalezienia najlepszego rozwiązania."
+    ]
   },
   "5": {
     "email": "bednarskii.sebastian@gmail.com",
@@ -190,7 +219,9 @@
       "PostgreSQL"
     ],
     "about_me": "Aktualnie poszukuję letniego stażu, w trakcie którego mógłbym zdobywać praktyczne umiejętności w branży IT. Głównie chciałbym skupić się na aktualnej pasji do tworzenia aplikacji webowych i rozwijać swoje umiejętności w tym zakresie. Jestem również w trakcie pisania prac inżynierskich z zakresu Web Development'u.",
-    "hobbies": "W moim czasie wolnym, czerpię radość z pływania oraz uprawiania sportów motorowodnych. Ponadto, uwielbiam odkrywać nowe miejsca i kultury podczas podróży, które są dla mnie nie tylko przygodą, ale także sposobem na poszerzanie horyzontów. Głęboko cenię sobie również czas spędzany z rodziną i znajomymi, który uważam za niezwykle ważny dla budowania relacji oraz tworzenia niezapomnianych chwil."
+    "hobbies": "W moim czasie wolnym, czerpię radość z pływania oraz uprawiania sportów motorowodnych. Ponadto, uwielbiam odkrywać nowe miejsca i kultury podczas podróży, które są dla mnie nie tylko przygodą, ale także sposobem na poszerzanie horyzontów. Głęboko cenię sobie również czas spędzany z rodziną i znajomymi, który uważam za niezwykle ważny dla budowania relacji oraz tworzenia niezapomnianych chwil.",
+    "contact_email": "sebastian.bednarski@gmail.com",
+    "projects": []
   },
   "6": {
     "email": "Hubert.Paszkowski@outlook.com",
@@ -204,10 +235,10 @@
       "University of Lodz\nBachelor's Degree, Business Process Automation\n2020 - 2023"
     ],
     "work_experience": [
-      "Junior Business Development Representative\nDevoteam G Cloud\nMay 2023 - Present (4 months)\nProspecting and Lead Generation: Identified and reached out to potential customers through strategic cold-calling, email campaigns, and social media outreach to generate new business opportunities. Qualifying Leads: Assessed and qualified leads based on specific criteria to ensure the sales team pursued the most promising prospects.\nCollaboration: Worked closely with the sales and marketing teams to refine outreach strategies and messaging.",
-      "Member\nEuropejska Fundacja Rozwoju Człowieka\nJul 2021 - Present (2 years 2 months)\nWith EuroFRC I participate in the 4 Erasmus+ projects\n- We are Europe! Re:Load A2 - Italy\n- eMPL@Y\n- We are Europe! Re:Load\n- Digital Tools for Youth Work: TC Digitalization of Youth Work\nDuring these international projects I worked on my language skills, made a lot of friends, and learned useful skills such as entrepreneurship, presentation and teamwork",
-      "Junior Project Manager\nHappy Team\nSep 2022 - Nov 2022 (3 months)\nIn Happy Team I got to manage an inside project about developing internal tool for recruiting,\nProject was managed using Agile methodology (Scrum, Kanban)\nWith my help, our team managed to finish and launch MVP of our solution.\nI managed a team of 4 people (2 Junior Developers, Senior Developer and UI&UX Designer)\nMy roles were Scrum Master, Business Analyst and Project Manager\nI've been working closely with product owners",
-      "Business Consultant\nAccenture\nJan 2022 - Aug 2022 (8 months)\nIn Accenture I worked as a business consultant and business analyst in an automotive insurance project. As a business consultant I helped with presentations for our partners. As a business analyst I helped to come up with new solutions for our platform, I was also responsible for UX and UI design of the solutions created by me.",
+      "Junior Business Development Representative\nDevoteam G Cloud\nMay 2023 - Present (4 months)\nProspecting and Lead Generation: Identified and reached out to potential customers through strategic cold-calling, email campaigns, and social media outreach to generate new business opportunities.",
+      "Member\nEuropejska Fundacja Rozwoju Człowieka\nJul 2021 - Present (2 years 2 months)\nWith EuroFRC I participate in the 4 Erasmus+ projects\nDuring these international projects I worked on my language skills and learned useful skills such as entrepreneurship, presentation and teamwork",
+      "Junior Project Manager\nHappy Team\nSep 2022 - Nov 2022 (3 months)\nIn Happy Team I got to manage an inside project about developing internal tool for recruiting,\nProject was managed using Agile methodology (Scrum, Kanban)\nMy roles were Scrum Master, Business Analyst and Project Manager",
+      "Business Consultant\nAccenture\nJan 2022 - Aug 2022 (8 months)\nIn Accenture I worked as a business consultant and business analyst in an automotive insurance project. As a business analyst I helped to come up with new solutions for our platform",
       "Office Intern\nABB\nOct 2021 - Dec 2021 (3 months)\nIn ABB I helped with day-to-day work in our office in Lodz. I was also helping with on-site IT support."
     ],
     "skills": [
@@ -223,7 +254,11 @@
       "Communication"
     ],
     "about_me": "I’m about to finish my Business Process Automation studies. It’s the perfect subject for me because I enjoy discovering ways of making my life easier. I've got my first job opportunities back in high school, I was a freelance graphic designer and public speaker. I complemented those experiences by doing voluntary work for the community. During my university years i started gaining experience in corporations and I already have over 2 years of professional experience in project management and sales.\nMy superpower is creativity, and I am incredibly good at learning new skills, which makes me very adaptable. I also like to speak publicly, I did so for my whole high school. As a side project I am currently working on my own computer science classes for children.",
-    "hobbies": "In my free time I watch videos about productivity, cooking, and graphic design. I also like to paint miniatures; it helps me to wind down and stimulate my creativity."
+    "hobbies": "In my free time I watch videos about productivity, cooking, and graphic design. I also like to paint miniatures; it helps me to wind down and stimulate my creativity.",
+    "contact_email": "hubert.paszkowski@op.pl",
+    "projects": [
+      ""
+    ]
   },
   "7": {
     "email": "marcingawlo@gmail.com",
@@ -249,9 +284,8 @@
     ],
     "skills": [
       "Kinesio Taping KT1/KT2 17-18.03.2018",
-      "Manipulacja powięzi – Fascial Manipulation (FM) wg Luigi Stecco moduł 1 i 2 20.02.2020-29.08.2020",
-      "Manipulacja powięzi – Fascial Manipulation (FM) wg Luigi Stecco w dysfunkcjach narządów wewnętrznych 27.10.2022-11.12.2022 (moduł 3)",
-      "Nowe podejście do powięziowego leczenia autonomicznego układu nerwowego (AUN) prowadzonego przez dr Jarosława Ciechomskiego 12-14.01.2023",
+      "Manipulacja powięzi (FM) wg Luigi Stecco w dysfunkcjach narządów wewnętrznych",
+      "Nowe podejście do powięziowego leczenia autonomicznego układu nerwowego (AUN)",
       "Pinoterapia w koncepcji FRSc wg Radosława Składowskiego 17-19.08.2020",
       "Globalna terapia stopy 23-25.09.2022",
       "Planowanie terapii dopasowanej do dolegliwości pacjenta.",
@@ -260,7 +294,11 @@
       "Prawo jazdy kat. B"
     ],
     "about_me": "",
-    "hobbies": "Gra na instrumentach (flet poprzeczny, gitara), rolkarstwo, gry planszowe, muzyka rockowa (Led Zeppelin, Pink Floyd)."
+    "hobbies": "Gra na instrumentach (flet poprzeczny, gitara), rolkarstwo, gry planszowe, muzyka rockowa (Led Zeppelin, Pink Floyd).",
+    "contact_email": "marcin.gawłowski@gmail.com",
+    "projects": [
+      ""
+    ]
   },
   "8": {
     "email": "anon.anomski@gmail.com",
@@ -284,7 +322,13 @@
       "Niemiecki - podstawowy"
     ],
     "about_me": "",
-    "hobbies": "Szachy, matematyka, piłka nożna, kino"
+    "hobbies": "Szachy, matematyka, piłka nożna, kino",
+    "contact_email": "anon.anomski@op.pl",
+    "projects": [
+      "Zadanie z wzorcem projektowym obserwator\nProjekt polega na przesyłaniu informacji o zgłoszeniu alarmowym do służb publicznych takich jak straż pożarna, policja oraz pogotowie ratunkowe.",
+      "Zadanie z wykorzystaniem wzorca projektowego strategia\nProjekt symuluje działanie systemu obsługi studentów",
+      "Zadania z Programowania Strukturalnego i Obiektowego"
+    ]
   },
   "9": {
     "email": "ag.biesiekierska@gmail.com",
@@ -309,7 +353,13 @@
       "prawo jazdy kategorii B"
     ],
     "about_me": "Nazywam się Agata Biesiekierska i jestem studentką III roku Chemii i Analityki przemysłowej na Politechnice Wrocławskiej. Zawodowo interesuję się zagadnieniami związanymi z analityką próbek środowiskowych i przemysłowych.",
-    "hobbies": "W wolnym czasie jeżdżę na rolkach oraz gram w gry planszowe."
+    "hobbies": "W wolnym czasie jeżdżę na rolkach oraz gram w gry planszowe.",
+    "contact_email": "agata.biesiekierska@wp.pl",
+    "projects": [
+      "2021-obecnie - Organizacja Naukowa \"Tutech\"\nSekcja Marketingu - prowadzenie profilów społecznościowych organizacji",
+      "2020-2023 - „Mistrzowie Dydaktyki\" – wdrożenie metody tutoringu do praktyki uczelnianej Projekt naukowy - spektrofotometryczne oznaczenie witaminy D3 w preparatach farmaceutycznych",
+      "2021 - XVII Wrocławskie Studenckie Sympozjum Chemiczne\nPrezentacja referatu naukowego pt. „Energy Drinks, czyli jak dodać sobie skrzydeł i nie odlecieć”."
+    ]
   },
   "10": {
     "email": "juliannafilio@gmail.com",
@@ -346,7 +396,11 @@
       "chęć rozwoju"
     ],
     "about_me": "Jestem studentką fizjoterapii, która codziennie stara się pomagać innym poprawić swoją kondycję. Chcę z pasją nieść pomoc innym ludziom, łącząc to z moimi zainteresowaniami, a zdobyte nowe i różnorodne doświadczenia wykorzystywać w przyszłej wymarzonej pracy.",
-    "hobbies": "W wolnym czasie lubię uprawiać sport i spędzać czas ze znajomymi. Pasjonuje się również podróżami."
+    "hobbies": "W wolnym czasie lubię uprawiać sport i spędzać czas ze znajomymi. Pasjonuje się również podróżami.",
+    "contact_email": "julianna.filio@op.pl",
+    "projects": [
+      ""
+    ]
   },
   "11": {
     "email": "boski.cesarz@gmail.fr",
@@ -372,7 +426,11 @@
       ""
     ],
     "about_me": "",
-    "hobbies": ""
+    "hobbies": "",
+    "contact_email": "napoleon.bonaparte@wp.pl",
+    "projects": [
+      ""
+    ]
   },
   "12": {
     "email": "maryla.s@op.pl",
@@ -384,7 +442,7 @@
       "Zdrowie"
     ],
     "education": [
-      "Wroclaw University of Science and Technology 2020-now\nBachelor’s degree studies in engineering | Wrocław, Poland\nSpecialty: Medical informatics\nField of study: Biomedical engineering"
+      "Wroclaw University of Science and Technology 2020-now\nBachelor’s degree\nSpecialty: Medical informatics\nField of study: Biomedical engineering"
     ],
     "work_experience": [
       ""
@@ -398,7 +456,14 @@
       "Polish (native)"
     ],
     "about_me": "",
-    "hobbies": ""
+    "hobbies": "",
+    "contact_email": "maryla.sylwestrzak@op.pl",
+    "projects": [
+      "Expenses analyzer\nA PySimpleGUI-based desktop application for expenses tracking.",
+      "Tea Shop\nA Java console application simulating an online tea-selling service, connected via JDBC to a MySQL database implementation.",
+      "Under control (in progress)\nA mobile app for the Android tracking user’s medicine intake and reminding them to take their medication. Written in Kotlin and connected to a Firebase database.",
+      "Scancer (in progress)\nA mobile application supporting the diagnosis of malignant skin cancers using image classifier API. Dedicated to the Android system, written in Kotlin language, and connected to the Firebase database."
+    ]
   },
   "13": {
     "email": "Tarmus04@gmail.com",
@@ -414,7 +479,7 @@
     "work_experience": [
       "Magazynier - Natural\nOddział: Psary (pow. trzebnicki) Pakowanie paczek, dbanie o czystość na magazynie, odbieranie dostaw, rozkładanie towaru na magazyn, segregowanie paczek, zbieranie towaru do pakowania.",
       "Detailer - Na własną rękę\nOddział: Wrocław\nMycie auta, odkurzanie wnętrza, sprzątanie wnętrza samochodu, zabezpieczanie pojazdów, szczegółowe pielęgnowanie auta.",
-      "Detailer, Magazynier - pielęgnacja aut\nOddział: Wrocław\nPakowanie paczek, zbieranie zamówień z urządzeń do tego przeznaczonych, dbanie o porządek na magazynie, odbieranie dostaw, sprawdzanie dostaw, rozkładanie towaru na sklep, pilnowanie aby towar był łatwy do znalezienia na magazynie, pomoc przy szczegółowym detailingu pojazdów."
+      "Detailer, Magazynier - pielęgnacja aut\nOddział: Wrocław\nPakowanie paczek, zbieranie zamówień z urządzeń do tego przeznaczonych, dbanie o porządek na magazynie, odbieranie dostaw, sprawdzanie dostaw, rozkładanie towaru na sklep"
     ],
     "skills": [
       "Siła fizyczna",
@@ -426,7 +491,11 @@
       "Pokojowość"
     ],
     "about_me": "",
-    "hobbies": "Moim hobby jest motoryzacja, a także sport. Nie narzekam na pracę fizyczną sprawia mi to przyjemność. Trenowałem lekkoatletyke 4 lata zdobywając wysokie miejsca na zawodach, aktualnie ćwiczę sam dla siebie. Uwielbiam także spędzać czas na zajmowaniu się samochodami i doprowadzać ich do perfekcyjnej czystości."
+    "hobbies": "Moim hobby jest motoryzacja, a także sport. Nie narzekam na pracę fizyczną sprawia mi to przyjemność. Trenowałem lekkoatletyke 4 lata zdobywając wysokie miejsca na zawodach, aktualnie ćwiczę sam dla siebie. Uwielbiam także spędzać czas na zajmowaniu się samochodami i doprowadzać ich do perfekcyjnej czystości.",
+    "contact_email": "michał.brzeziński@gmail.com",
+    "projects": [
+      ""
+    ]
   },
   "14": {
     "email": "it.geek@email.com",
@@ -458,7 +527,14 @@
       "React Native"
     ],
     "about_me": "Jestem pasjonatem informatyki i programowania. Mam doświadczenie w tworzeniu aplikacji webowych oraz mobilnych. Chętnie uczę się nowych technologii i lubię wyzwania. Moje umiejętności programistyczne pozwalają mi tworzyć wysokiej jakości oprogramowanie.",
-    "hobbies": "W wolnym czasie lubię eksperymentować z nowymi technologiami, grać w gry komputerowe oraz udzielać się w społeczności programistycznej. Interesuję się także sztuczną inteligencją i uczeniem maszynowym."
+    "hobbies": "W wolnym czasie lubię eksperymentować z nowymi technologiami, grać w gry komputerowe oraz udzielać się w społeczności programistycznej. Interesuję się także sztuczną inteligencją i uczeniem maszynowym.",
+    "contact_email": "jan.kowalski@gmail.com",
+    "projects": [
+      "Aplikacja do zarządzania zadaniami (Java/Spring)\nTworzenie aplikacji webowej umożliwiającej zarządzanie zadaniami oraz projektami. Wykorzystanie Spring Boot oraz Hibernate.",
+      "Sklep internetowy (Python/Django)\nRozwinięcie sklepu internetowego w oparciu o Django Framework. Implementacja nowych funkcjonalności oraz optymalizacja wydajności.",
+      "Aplikacja mobilna do nawigacji (React Native)\nTworzenie interaktywnej aplikacji mobilnej służącej do nawigacji i wyznaczania tras. Wykorzystanie React Native oraz Mapbox API.",
+      "System do analizy danych (Python/NumPy)\nStworzenie narzędzia do analizy danych i generowania raportów z wykorzystaniem biblioteki NumPy."
+    ]
   },
   "15": {
     "email": "dev.guru@email.com",
@@ -489,7 +565,13 @@
       "Linux"
     ],
     "about_me": "Jestem programistką z zamiłowaniem do tworzenia oprogramowania. Mam doświadczenie w pracy z systemami embedded oraz rozwoju aplikacji webowych. Lubię wyzwania i stawiam na jakość w każdym projekcie.",
-    "hobbies": "W wolnym czasie lubię jeździć na rowerze, gotować i uczyć się nowych technologii. Interesuję się również astronomią i robotyką."
+    "hobbies": "W wolnym czasie lubię jeździć na rowerze, gotować i uczyć się nowych technologii. Interesuję się również astronomią i robotyką.",
+    "contact_email": "anna.nowak@wp.pl",
+    "projects": [
+      "Aplikacja do zarządzania projektami (Python/Django)\nTworzenie narzędzia webowego do zarządzania projektami oraz śledzenia postępów.",
+      "Aplikacja mobilna do zdalnej kontroli urządzeń (React Native)\nTworzenie interaktywnej aplikacji mobilnej do zdalnej kontroli urządzeń IoT.",
+      "Analiza danych rynkowych (R)\nPrzeprowadzenie analizy danych rynkowych oraz przygotowanie raportu z wykorzystaniem języka R."
+    ]
   },
   "16": {
     "email": "code.ninja@email.com",
@@ -519,7 +601,13 @@
       "Analiza danych"
     ],
     "about_me": "Jestem entuzjastą programowania i analizy danych. Mam doświadczenie w tworzeniu aplikacji webowych oraz narzędzi do analizy danych. Dążę do doskonałości i jestem gotów na nowe wyzwania.",
-    "hobbies": "W wolnym czasie lubię czytać książki, uprawiać jogę i eksplorować nowe technologie. Interesuję się również psychologią i sztuką."
+    "hobbies": "W wolnym czasie lubię czytać książki, uprawiać jogę i eksplorować nowe technologie. Interesuję się również psychologią i sztuką.",
+    "contact_email": "marek.wójcik@op.pl",
+    "projects": [
+      "Platforma e-commerce (Python/Django)\nTworzenie platformy e-commerce z zaawansowanym systemem rekomendacji produktów.",
+      "Aplikacja mobilna do zarządzania finansami (React Native)\nTworzenie interaktywnej aplikacji mobilnej do zarządzania finansami i inwestycjami.",
+      "Analiza danych klienckich (R)\nPrzeprowadzenie analizy danych klienckich oraz opracowanie strategii marketingowej z wykorzystaniem języka R."
+    ]
   },
   "17": {
     "email": "it.wizard@email.com",
@@ -550,7 +638,14 @@
       "Salesforce"
     ],
     "about_me": "Jestem entuzjastką informatyki i rozwoju oprogramowania. Mam szerokie doświadczenie w pracy z aplikacjami korporacyjnymi oraz analizie danych. Dążę do doskonałości i stawiam na efektywność w każdym projekcie.",
-    "hobbies": "W wolnym czasie lubię podróżować, góry, i eksplorować nowe technologie. Interesuję się także psychologią i marketingiem."
+    "hobbies": "W wolnym czasie lubię podróżować, góry, i eksplorować nowe technologie. Interesuję się także psychologią i marketingiem.",
+    "contact_email": "katarzyna.piotrowska@op.pl",
+    "projects": [
+      "Aplikacja do analizy danych (Java/Spring)\nTworzenie narzędzia webowego do analizy danych oraz generowania raportów. Wykorzystanie Spring Boot oraz Angular.",
+      "Aplikacja mobilna do monitorowania zdrowia (React Native)\nTworzenie interaktywnej aplikacji mobilnej do monitorowania parametrów zdrowotnych. Wykorzystanie React Native oraz Firebase.",
+      "System CRM (Salesforce)\nKonfiguracja i rozwijanie systemu CRM Salesforce w firmie XYZ.",
+      "Analiza danych finansowych (Python)\nPrzeprowadzenie analizy danych finansowych oraz opracowanie strategii inwestycyjnej z wykorzystaniem języka Python."
+    ]
   },
   "18": {
     "email": "tech.guru@email.com",
@@ -580,7 +675,14 @@
       "JIRA"
     ],
     "about_me": "Jestem pasjonatem technologii i programowania. Mam doświadczenie w tworzeniu zaawansowanych algorytmów oraz aplikacji edukacyjnych. Lubię wyzwania i dążę do doskonałości w każdym projekcie.",
-    "hobbies": "W wolnym czasie lubię uprawiać sport, zwiedzać muzea i śledzić nowości technologiczne. Interesuję się także sztuczną inteligencją i uczeniem maszynowym."
+    "hobbies": "W wolnym czasie lubię uprawiać sport, zwiedzać muzea i śledzić nowości technologiczne. Interesuję się także sztuczną inteligencją i uczeniem maszynowym.",
+    "contact_email": "piotr.lewandowski@gmail.com",
+    "projects": [
+      "Aplikacja do przetwarzania danych (Python/Django)\nTworzenie narzędzia webowego do przetwarzania dużych zbiorów danych oraz generowania raportów. Wykorzystanie Django Framework.",
+      "Aplikacja mobilna do edukacji (React Native)\nTworzenie edukacyjnej aplikacji mobilnej dla dzieci. Implementacja interaktywnych lekcji i quizów.",
+      "Analiza danych klientów (R)\nPrzeprowadzenie analizy danych klientów oraz opracowanie strategii marketingowej z wykorzystaniem języka R.",
+      "System zarządzania projektami (JIRA)\nKonfiguracja i rozwijanie systemu zarządzania projektami JIRA w firmie XYZ."
+    ]
   },
   "19": {
     "email": "it.pro@email.com",
@@ -610,7 +712,14 @@
       "Systemy ERP"
     ],
     "about_me": "Jestem profesjonalistą w dziedzinie informatyki i programowania. Mam duże doświadczenie w tworzeniu systemów zarządzania oraz analizie danych finansowych. Dążę do doskonałości i stawiam na efektywność w każdym projekcie.",
-    "hobbies": "W wolnym czasie lubię uprawiać sport, czytać książki i eksplorować nowe technologie. Interesuję się także kryptografią i cyberbezpieczeństwem."
+    "hobbies": "W wolnym czasie lubię uprawiać sport, czytać książki i eksplorować nowe technologie. Interesuję się także kryptografią i cyberbezpieczeństwem.",
+    "contact_email": "kamil.nowak@op.pl",
+    "projects": [
+      "System ERP (Java/Spring)\nTworzenie systemu ERP do zarządzania zasobami firmy. Wykorzystanie Spring Framework oraz Hibernate.",
+      "Aplikacja mobilna do zarządzania projektami (React Native)\nTworzenie interaktywnej aplikacji mobilnej do zarządzania projektami oraz zadaniami.",
+      "Analiza danych finansowych (Python)\nPrzeprowadzenie analizy danych finansowych oraz opracowanie strategii inwestycyjnej z wykorzystaniem języka Python.",
+      "System monitoringu sieci (C++)\nRozwinięcie systemu monitoringu sieci komputerowych w firmie XYZ."
+    ]
   },
   "20": {
     "email": "ninja@email.com",
@@ -639,7 +748,13 @@
       "Aplikacje webowe"
     ],
     "about_me": "Jestem programistką z pasją do tworzenia oprogramowania i analizy danych. Mam szerokie doświadczenie w pracy z aplikacjami webowymi oraz analizą rynku. Dążę do ciągłego rozwoju i stawiam na jakość w każdym projekcie.",
-    "hobbies": "W wolnym czasie lubię podróżować, malować obrazy i uczyć się nowych technologii. Interesuję się również sztuczną inteligencją i uczeniem maszynowym."
+    "hobbies": "W wolnym czasie lubię podróżować, malować obrazy i uczyć się nowych technologii. Interesuję się również sztuczną inteligencją i uczeniem maszynowym.",
+    "contact_email": "alicja.kowalczyk@wp.pl",
+    "projects": [
+      "Aplikacja e-commerce (Python/Django)\nTworzenie platformy e-commerce z zaawansowanym systemem rekomendacji produktów.",
+      "Aplikacja mobilna do zarządzania finansami (React Native)\nTworzenie interaktywnej aplikacji mobilnej do zarządzania finansami oraz inwestycjami.",
+      "Analiza danych rynkowych (Python)\nPrzeprowadzenie analizy danych rynkowych oraz opracowanie strategii marketingowej z wykorzystaniem języka Python."
+    ]
   },
   "21": {
     "email": "nurse@email.com",
@@ -662,7 +777,9 @@
       "Etyka zawodowa"
     ],
     "about_me": "Jestem pielęgniarką z zamiłowaniem do opieki nad pacjentami. Mam doświadczenie w pracy w szpitalu i dbam o ich komfort oraz zdrowie. Moją misją jest świadczenie profesjonalnej opieki medycznej.",
-    "hobbies": "W wolnym czasie lubię czytać książki z zakresu medycyny, spacerować i pomagać potrzebującym."
+    "hobbies": "W wolnym czasie lubię czytać książki z zakresu medycyny, spacerować i pomagać potrzebującym.",
+    "contact_email": "anna.kowalska@wp.pl",
+    "projects": []
   },
   "22": {
     "email": "doctor@email.com",
@@ -685,7 +802,9 @@
       "Etyka zawodowa"
     ],
     "about_me": "Jestem lekarzem ogólnym z pasją do medycyny. Mam doświadczenie w diagnozowaniu i leczeniu pacjentów w różnym wieku. Dążę do zapewnienia kompleksowej opieki medycznej.",
-    "hobbies": "W wolnym czasie lubię podróżować, czytać o nowościach medycznych i uprawiać jogging."
+    "hobbies": "W wolnym czasie lubię podróżować, czytać o nowościach medycznych i uprawiać jogging.",
+    "contact_email": "marek.nowak@wp.pl",
+    "projects": []
   },
   "23": {
     "email": "pharmacist@email.com",
@@ -708,7 +827,9 @@
       "Etyka zawodowa"
     ],
     "about_me": "Jestem farmaceutką z zamiłowaniem do pracy w aptece. Mam doświadczenie w doradztwie farmaceutycznym i dbam o zdrowie pacjentów. Moim celem jest zapewnienie bezpiecznych leków.",
-    "hobbies": "W wolnym czasie lubię gotować, uprawiać jogę i rozwijać swoją wiedzę z zakresu farmacji."
+    "hobbies": "W wolnym czasie lubię gotować, uprawiać jogę i rozwijać swoją wiedzę z zakresu farmacji.",
+    "contact_email": "karolina.wojcik@wp.pl",
+    "projects": []
   },
   "24": {
     "email": "physio@email.com",
@@ -731,7 +852,9 @@
       "Komunikacja z pacjentami"
     ],
     "about_me": "Jestem fizjoterapeutą z zamiłowaniem do pracy z pacjentami. Mam doświadczenie w rehabilitacji pacjentów po urazach i zabiegach chirurgicznych. Moim celem jest poprawa jakości życia pacjentów.",
-    "hobbies": "W wolnym czasie lubię uprawiać sport, czytać o nowościach w dziedzinie fizjoterapii i podróżować."
+    "hobbies": "W wolnym czasie lubię uprawiać sport, czytać o nowościach w dziedzinie fizjoterapii i podróżować.",
+    "contact_email": "tomasz.nowak@wp.pl",
+    "projects": []
   },
   "25": {
     "email": "dietitian@email.com",
@@ -754,7 +877,9 @@
       "Zdrowy styl życia"
     ],
     "about_me": "Jestem dietetykiem z pasją do zdrowego odżywiania. Mam doświadczenie w pomaganiu pacjentom osiągać cele związane z dietą i zdrowiem. Moją misją jest promowanie zdrowego stylu życia.",
-    "hobbies": "W wolnym czasie lubię gotować zdrowe potrawy, aktywność fizyczną i edukację żywieniową."
+    "hobbies": "W wolnym czasie lubię gotować zdrowe potrawy, aktywność fizyczną i edukację żywieniową.",
+    "contact_email": "ewa.kowalczyk@gmail.com",
+    "projects": []
   },
   "26": {
     "email": "sales.manager@email.com",
@@ -777,7 +902,9 @@
       "Etyka w sprzedaży"
     ],
     "about_me": "Jestem profesjonalistą w dziedzinie sprzedaży z pasją do osiągania wyników. Moim celem jest rozwijanie zespołu oraz osiąganie sukcesów w sprzedaży.",
-    "hobbies": "W wolnym czasie lubię grać w tenisa, podróżować i rozwijać swoje umiejętności negocjacyjne."
+    "hobbies": "W wolnym czasie lubię grać w tenisa, podróżować i rozwijać swoje umiejętności negocjacyjne.",
+    "contact_email": "marcin.kowalski@gmail.com",
+    "projects": []
   },
   "27": {
     "email": "sales.specialist@email.com",
@@ -800,7 +927,9 @@
       "Obsługa klienta B2B"
     ],
     "about_me": "Jestem specjalistką ds. sprzedaży B2B z zamiłowaniem do nawiązywania relacji biznesowych. Moim celem jest osiąganie sukcesów i rozwijanie klientów w długotrwałe partnerskie relacje.",
-    "hobbies": "W wolnym czasie lubię uprawiać sport, czytać książki z zakresu zarządzania i marketingu oraz uczestniczyć w networkingowych wydarzeniach branżowych."
+    "hobbies": "W wolnym czasie lubię uprawiać sport, czytać książki z zakresu zarządzania i marketingu oraz uczestniczyć w networkingowych wydarzeniach branżowych.",
+    "contact_email": "agnieszka.nowak@op.pl",
+    "projects": []
   },
   "28": {
     "email": "customer.advisor@email.com",
@@ -823,7 +952,9 @@
       "Negocjacje z klientem"
     ],
     "about_me": "Jestem doradczynią klienta z pasją do obsługi klienta oraz doradztwa finansowego. Moim celem jest pomoc klientom w osiągnięciu swoich celów finansowych.",
-    "hobbies": "W wolnym czasie lubię podróżować, śledzić rynek finansowy i rozwijać swoją wiedzę z zakresu inwestycji."
+    "hobbies": "W wolnym czasie lubię podróżować, śledzić rynek finansowy i rozwijać swoją wiedzę z zakresu inwestycji.",
+    "contact_email": "katarzyna.kowalczyk@wp.pl",
+    "projects": []
   },
   "29": {
     "email": "key.account.manager@email.com",
@@ -846,11 +977,13 @@
       "Budowanie relacji z klientami"
     ],
     "about_me": "Jestem Key Account Managerem z pasją do zarządzania klientami i osiągania wyników w sprzedaży. Moim celem jest budowanie trwałych relacji biznesowych i rozwijanie działań sprzedażowych.",
-    "hobbies": "W wolnym czasie lubię uprawiać sport, podróżować i czytać o nowościach z dziedziny zarządzania."
+    "hobbies": "W wolnym czasie lubię uprawiać sport, podróżować i czytać o nowościach z dziedziny zarządzania.",
+    "contact_email": "piotr.lewandowski@gmail.com",
+    "projects": []
   },
   "30": {
     "email": "sales.representative@email.com",
-    "password": "representativePass123",
+    "password": "1234",
     "name": "Ewa Malinowska",
     "phone": "555-789-456",
     "branches": [
@@ -869,7 +1002,9 @@
       "Negocjacje handlowe"
     ],
     "about_me": "Jestem Reprezentantem ds. Sprzedaży z zamiłowaniem do pracy z klientami i promocji produktów. Moim celem jest osiąganie wyników sprzedażowych i rozwijanie biznesu.",
-    "hobbies": "W wolnym czasie lubię gotować, podróżować i uczestniczyć w szkoleniach z zakresu sprzedaży i marketingu."
+    "hobbies": "W wolnym czasie lubię gotować, podróżować i uczestniczyć w szkoleniach z zakresu sprzedaży i marketingu.",
+    "contact_email": "ewa.malinowska@op.pl",
+    "projects": []
   },
   "31": {
     "email": "accountant@email.com",
@@ -892,7 +1027,9 @@
       "Dokładność w pracy"
     ],
     "about_me": "Jestem Księgową z zamiłowaniem do finansów i rachunkowości. Mam doświadczenie w prowadzeniu pełnej księgowości firmy oraz dbam o prawidłowe rozliczenia podatkowe.",
-    "hobbies": "W wolnym czasie lubię czytać książki z zakresu finansów, podróżować i udzielać się w organizacjach branżowych."
+    "hobbies": "W wolnym czasie lubię czytać książki z zakresu finansów, podróżować i udzielać się w organizacjach branżowych.",
+    "contact_email": "anna.kowalska@op.pl",
+    "projects": []
   },
   "32": {
     "email": "receptionist@email.com",
@@ -915,10 +1052,12 @@
       "Znajomość oprogramowania hotelowego"
     ],
     "about_me": "Jestem Recepcjonistką z zamiłowaniem do obsługi gości i zapewniania im komfortu. Mam doświadczenie w obszarze recepcji hotelowej oraz dbam o pozytywne wrażenia gości.",
-    "hobbies": "W wolnym czasie lubię podróżować, zwiedzać nowe miejsca i doskonalić swoje umiejętności interpersonalne."
+    "hobbies": "W wolnym czasie lubię podróżować, zwiedzać nowe miejsca i doskonalić swoje umiejętności interpersonalne.",
+    "contact_email": "marta.nowak@wp.pl",
+    "projects": []
   },
   "33": {
-    "email": "recruitment.specialist@email.com",
+    "email": "power-recruiter@email.com",
     "password": "recruitmentPass123",
     "name": "Jan Kowalczyk",
     "phone": "555-123-789",
@@ -938,7 +1077,9 @@
       "Dobra organizacja pracy"
     ],
     "about_me": "Jestem Specjalistą ds. Rekrutacji z pasją do znajdowania odpowiednich kandydatów. Mam doświadczenie w prowadzeniu procesów rekrutacyjnych i dbam o dopasowanie kandydatów do wymagań firmy.",
-    "hobbies": "W wolnym czasie lubię czytać literaturę psychologiczną, uczestniczyć w konferencjach branżowych i rozwijać swoje umiejętności rekrutacyjne."
+    "hobbies": "W wolnym czasie lubię czytać literaturę psychologiczną, uczestniczyć w konferencjach branżowych i rozwijać swoje umiejętności rekrutacyjne.",
+    "contact_email": "jan.kowalczyk@op.pl",
+    "projects": []
   },
   "34": {
     "email": "executive.assistant@email.com",
@@ -961,7 +1102,9 @@
       "Dyskrecja i poufność"
     ],
     "about_me": "Jestem Asystentem Zarządu z zamiłowaniem do organizacji pracy i wspierania działalności zarządu. Mam doświadczenie w zarządzaniu biurem oraz dbam o poufność informacji.",
-    "hobbies": "W wolnym czasie lubię podróżować, czytać o nowościach w zarządzaniu i angażować się w działalność charytatywną."
+    "hobbies": "W wolnym czasie lubię podróżować, czytać o nowościach w zarządzaniu i angażować się w działalność charytatywną.",
+    "contact_email": "piotr.lewandowski@op.pl",
+    "projects": []
   },
   "35": {
     "email": "customer.service@email.com",
@@ -984,6 +1127,8 @@
       "Znajomość produktów/usług"
     ],
     "about_me": "Jestem Specjalistą ds. Obsługi Klienta z zamiłowaniem do pracy z klientami i rozwiązywania ich problemów. Mam doświadczenie w obszarze obsługi klienta i dbam o satysfakcję klientów.",
-    "hobbies": "W wolnym czasie lubię podróżować, uczestniczyć w szkoleniach z zakresu obsługi klienta oraz angażować się w działalność społecznościową."
+    "hobbies": "W wolnym czasie lubię podróżować, uczestniczyć w szkoleniach z zakresu obsługi klienta oraz angażować się w działalność społecznościową.",
+    "contact_email": "ewa.malinowska@op.pl",
+    "projects": []
   }
 }
