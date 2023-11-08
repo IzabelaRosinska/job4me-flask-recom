@@ -30,7 +30,6 @@ class Labels_Matcher:
 
     def match(self, text: str, branches: list[str], return_word_position: bool = False
               ) -> dict[str, list[str | tuple[str, int, int]]]:
-        # print(text)
         words = [delete_ending(word.text) for word in self.nlp(text.lower())]
         all_labels = {}
         for branch in branches:

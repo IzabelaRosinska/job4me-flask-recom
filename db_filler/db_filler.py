@@ -122,8 +122,6 @@ def add_offers(with_embeddings=False):
 
     i = 0
     companies_dict = {name: str(i := i + 1) for name in companies}
-    localizations = {}
-    loc_index = 0
     for j, (offer, offer_embeddings) in tqdm(enumerate(zip(offers.values(), embeddings.values()))):
         description = offer['description']
         duties = offer['duties']
@@ -153,8 +151,8 @@ def add_offers(with_embeddings=False):
             if localization not in localizations:
                 query = f'INSERT INTO dbo.localizations (city) VALUES (?);'
                 cursor.execute(query, localization)
-                loc_index += 1
-                localizations[localization] = loc_index
+                loc_id += 1
+                localizations[localization] = loc_id
             add_connections_to_offer(j + 1, 'dbo.job_offer_localizations', 'localization_id',
                                      [localizations[localization]])
 

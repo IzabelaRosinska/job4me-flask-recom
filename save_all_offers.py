@@ -37,10 +37,3 @@ labels_data, branches_weights = load_labels([('IT', 'files/labels_IT.json', 3),
                                             ('Administracja Biura', 'files/labels_AB.json', 2),
                                             ('Ogólne', 'files/labels_soft_skills.json', 1),
                                             ('Języki', 'files/labels_languages.json', 5)])
-
-
-save_labels('files/offers_companies_filled.json', Recommender('files/offers_labels.json', 'files/offers_embeddings.json', labels_data),
-            branches_weights, 'files/offers_labels.json', True, True, False)
-
-save_embeddings('files/offers.json', 'files/offers_embeddings.json',
-                [["duties"], ["description"], ["requirements", "extra_skills"]], False)

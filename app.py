@@ -4,7 +4,6 @@ from flask import Flask, jsonify, request
 
 from recommendation import Recommender
 from file_reader import *
-from utils import get_dict_part
 from db_connection.db_connect import *
 
 
@@ -18,8 +17,6 @@ driver = '{ODBC Driver 17 for SQL Server}'
 conn = pyodbc.connect(f'SERVER={server};DATABASE={database};UID={username};PWD={password};DRIVER={driver}')
 
 cursor = conn.cursor()
-
-# print(get_employee_by_id(cursor, 1))
 
 labels_data, branches_weights = load_labels([('IT', 'files/labels_IT.json', 3),
                                              ('Sprzedaż', 'files/labels_sprzedaż.json', 2),
@@ -35,7 +32,6 @@ recommender = Recommender(cursor, labels_data)
 recommender.load_offers(offers, branches_weights,
                         labels=read_json("files/offers_labels.json"),
                         embeddings=offers_embeddings)
-# employees = read_json('files/employees.json')
 
 
 @app.route('/')
@@ -74,8 +70,6 @@ def recommend(job_fairs_id, employee_id: str):
             return {'error': 'Employee not found'}
     except ValueError:
         return {'error': 'Wrong id'}
-    # ranking = recommender.get_offers_ranking(employee, filter_params,
-    #                                          get_dict_part(branches_weights, employee['branches']))
     ranking = recommender.get_offers_ranking(employee, filter_params, branches_weights)
     for offer in ranking:
         response.append(offer)
