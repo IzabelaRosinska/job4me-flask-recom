@@ -9,7 +9,7 @@ from db_connection.db_connect import *
 
 app = Flask(__name__)
 
-server = 'tcp:miwmjob4me.database.windows.net,1433'
+server = os.environ['DB_SERVER']
 database = 'miwm'
 username = os.environ['DB_USERNAME']
 password = os.environ['DB_PASSWORD']

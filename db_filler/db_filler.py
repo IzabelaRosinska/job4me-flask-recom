@@ -6,7 +6,7 @@ from tqdm import tqdm
 
 from file_reader import *
 
-server = 'tcp:miwmjob4me.database.windows.net,1433'
+server = os.environ['DB_SERVER']
 database = 'miwm'
 db_username = os.getenv('DB_USERNAME')
 db_password = os.getenv('DB_PASSWORD')
