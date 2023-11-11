@@ -1,7 +1,7 @@
 from sentence_transformers import SentenceTransformer, util
-from matcher import Labels_Matcher
-from db_connection.db_connect import *
-from utils import filter_offers
+from matching.matcher import Labels_Matcher
+from connection.db_connect import *
+from utils.utils import filter_offers
 
 
 class Recommender:
@@ -40,6 +40,7 @@ class Recommender:
     def get_labels(self, data: dict[str, str | list[str]], for_offer: bool, branches_weights: dict[str, float],
                    sum_to_one: bool = True) -> dict[str, float]:
         labels = {}
+        print(data)
         for sector, sector_weight in (self.weights_offers.items() if for_offer else self.weights_cv.items()):
             if sector_weight != 0 and sector in data:
                 recognized_labels = self.labels_matcher.match(('\n'.join(data[sector]) if isinstance(data[sector], list)

@@ -1,11 +1,10 @@
-import os
 
-from flask import Flask, jsonify, request
+from flask import Flask
 
-from api_autentication import *
-from recommendation import Recommender
-from file_reader import *
-from db_connection.db_connect import *
+from connection.api_autentication import *
+from matching.recommendation import Recommender
+from utils.file_reader import *
+from connection.db_connect import *
 
 app = Flask(__name__)
 
@@ -27,11 +26,11 @@ labels_data, branches_weights = load_labels([('IT', 'files/labels_IT.json', 3),
 
 
 offers, offers_embeddings = get_all_offers(cursor)
+print(offers)
+print(offers_embeddings)
 
 recommender = Recommender(cursor, labels_data)
-recommender.load_offers(offers, branches_weights,
-                        labels=read_json("files/offers_labels.json"),
-                        embeddings=offers_embeddings)
+recommender.load_offers(offers, branches_weights, embeddings=offers_embeddings)
 
 
 @app.route('/', methods=['GET'])

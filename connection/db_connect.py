@@ -51,7 +51,8 @@ def get_offer_by_id(cursor: pyodbc.Cursor, offer_id):
     row = cursor.fetchone()
     if not row:
         return None
-    offer = {'name': row[0], 'min_salary': row[1], 'duties': row[2], 'description': row[3]}
+    offer = {'name': row[0], 'min_salary': row[1],
+             'duties': row[2] if row[2] is not None else '', 'description': row[3] if row[3] is not None else ''}
     offer_embeddings = {'duties': np.frombuffer(row[4], dtype=np.float32),
                         'description': np.frombuffer(row[5], dtype=np.float32),
                         'requirements+extra_skills': np.frombuffer(row[6], dtype=np.float32)}
@@ -66,7 +67,8 @@ def get_all_offers(cursor: pyodbc.Cursor):
     offers = {}
     offers_embeddings = {}
     for row in rows:
-        offers[row[0]] = {'name': row[1], 'min_salary': row[2], 'duties': row[3], 'description': row[4]}
+        offers[row[0]] = {'name': row[1], 'min_salary': row[2], 'duties': row[3] if row[3] is not None else '',
+                          'description': row[4] if row[4] is not None else ''}
         embeddings = {}
         if row[5]:
             embeddings['duties'] = np.frombuffer(row[5], dtype=np.float32)
@@ -93,7 +95,7 @@ def get_employee_by_id(cursor: pyodbc.Cursor, employee_id: int):
     row = cursor.fetchone()
     if not row:
         return None
-    employee = {'about_me': row[0], 'hobbies': row[1]}
+    employee = {'about_me': row[0] if row[0] is not None else '', 'hobbies': row[1] if row[1] is not None else ''}
     cursor.execute(f'SELECT description FROM dbo.education WHERE employee_id = {employee_id};')
     employee['education'] = [data[0] for data in cursor.fetchall()]
     cursor.execute(f'SELECT description FROM dbo.experience WHERE employee_id = {employee_id};')
@@ -108,7 +110,8 @@ def get_employee_by_id(cursor: pyodbc.Cursor, employee_id: int):
 def get_all_employees(cursor: pyodbc.Cursor):
     cursor.execute(f'SELECT id, about_me, interests FROM dbo.employees;')
     rows = cursor.fetchall()
-    employees = {row[0]: {'about_me': row[1], 'hobbies': row[2]} for row in rows}
+    employees = {row[0]: {'about_me': row[1] if row[1] is not None else '',
+                          'hobbies': row[2] if row[2] is not None else ''} for row in rows}
     cursor.execute(f'SELECT employee_id, description FROM dbo.education;')
     for row in cursor.fetchall():
         employees[row[0]]['education'] = row[1]
