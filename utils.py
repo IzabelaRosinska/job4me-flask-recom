@@ -20,6 +20,17 @@ def delete_ending(word: str):
     return word
 
 
+def tokenize(text: str, text_only: bool = False) -> list[str]:
+    if text_only:
+        return re.sub(r'[^\w\s]', '', text).split()
+    pattern = re.compile(r'\w+|[.,!?;()]')
+    return pattern.findall(text)
+
+
+def lemmatize(text: str, text_only: bool = False) -> list[str]:
+    return [delete_ending(word) for word in tokenize(text, text_only)]
+
+
 def check_words_similarity(word1, word2) -> bool:
     return delete_ending(word1) == delete_ending(word2)
 

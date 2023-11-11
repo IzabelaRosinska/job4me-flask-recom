@@ -1,4 +1,3 @@
-import spacy
 
 from utils import *
 
@@ -10,7 +9,6 @@ class Labels_Matcher:
 
         :param labels: dictionary of labels with their branches
         """
-        self.nlp = spacy.load('pl_core_news_sm')
         self.words_forest = self.prepare_labels(labels, True)
 
     def prepare_labels(self, labels_dict: dict[str, dict[str, list[str]]], clean_old: bool = False
@@ -20,7 +18,7 @@ class Labels_Matcher:
             words_tree: dict[str, any] = {}
             for label, label_instances in labels.items():
                 for label_instance in label_instances:
-                    words = [delete_ending(word.text) for word in self.nlp(label_instance.lower())]
+                    words = lemmatize(label_instance.lower())
                     current_words_tree_node = words_tree
                     for word in words:
                         current_words_tree_node = current_words_tree_node.setdefault(word, {})
@@ -30,8 +28,7 @@ class Labels_Matcher:
 
     def match(self, text: str, branches: list[str], return_word_position: bool = False
               ) -> dict[str, list[str | tuple[str, int, int]]]:
-        # print(text)
-        words = [delete_ending(word.text) for word in self.nlp(text.lower())]
+        words = lemmatize(text.lower())
         all_labels = {}
         for branch in branches:
             words_tree = self.words_forest[branch]
