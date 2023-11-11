@@ -26,8 +26,6 @@ labels_data, branches_weights = load_labels([('IT', 'files/labels_IT.json', 3),
 
 
 offers, offers_embeddings = get_all_offers(cursor)
-print(offers)
-print(offers_embeddings)
 
 recommender = Recommender(cursor, labels_data)
 recommender.load_offers(offers, branches_weights, embeddings=offers_embeddings)
