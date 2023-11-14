@@ -56,7 +56,8 @@ except Exception:
 
 @app.route('/')
 def index():
-    return 'Hello! ' + a + b + c + d + ' ' + message
+    return os.getenv('AZURE_DB_USER') + ' - ' + os.getenv('AZURE_DB_PASSWORD') + ' - ' + os.getenv('AZURE_DB') + \
+           ' - Hello! ' + a + b + c + d + ' ' + message
 
 
 @app.route('/recommend/<job_fairs_id>/<employee_id>', methods=['GET'])

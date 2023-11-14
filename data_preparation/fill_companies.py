@@ -75,12 +75,12 @@ def change_company():
                 possible_companies &= branches_dict[branch]
             if possible_companies:
                 offer['company'] = random.choice(list(possible_companies))
-    write_json('../files/offers_companies_filled.json', offers)
+    write_json('../files/offers.json', offers)
 
 
 def check_offers_companies():
     companies = read_json('../files/companies.json')
-    offers = read_json('../files/offers_companies_filled.json')
+    offers = read_json('../files/offers.json')
     for offer in offers.values():
         if offer['company'] not in companies:
             print(offer)
@@ -118,3 +118,17 @@ def fill_email():
             company['contact_email'] = generate_email(name)
             print(name, company['contact_email'])
     write_json('../files/companies.json', companies, 2)
+
+
+def remove_small_and_without_description():
+    companies = read_json('../files/companies.json')
+    counter = get_counter()
+    new_companies = {}
+    for name, company in companies.items():
+        if company['description'] and counter[name] > 2:
+            new_companies[name] = company
+    write_json('../files/companies.json', new_companies)
+
+
+remove_small_and_without_description()
+change_company()

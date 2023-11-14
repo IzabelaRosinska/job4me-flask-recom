@@ -1,4 +1,5 @@
 import os
+import random
 
 import numpy as np
 import pyodbc
@@ -61,18 +62,19 @@ def add_employers():
     for name, company in companies.items():
         email = company['contact_email']
         locked = 0
-        password = '12345'
+        password = None
         telephone = company['contact_phone']
-        role = b"\x00\x01\x02\x03\x04"
+        role = None
         address = company['address']
         company_name = name
-        description = company['description']
+        contact_email = email if random.uniform(0, 1) > 0.8 else None
+        description = company['description'] if company['description'] else None
         display_description = description.split('.')[0] if description else 'Najlepsi z najlepszych'
         photo = "https://picsum.photos/100/100"
         query = f'INSERT INTO dbo.employers (email, locked, password, telephone, role, address, company_name, ' \
-                f'description, display_description, photo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?); '
-        cursor.execute(query, (email, locked, password, telephone, role, address, company_name, description,
-                               display_description, photo))
+                f'description, display_description, photo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); '
+        cursor.execute(query, (email, locked, password, telephone, role, address, company_name, contact_email,
+                               description, display_description, photo))
     conn.commit()
 
 
@@ -122,8 +124,8 @@ def add_offers(with_embeddings=False):
 
     i = 0
     companies_dict = {name: str(i := i + 1) for name in companies}
-    for j, (offer, offer_embeddings) in tqdm(enumerate(zip(offers.values(), embeddings.values()))):
-        description = offer['description']
+    for j, (offer, offer_embeddings) in tqdm(enumerate(list(zip(offers.values(), embeddings.values())))[:100]):
+        description = offer['description'] if offer['description'] else None
         duties = offer['duties']
         offer_name = offer['name']
         salary_from = offer['min_salary']
@@ -184,13 +186,13 @@ def add_employees():
     for i, employee in enumerate(employees.values()):
         email = employee['email']
         locked = 0
-        password = employee['password']
+        password = None
         telephone = employee['phone']
-        role = b"\x00\x01\x02\x03\x04"
-        about_me = employee['about_me']
-        contact_email = employee['contact_email']
+        role = None
+        about_me = employee['about_me'] if employee['about_me'] else None
+        contact_email = employee['contact_email'] if employee['about_me'] else None
         first_name = employee['name'].split(' ')[0]
-        interests = employee['hobbies']
+        interests = employee['hobbies'] if employee['about_me'] else None
         last_name = employee['name'].split(' ')[1]
         query = f"INSERT INTO dbo.employees (email, locked, password, telephone, role, about_me, contact_email, " \
                 f"first_name, interests, last_name) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?); "
