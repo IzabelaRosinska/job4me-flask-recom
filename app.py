@@ -4,13 +4,15 @@ import pyodbc
 from flask import Flask
 
 from file_reader import load_labels, read_json
+from recommendation import Recommender
 
 app = Flask(__name__)
-
 
 a = '0'
 b = '0'
 c = '0'
+d = '0'
+message = ''
 try:
     username = os.getenv('DB_USERNAME')
     password = os.getenv('DB_PASSWORD')
@@ -24,9 +26,9 @@ driver = '{ODBC Driver 17 for SQL Server}'
 try:
     conn = pyodbc.connect(f'SERVER={server};DATABASE={database};UID={username};PWD={password};DRIVER={driver}')
     cursor = conn.cursor()
-except Exception:
+except Exception as e:
     b = '1'
-
+    message = str(e)
 try:
     labels_data, branches_weights = load_labels([('IT', 'files/labels_IT.json', 3),
                                                  ('Sprzedaż', 'files/labels_sprzedaż.json', 2),
@@ -40,11 +42,15 @@ try:
 except Exception:
     c = '1'
 
+try:
+    recommender = Recommender(labels_data)
+    recommender.load_offers(offers, branches_weights,
+                            labels=read_json("files/offers_labels.json"),
+                            embeddings=offers_embeddings)
+except Exception:
+    d = '1'
 
-# recommender = Recommender(cursor, labels_data)
-# recommender.load_offers(offers, branches_weights,
-#                         labels=read_json("files/offers_labels.json"),
-#                         embeddings=offers_embeddings)
+
 @app.route('/')
 def index():
-    return 'Hello! ' + a + b + c
+    return 'Hello! ' + a + b + c + d + ' ' + message
