@@ -23,8 +23,10 @@ except Exception:
 
 database = 'miwm'
 driver = '{ODBC Driver 17 for SQL Server}'
+encrypt = True
 try:
-    conn = pyodbc.connect(f'SERVER={server};DATABASE={database};UID={username};PWD={password};DRIVER={driver}')
+    conn = pyodbc.connect(f'SERVER={server};DATABASE={database};UID={username};PWD={password};DRIVER={driver};encrypt'
+                          f'=yes')
     cursor = conn.cursor()
 except Exception as e:
     b = '1'
@@ -55,6 +57,7 @@ except Exception:
 @app.route('/')
 def index():
     return 'Hello! ' + a + b + c + d + ' ' + message
+
 
 @app.route('/recommend/<job_fairs_id>/<employee_id>', methods=['GET'])
 # @api_key_recommend
