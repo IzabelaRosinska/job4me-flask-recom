@@ -14,16 +14,13 @@ b = '0'
 c = '0'
 d = '0'
 message = ''
-# try:
-#     username = os.getenv('DB_USERNAME')
-#     password = os.getenv('DB_PASSWORD')
-# except Exception:
-#     username = "miwm"
-#     password = "job4meZPI"
-#     a = '1'
-username = "miwm"
-password = "job4meZPI"
-server = "tcp:miwmjob4me.database.windows.net,1433"
+try:
+    username = os.getenv('AZURE_DB_USER')
+    password = os.getenv('AZURE_DB_PASSWORD')
+    server = os.getenv('AZURE_DB')
+except Exception:
+    a = '1'
+
 database = 'miwm'
 driver = '{ODBC Driver 17 for SQL Server}'
 try:
