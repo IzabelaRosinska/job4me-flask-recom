@@ -1,16 +1,17 @@
-# from sentence_transformers import SentenceTransformer, util
+from sentence_transformers import util
+
 from matcher import Labels_Matcher
 from db_connection.db_connect import *
 from utils import filter_offers
 
 
 class Recommender:
-    def __init__(self,
+    def __init__(self, cursor: pyodbc.Cursor,
                  labels: dict[str, dict[str, list[str]]] = None, matcher: Labels_Matcher = None,
                  weights_cv: dict[str, float] = None, weights_offers: dict[str, float] = None,
                  cos_sim_correlations: list[tuple[str, str, float]] = None):
 
-        # self.cursor = db_cursor
+        self.cursor = cursor
         if cos_sim_correlations:
             self.cos_sim_correlations = cos_sim_correlations
         else:
@@ -35,7 +36,6 @@ class Recommender:
         self.offers = {}
         self.offers_labels = {}
         self.offers_embeddings = {}
-        # self.sentence_transformer = SentenceTransformer('sentence-transformers/LaBSE')
 
     def get_labels(self, data: dict[str, str | list[str]], for_offer: bool, branches_weights: dict[str, float],
                    sum_to_one: bool = True) -> dict[str, float]:
@@ -54,36 +54,17 @@ class Recommender:
             return {label: weight / sum_of_weights for label, weight in labels.items()}
         return labels
 
-    # def get_embeddings(self, data: dict[str, str | list[str]], for_offer: bool):
-    #     embeddings = {}
-    #     if for_offer:
-    #         for _, keys, _ in self.cos_sim_correlations:
-    #             text = "\n".join([('\n'.join(data[key]) if isinstance(data[key], list) else data[key])
-    #                               for key in keys.split('+') if key in data])
-    #             if text:
-    #                 embeddings[keys] = self.sentence_transformer.encode(text, convert_to_tensor=True)
-    #     else:
-    #         for keys, _, _ in self.cos_sim_correlations:
-    #             text = "\n".join([('\n'.join(data[key]) if isinstance(data[key], list) else data[key])
-    #                               for key in keys.split('+') if key in data])
-    #             if text:
-    #                 embeddings[keys] = self.sentence_transformer.encode(text, convert_to_tensor=True)
-    #     return embeddings
-
     def load_offers(self, offers: dict[str, dict[str, str | list[str]]], branches_weights: dict[str, float],
-                    labels: dict[str, dict[str, float]] = None, embeddings: dict[str, dict] = None):
+                    embeddings: dict[str, dict], labels: dict[str, dict[str, float]] = None):
         self.offers.update(offers)
         for offer_id, offer in offers.items():
             self.offers_labels[offer_id] = (labels[offer_id] if labels and offer_id in labels else
                                             self.get_labels(offer, True, branches_weights))
-            # self.offers_embeddings[offer_id] = (embeddings[offer_id] if embeddings and offer_id in embeddings else
-            #                                     self.get_embeddings(offer, True))
+            self.offers_embeddings[offer_id] = embeddings[offer_id]
 
     def load_and_save_offer(self, offer_id: str, offer: dict[str, str | list[str]], branches_weights: dict[str, float]):
         self.offers[offer_id] = offer
         self.offers_labels[offer_id] = self.get_labels(offer, True, branches_weights)
-        # self.offers_embeddings[offer_id] = self.get_embeddings(offer, True)
-        # save_offer_embeddings(self.cursor, offer_id, self.offers_embeddings[offer_id])
 
     @staticmethod
     def get_labels_sim(employee_labels: dict[str, float], offer_labels: dict[str, float]) -> float:
@@ -93,26 +74,20 @@ class Recommender:
             score += (cur_sim := min(employee_labels[label], offer_labels[label]))
         return score
 
-    # def get_cos_sim(self, employee_embeddings, offer_embeddings) -> float:
-    #     score = 0
-    #     total_weight = 0
-    #     for employee_key, offer_key, weight in self.cos_sim_correlations:
-    #         if employee_key in employee_embeddings and offer_key in offer_embeddings and weight != 0:
-    #             score += util.pytorch_cos_sim(employee_embeddings[employee_key],
-    #                                           offer_embeddings[offer_key]).item() * weight
-    #             total_weight += weight
-    #     return score / total_weight if total_weight != 0 else 0
+    def get_cos_sim(self, employee_embeddings, offer_embeddings) -> float:
+        score = 0
+        total_weight = 0
+        for employee_key, offer_key, weight in self.cos_sim_correlations:
+            if employee_key in employee_embeddings and offer_key in offer_embeddings and weight != 0:
+                score += util.pytorch_cos_sim(employee_embeddings[employee_key],
+                                              offer_embeddings[offer_key]).item() * weight
+                total_weight += weight
+        return score / total_weight if total_weight != 0 else 0
 
     def get_offers_ranking(self, employee_data: dict[str, str | list[str]], filter_params: dict,
                            branches_weights: dict[str, float]) -> list[dict[str, str | list[str]]]:
         employee_labels = self.get_labels(employee_data, False, branches_weights)
-        # employee_embeddings = self.get_embeddings(employee_data, False)
         ranking = [(offer_id, self.get_labels_sim(employee_labels, self.offers_labels[offer_id]))
                    for offer_id in filter_offers(self.offers, filter_params)]
         ranking = sorted(ranking, key=lambda x: x[1], reverse=True)
-        # new_ranking = []
-        # for offer, score in ranking[:100]:
-        #     new_ranking.append((offer, score + self.get_cos_sim(employee_embeddings, self.offers_embeddings[offer])))
-        # new_ranking = sorted(new_ranking, key=lambda x: x[1], reverse=True)
-        # return [ranking_position[0] for ranking_position in new_ranking + ranking[100:]]
         return [ranking_position[0] for ranking_position in ranking]

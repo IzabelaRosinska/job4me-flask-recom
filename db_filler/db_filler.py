@@ -229,14 +229,14 @@ forms = ['praca stacjonarna', 'praca hybrydowa', 'praca zdalna']
 contract_types = ['umowa o pracę', 'kontrakt B2B', 'umowa zlecenie', 'umowa o staż']
 industries = ['IT', 'Sprzedaż', 'Administracja Biura', 'Zdrowie']
 
-# reset_liked()
-# reset_verification_tokens()
+reset_liked()
+reset_verification_tokens()
 reset_employees()
-# reset_offers()
-# reset_employers()
-# add_all_simple_rows()
-# add_employers()
-# add_offers(True)
+reset_offers()
+reset_employers()
+add_all_simple_rows()
+add_employers()
+add_offers(True)
 add_employees()
 
 conn.commit()

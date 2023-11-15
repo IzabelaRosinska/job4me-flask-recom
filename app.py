@@ -4,64 +4,42 @@ import pyodbc
 from flask import Flask, request, jsonify
 
 from db_connection.db_connect import get_all_offers, get_employee_by_id, get_offer_by_id
-from file_reader import load_labels, read_json
+from file_reader import load_labels
 from recommendation import Recommender
 
 app = Flask(__name__)
 
-a = '0'
-b = '0'
-c = '0'
-d = '0'
-message = ''
-try:
-    username = os.getenv('AZURE_DB_USER')
-    password = os.getenv('AZURE_DB_PASSWORD')
-    server = os.getenv('AZURE_DB')
-except Exception:
-    a = '1'
+username = os.getenv('AZURE_DB_USER')
+password = os.getenv('AZURE_DB_PASSWORD')
+server = os.getenv('AZURE_DB')
 
 database = 'miwm'
 driver = '{ODBC Driver 17 for SQL Server}'
-encrypt = True
-try:
-    conn = pyodbc.connect(f'SERVER={server};DATABASE={database};UID={username};PWD={password};DRIVER={driver}')
-    cursor = conn.cursor()
-except Exception as e:
-    b = '1'
-    message = str(e)
-try:
-    labels_data, branches_weights = load_labels([('IT', 'files/labels_IT.json', 3),
-                                                 ('Sprzedaż', 'files/labels_sprzedaż.json', 2),
-                                                 ('Zdrowie', 'files/labels_zdrowie.json', 2),
-                                                 ('Administracja Biura', 'files/labels_AB.json', 2),
-                                                 ('Ogólne', 'files/labels_soft_skills.json', 1),
-                                                 ('Języki', 'files/labels_languages.json', 5)])
 
-    # offers = read_json('files/offers.json')
-    # offers_embeddings = read_json('files/offers_embeddings.json')
+conn = pyodbc.connect(f'SERVER={server};DATABASE={database};UID={username};PWD={password};DRIVER={driver}')
+cursor = conn.cursor()
 
-    offers, offers_embeddings = get_all_offers(cursor)
-except Exception:
-    c = '1'
+labels_data, branches_weights = load_labels([('IT', 'files/labels_IT.json', 3),
+                                             ('Sprzedaż', 'files/labels_sprzedaż.json', 2),
+                                             ('Zdrowie', 'files/labels_zdrowie.json', 2),
+                                             ('Administracja Biura', 'files/labels_AB.json', 2),
+                                             ('Ogólne', 'files/labels_soft_skills.json', 1),
+                                             ('Języki', 'files/labels_languages.json', 5)])
 
+offers, offers_embeddings = get_all_offers(cursor)
 
-try:
-    recommender = Recommender(labels_data)
-    recommender.load_offers(offers, branches_weights,
-                            embeddings=offers_embeddings)
-except Exception:
-    d = '1'
+recommender = Recommender(cursor, labels_data)
+recommender.load_offers(offers, branches_weights,
+                        embeddings=offers_embeddings)
 
 
 @app.route('/')
 def index():
-    return 'User: ' + os.getenv('AZURE_DB_USER') + ' Server: ' + os.getenv('AZURE_DB') + \
-           ' - Hello! ' + a + b + c + d + ' ' + message
+    return '/recommend/<job_fairs_id>/<employee_id> for recommendation service\n' \
+           '/process/<offer_id> to update processed data'
 
 
 @app.route('/recommend/<job_fairs_id>/<employee_id>', methods=['GET'])
-# @api_key_recommend
 def recommend(job_fairs_id, employee_id: str):
     filter_params = {}
     if loc := request.args.get('loc'):
@@ -99,7 +77,6 @@ def recommend(job_fairs_id, employee_id: str):
 
 
 @app.route('/process/<offer_id>', methods=['GET'])
-# @api_key_process
 def process(offer_id):
     try:
         if not (offer := get_offer_by_id(cursor, int(offer_id))):
