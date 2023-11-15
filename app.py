@@ -35,8 +35,7 @@ recommender.load_offers(offers, branches_weights,
 
 @app.route('/')
 def index():
-    return '/recommend/<job_fairs_id>/<employee_id> for recommendation service\n' \
-           '/process/<offer_id> to update processed data'
+    return 'choose service'
 
 
 @app.route('/recommend/<job_fairs_id>/<employee_id>', methods=['GET'])

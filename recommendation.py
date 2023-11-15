@@ -1,8 +1,6 @@
-from sentence_transformers import util
-
 from matcher import Labels_Matcher
 from db_connection.db_connect import *
-from utils import filter_offers
+from utils import filter_offers, cosine_similarity
 
 
 class Recommender:
@@ -79,8 +77,8 @@ class Recommender:
         total_weight = 0
         for employee_key, offer_key, weight in self.cos_sim_correlations:
             if employee_key in employee_embeddings and offer_key in offer_embeddings and weight != 0:
-                score += util.pytorch_cos_sim(employee_embeddings[employee_key],
-                                              offer_embeddings[offer_key]).item() * weight
+                score += cosine_similarity(employee_embeddings[employee_key],
+                                           offer_embeddings[offer_key]).item() * weight
                 total_weight += weight
         return score / total_weight if total_weight != 0 else 0
 

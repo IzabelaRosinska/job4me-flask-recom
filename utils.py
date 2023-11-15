@@ -1,5 +1,7 @@
 import re
 
+import numpy as np
+
 
 def delete_ending(word: str):
     rules = [
@@ -90,3 +92,11 @@ def filter_offers(offers: dict[dict[str | list[str]]], filter_params: dict) -> l
 
 def get_dict_part(dictionary: dict, keys_to_get: list[str]) -> dict:
     return {key: dictionary[key] for key in keys_to_get if key in dictionary}
+
+
+def cosine_similarity(A, B):
+    dot_product = np.dot(A, B)
+    norm_A = np.linalg.norm(A)
+    norm_B = np.linalg.norm(B)
+    cos_sim = dot_product / (norm_A * norm_B)
+    return cos_sim
