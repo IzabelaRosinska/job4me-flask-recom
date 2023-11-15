@@ -25,8 +25,7 @@ database = 'miwm'
 driver = '{ODBC Driver 17 for SQL Server}'
 encrypt = True
 try:
-    conn = pyodbc.connect(f'SERVER={server};DATABASE={database};UID={username};PWD={password};DRIVER={driver};encrypt'
-                          f'=yes')
+    conn = pyodbc.connect(f'SERVER={server};DATABASE={database};UID={username};PWD={password};DRIVER={driver}')
     cursor = conn.cursor()
 except Exception as e:
     b = '1'
@@ -46,6 +45,7 @@ try:
 except Exception:
     c = '1'
 
+
 try:
     recommender = Recommender(labels_data)
     recommender.load_offers(offers, branches_weights,
@@ -56,7 +56,7 @@ except Exception:
 
 @app.route('/')
 def index():
-    return os.getenv('AZURE_DB_USER') + ' - ' + os.getenv('AZURE_DB_PASSWORD') + ' - ' + os.getenv('AZURE_DB') + \
+    return 'User: ' + os.getenv('AZURE_DB_USER') + ' Server: ' + os.getenv('AZURE_DB') + \
            ' - Hello! ' + a + b + c + d + ' ' + message
 
 

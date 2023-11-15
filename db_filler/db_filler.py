@@ -7,10 +7,10 @@ from tqdm import tqdm
 
 from file_reader import *
 
-server = os.environ['DB_SERVER']
+server = "tcp:miwmjob4me.database.windows.net,1433"
 database = 'miwm'
-db_username = os.getenv('DB_USERNAME')
-db_password = os.getenv('DB_PASSWORD')
+db_username = "miwm"
+db_password = "job4meZPI"
 driver = '{ODBC Driver 17 for SQL Server}'
 
 conn = pyodbc.connect(f'SERVER={server};DATABASE={database};UID={db_username};PWD={db_password};DRIVER={driver}')
@@ -19,7 +19,7 @@ cursor = conn.cursor()
 
 
 def cut(text, char_limit):
-    if len(text) < char_limit:
+    if not text or len(text) < char_limit:
         return text
     while len(text) > char_limit - 1:
         if (index := max(text.rfind("."), text.rfind("\n"), text.rfind(","))) != -1:
@@ -27,6 +27,21 @@ def cut(text, char_limit):
         else:
             return ""
     return text + "."
+
+
+def reset_liked():
+    try:
+        reset_table('dbo.saved_employees')
+    except Exception:
+        pass
+    try:
+        reset_table('dbo.saved_offers')
+    except Exception:
+        pass
+    try:
+        reset_table('dbo.saved_employers')
+    except Exception:
+        pass
 
 
 def reset_table(table_name, with_id=True):
@@ -59,7 +74,7 @@ def reset_employers():
 
 def add_employers():
     companies = read_json('../files/companies.json')
-    for name, company in companies.items():
+    for name, company in tqdm(companies.items()):
         email = company['contact_email']
         locked = 0
         password = None
@@ -72,7 +87,7 @@ def add_employers():
         display_description = description.split('.')[0] if description else 'Najlepsi z najlepszych'
         photo = "https://picsum.photos/100/100"
         query = f'INSERT INTO dbo.employers (email, locked, password, telephone, role, address, company_name, ' \
-                f'description, display_description, photo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); '
+                f'contact_email, description, display_description, photo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); '
         cursor.execute(query, (email, locked, password, telephone, role, address, company_name, contact_email,
                                description, display_description, photo))
     conn.commit()
@@ -124,51 +139,52 @@ def add_offers(with_embeddings=False):
 
     i = 0
     companies_dict = {name: str(i := i + 1) for name in companies}
-    for j, (offer, offer_embeddings) in tqdm(enumerate(list(zip(offers.values(), embeddings.values())))[:100]):
-        description = offer['description'] if offer['description'] else None
-        duties = offer['duties']
-        offer_name = offer['name']
-        salary_from = offer['min_salary']
-        salary_to = offer['max_salary'] if 'max_salary' in offer else None
-        working_time = offer['working_time']
-        employer_id = companies_dict[offer['company']]
-        if with_embeddings:
-            duties_embeddings = np.array(offer_embeddings['duties'], dtype=np.float32).tobytes() \
-                if 'duties' in offer_embeddings else None
-            description_embeddings = np.array(offer_embeddings['description'], dtype=np.float32).tobytes() \
-                if 'description' in offer_embeddings else None
-            skills_embeddings = np.array(offer_embeddings['requirements+extra_skills'], dtype=np.float32).tobytes() \
-                if 'requirements+extra_skills' in offer_embeddings else None
-            query = f'INSERT INTO dbo.job_offers (description, duties, offer_name, salary_from, salary_to, ' \
-                    f'working_time, employer_id, duties_embeddings, description_embeddings, skills_embeddings) ' \
-                    f'VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);'
-            cursor.execute(query, (cut(description, 490), cut(duties, 990), offer_name, salary_from, salary_to,
-                                   working_time, employer_id, duties_embeddings, description_embeddings,
-                                   skills_embeddings))
-        else:
-            query = f'INSERT INTO dbo.offers (description, duties, offer_name, salary_from, salary_to, working_time, ' \
-                    f'employer_id) VALUES (?, ?, ?, ?, ?, ?, ?);'
-            cursor.execute(query, (description, duties, offer_name, salary_from, salary_to, working_time, employer_id))
-        for localization in offer['localizations']:
-            if localization not in localizations:
-                query = f'INSERT INTO dbo.localizations (city) VALUES (?);'
-                cursor.execute(query, localization)
-                loc_id += 1
-                localizations[localization] = loc_id
-            add_connections_to_offer(j + 1, 'dbo.job_offer_localizations', 'localization_id',
-                                     [localizations[localization]])
+    for j, (offer, offer_embeddings) in tqdm(enumerate(zip(offers.values(), embeddings.values()))):
+        if j < 100:
+            description = offer['description'] if offer['description'] else None
+            duties = offer['duties']
+            offer_name = offer['name']
+            salary_from = offer['min_salary']
+            salary_to = offer['max_salary'] if 'max_salary' in offer else None
+            working_time = offer['working_time']
+            employer_id = companies_dict[offer['company']]
+            if with_embeddings:
+                duties_embeddings = np.array(offer_embeddings['duties'], dtype=np.float32).tobytes() \
+                    if 'duties' in offer_embeddings else None
+                description_embeddings = np.array(offer_embeddings['description'], dtype=np.float32).tobytes() \
+                    if 'description' in offer_embeddings else None
+                skills_embeddings = np.array(offer_embeddings['requirements+extra_skills'], dtype=np.float32).tobytes() \
+                    if 'requirements+extra_skills' in offer_embeddings else None
+                query = f'INSERT INTO dbo.job_offers (description, duties, offer_name, salary_from, salary_to, ' \
+                        f'working_time, employer_id, duties_embeddings, description_embeddings, skills_embeddings) ' \
+                        f'VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);'
+                cursor.execute(query, (cut(description, 490), cut(duties, 990), offer_name, salary_from, salary_to,
+                                       working_time, employer_id, duties_embeddings, description_embeddings,
+                                       skills_embeddings))
+            else:
+                query = f'INSERT INTO dbo.offers (description, duties, offer_name, salary_from, salary_to, working_time, ' \
+                        f'employer_id) VALUES (?, ?, ?, ?, ?, ?, ?);'
+                cursor.execute(query, (description, duties, offer_name, salary_from, salary_to, working_time, employer_id))
+            for localization in offer['localizations']:
+                if localization not in localizations:
+                    query = f'INSERT INTO dbo.localizations (city) VALUES (?);'
+                    cursor.execute(query, localization)
+                    loc_id += 1
+                    localizations[localization] = loc_id
+                add_connections_to_offer(j + last_inserted_id + 1, 'dbo.job_offer_localizations', 'localization_id',
+                                         [localizations[localization]])
 
-        add_list_values_to_offer(j + last_inserted_id + 1, 'dbo.extra_skills', offer['extra_skills'], 180)
-        add_list_values_to_offer(j + last_inserted_id + 1, 'dbo.requirements', offer['requirements'], 220)
-        add_connections_to_offer(j + last_inserted_id + 1, 'dbo.job_offer_levels', 'level_id',
-                                 [levels.index(level) + 1 for level in offer['levels']])
-        add_connections_to_offer(j + last_inserted_id + 1, 'dbo.job_offer_contract_types', 'contract_type_id',
-                                 [contract_types.index(val) + 1 for val in offer['contract_types']])
-        add_connections_to_offer(j + last_inserted_id + 1, 'dbo.job_offer_employment_forms',
-                                 'employment_form_id', [forms.index(val) + 1 for val in offer['forms']])
-        add_connections_to_offer(j + last_inserted_id + 1, 'dbo.job_offer_industries', 'industry_id',
-                                 [industries.index(val) + 1 for val in offer['branches']])
-        conn.commit()
+            add_list_values_to_offer(j + last_inserted_id + 1, 'dbo.extra_skills', offer['extra_skills'], 180)
+            add_list_values_to_offer(j + last_inserted_id + 1, 'dbo.requirements', offer['requirements'], 220)
+            add_connections_to_offer(j + last_inserted_id + 1, 'dbo.job_offer_levels', 'level_id',
+                                     [levels.index(level) + 1 for level in offer['levels']])
+            add_connections_to_offer(j + last_inserted_id + 1, 'dbo.job_offer_contract_types', 'contract_type_id',
+                                     [contract_types.index(val) + 1 for val in offer['contract_types']])
+            add_connections_to_offer(j + last_inserted_id + 1, 'dbo.job_offer_employment_forms',
+                                     'employment_form_id', [forms.index(val) + 1 for val in offer['forms']])
+            add_connections_to_offer(j + last_inserted_id + 1, 'dbo.job_offer_industries', 'industry_id',
+                                     [industries.index(val) + 1 for val in offer['branches']])
+            conn.commit()
 
 
 def reset_employees():
@@ -183,7 +199,7 @@ def reset_employees():
 def add_employees():
     employees = read_json('../files/employees.json')
 
-    for i, employee in enumerate(employees.values()):
+    for i, employee in tqdm(enumerate(employees.values())):
         email = employee['email']
         locked = 0
         password = None
@@ -213,13 +229,14 @@ forms = ['praca stacjonarna', 'praca hybrydowa', 'praca zdalna']
 contract_types = ['umowa o pracę', 'kontrakt B2B', 'umowa zlecenie', 'umowa o staż']
 industries = ['IT', 'Sprzedaż', 'Administracja Biura', 'Zdrowie']
 
-reset_verification_tokens()
+# reset_liked()
+# reset_verification_tokens()
 reset_employees()
-reset_offers()
-reset_employers()
-add_all_simple_rows()
-add_employers()
-add_offers(True)
+# reset_offers()
+# reset_employers()
+# add_all_simple_rows()
+# add_employers()
+# add_offers(True)
 add_employees()
 
 conn.commit()

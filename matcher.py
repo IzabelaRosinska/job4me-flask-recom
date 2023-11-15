@@ -28,6 +28,8 @@ class Labels_Matcher:
 
     def match(self, text: str, branches: list[str], return_word_position: bool = False
               ) -> dict[str, list[str | tuple[str, int, int]]]:
+        if not text:
+            return {branch: [] for branch in branches}
         words = lemmatize(text.lower())
         all_labels = {}
         for branch in branches:
