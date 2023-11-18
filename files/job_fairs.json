@@ -1,0 +1,367 @@
+{
+  "1": {
+    "name": "TechCareer Expo",
+    "date_start": "2023-12-01 09:00:00",
+    "date_end": "2023-12-01 17:00:00",
+    "address": "ul. Przykładowa 1, Warszawa",
+    "description": "Największe targi pracy w branży IT, oferujące unikalne możliwości rekrutacyjne i networkingowe. Przygotuj się na spotkanie z najlepszymi pracodawcami w sektorze technologicznym.",
+    "display_description": "Targi IT",
+    "branches": [
+      "IT"
+    ],
+    "organizer": 5
+  },
+  "2": {
+    "name": "JobSuccess Summit",
+    "date_start": "2023-11-15 10:30:00",
+    "date_end": "2023-11-16 18:00:00",
+    "address": "ul. Sukcesu 2, Kraków",
+    "description": "Dwudniowe targi pracy, na których znajdziesz oferty z różnych branż. Doskonała okazja do zdobycia nowej pracy i rozwinięcia swojej kariery.",
+    "display_description": "Targi pracy wielobranżowe",
+    "branches": [
+      "IT",
+      "Administracja Biura",
+      "Zdrowie",
+      "Sprzedaż"
+    ],
+    "organizer": 9
+  },
+  "3": {
+    "name": "HealthCare Careers Fair",
+    "date_start": "2023-11-20 08:00:00",
+    "date_end": "2023-11-20 16:00:00",
+    "address": "ul. Zdrowa 3, Wrocław",
+    "description": "Specjalistyczne targi pracy dla osób zainteresowanych karierą w branży zdrowia. Spotkaj pracodawców z szpitali, klinik i innych placówek medycznych.",
+    "display_description": "Targi Zdrowotne",
+    "branches": [
+      "Zdrowie"
+    ],
+    "organizer": 7
+  },
+  "4": {
+    "name": "SalesTalent Expo",
+    "date_start": "2023-12-05 11:00:00",
+    "date_end": "2023-12-06 19:00:00",
+    "address": "ul. Handlowa 4, Poznań",
+    "description": "Targi pracy skupiające się na branży sprzedaży. Poznaj najnowsze oferty pracy w dziale handlowym i nawiąż nowe kontakty biznesowe.",
+    "display_description": "Targi Sprzedaży",
+    "branches": [
+      "Sprzedaż"
+    ],
+    "organizer": 8
+  },
+  "5": {
+    "name": "AdminPro Job Fair",
+    "date_start": "2023-11-25 09:30:00",
+    "date_end": "2023-11-25 16:30:00",
+    "address": "ul. Biurowa 5, Gdańsk",
+    "description": "Targi pracy dla profesjonalistów z branży administracyjnej. Znajdź swoją drogę kariery w obszarze administracji biurowej.",
+    "display_description": "Targi Administracyjne",
+    "branches": [
+      "Administracja Biura"
+    ],
+    "organizer": 4
+  },
+  "6": {
+    "name": "InnoTech Careers Expo",
+    "date_start": "2023-12-10 10:00:00",
+    "date_end": "2023-12-11 18:00:00",
+    "address": "ul. Innowacyjna 6, Łódź",
+    "description": "Targi pracy skupiające się na innowacjach technologicznych. Dowiedz się, jak możesz rozwijać swoją karierę w dynamicznym środowisku IT.",
+    "display_description": "Targi Technologiczne",
+    "branches": [
+      "IT"
+    ],
+    "organizer": 2
+  },
+  "7": {
+    "name": "FutureLeaders Career Fair",
+    "date_start": "2023-11-18 12:00:00",
+    "date_end": "2023-11-18 20:00:00",
+    "address": "ul. Przyszłościowa 7, Katowice",
+    "description": "Targi pracy dla przyszłych liderów. Poznaj możliwości rozwoju kariery i zdobądź inspirację od doświadczonych liderów biznesu.",
+    "display_description": "Targi Liderów",
+    "branches": [
+      "IT",
+      "Administracja Biura",
+      "Zdrowie",
+      "Sprzedaż"
+    ],
+    "organizer": 7
+  },
+  "8": {
+    "name": "GreenJobs Expo",
+    "date_start": "2023-12-08 09:00:00",
+    "date_end": "2023-12-08 17:00:00",
+    "address": "ul. Zielona 8, Szczecin",
+    "description": "Targi pracy skupiające się na ekologii i zrównoważonym rozwoju. Znajdź pracę, która przyczyni się do ochrony środowiska.",
+    "display_description": "Targi Ekologiczne",
+    "branches": [
+      "IT",
+      "Zdrowie"
+    ],
+    "organizer": 10
+  },
+  "9": {
+    "name": "TechInnovation Job Fair",
+    "date_start": "2023-11-22 11:30:00",
+    "date_end": "2023-11-22 19:30:00",
+    "address": "ul. Innowacje 9, Rzeszów",
+    "description": "Targi pracy skupiające się na innowacyjnych rozwiązaniach technologicznych. Poznaj nowości w świecie IT i zdobądź pracę marzeń.",
+    "display_description": "Targi Innowacji",
+    "branches": [
+      "IT"
+    ],
+    "organizer": 1
+  },
+  "10": {
+    "name": "CareerExplore Expo",
+    "date_start": "2023-12-03 10:00:00",
+    "date_end": "2023-12-03 18:00:00",
+    "address": "ul. Eksploracyjna 10, Bydgoszcz",
+    "description": "Targi pracy dla odkrywczych osób, poszukujących różnorodnych możliwości kariery. Dowiedz się, jakie ścieżki zawodowe są dla Ciebie otwarte.",
+    "display_description": "Targi Eksploracyjne",
+    "branches": [
+      "IT",
+      "Administracja Biura",
+      "Sprzedaż"
+    ],
+    "organizer": 8
+  },
+  "11": {
+    "name": "DigitalFuture Careers Fair",
+    "date_start": "2023-11-27 10:30:00",
+    "date_end": "2023-11-27 18:30:00",
+    "address": "ul. Cyfrowa 11, Lublin",
+    "description": "Targi pracy skupiające się na cyfrowej przyszłości. Poznaj nowe technologie i zdobądź pracę w obszarze transformacji cyfrowej.",
+    "display_description": "Targi Cyfrowe",
+    "branches": [
+      "IT"
+    ],
+    "organizer": 2
+  },
+  "12": {
+    "name": "FinancePro Job Expo",
+    "date_start": "2023-12-06 09:00:00",
+    "date_end": "2023-12-06 17:00:00",
+    "address": "ul. Finansowa 12, Olsztyn",
+    "description": "Targi pracy dla profesjonalistów z branży finansowej. Poznaj najnowsze oferty pracy w dziale finansów i rozwijaj swoją karierę w świecie biznesu.",
+    "display_description": "Targi Finansowe",
+    "branches": [
+      "Administracja Biura"
+    ],
+    "organizer": 4
+  },
+  "13": {
+    "name": "TechStart Careers Fair",
+    "date_start": "2023-12-02 10:30:00",
+    "date_end": "2023-12-02 18:30:00",
+    "address": "ul. Technologiczna 14, Toruń",
+    "description": "Targi pracy dla początkujących specjalistów IT. Zdobądź swoje pierwsze doświadczenie zawodowe i rozpocznij karierę w branży technologicznej.",
+    "display_description": "Targi dla Początkujących",
+    "branches": [
+      "IT"
+    ],
+    "organizer": 8
+  },
+  "14": {
+    "name": "TechInnovate Expo",
+    "date_start": "2023-11-21 10:00:00",
+    "date_end": "2023-11-21 18:00:00",
+    "address": "ul. Innowacyjna 16, Sopot",
+    "description": "Targi innowacyjnych technologii. Znajdź inspirację wśród nowoczesnych rozwiązań i poznaj liderów branży IT.",
+    "display_description": "Targi Innowacyjne",
+    "branches": [
+      "IT"
+    ],
+    "organizer": 8
+  },
+  "15": {
+    "name": "MarketingMinds Job Fair",
+    "date_start": "2023-11-26 09:30:00",
+    "date_end": "2023-11-26 16:30:00",
+    "address": "ul. Marketowa 17, Kielce",
+    "description": "Targi pracy w obszarze marketingu. Poznaj najnowsze strategie i trend w dziedzinie marketingu i zdobądź pracę w tej dynamicznej branży.",
+    "display_description": "Targi Marketingowe",
+    "branches": [
+      "Sprzedaż"
+    ],
+    "organizer": 4
+  },
+  "16": {
+    "name": "FutureMed Careers Fair",
+    "date_start": "2023-12-07 11:00:00",
+    "date_end": "2023-12-07 19:00:00",
+    "address": "ul. Medyczna 18, Łomża",
+    "description": "Targi pracy dla przyszłych profesjonalistów medycznych. Poznaj nowoczesne podejścia do opieki zdrowotnej i zdobądź pracę w sektorze medycznym.",
+    "display_description": "Targi Medyczne",
+    "branches": [
+      "Zdrowie"
+    ],
+    "organizer": 4
+  },
+  "17": {
+    "name": "TechTrends Job Expo",
+    "date_start": "2023-12-09 09:00:00",
+    "date_end": "2023-12-09 17:00:00",
+    "address": "ul. Trendowa 20, Białystok",
+    "description": "Targi pracy skupiające się na najnowszych trendach technologicznych. Poznaj innowacje i zdobądź pracę w dynamicznym świecie IT.",
+    "display_description": "Targi Technologiczne",
+    "branches": [
+      "IT"
+    ],
+    "organizer": 1
+  },
+  "18": {
+    "name": "DigitalCareer Expo",
+    "date_start": "2023-11-27 10:30:00",
+    "date_end": "2023-11-27 18:30:00",
+    "address": "ul. Cyfrowa 11, Lublin",
+    "description": "Najnowsze trendy i możliwości kariery w branży IT. Spotkaj liderów cyfrowej transformacji i uczestnicz w sesjach networkingowych. To wydarzenie zmieni Twoją karierę!",
+    "display_description": "Targi IT",
+    "branches": [
+      "IT"
+    ],
+    "organizer": 9
+  },
+  "19": {
+    "name": "EduTech Job Fair",
+    "date_start": "2023-12-04 12:00:00",
+    "date_end": "2023-12-04 20:00:00",
+    "address": "ul. Edukacyjna 15, Katowice",
+    "description": "Odkryj nowoczesne możliwości kariery w edukacji na targach pracy EduTech. Poznaj oferty od szkół, platform edukacyjnych i firm z branży edukacyjnej.",
+    "display_description": "Targi Edukacyjne",
+    "branches": [
+      "IT",
+      "Zdrowie"
+    ],
+    "organizer": 1
+  },
+  "20": {
+    "name": "AdminProfession Expo",
+    "date_start": "2023-11-28 09:30:00",
+    "date_end": "2023-11-28 16:30:00",
+    "address": "ul. Biurowa 16, Gdańsk",
+    "description": "Rozwijaj swoją karierę w administracji biurowej na targach AdminProfession Expo. Spotkaj pracodawców poszukujących profesjonalistów z obszaru administracyjnego.",
+    "display_description": "Targi Administracyjne",
+    "branches": [
+      "Administracja Biura"
+    ],
+    "organizer": 9
+  },
+  "21": {
+    "name": "MedLife Careers Fair",
+    "date_start": "2023-11-21 08:30:00",
+    "date_end": "2023-11-21 16:30:00",
+    "address": "ul. Zdrowotna 17, Poznań",
+    "description": "Znajdź swoją ścieżkę kariery w branży zdrowotnej na targach MedLife. Spotkaj pracodawców z szpitali, klinik i firm medycznych.",
+    "display_description": "Targi Zdrowotne",
+    "branches": [
+      "Zdrowie"
+    ],
+    "organizer": 2
+  },
+  "22": {
+    "name": "SalesElite Expo",
+    "date_start": "2023-12-07 10:00:00",
+    "date_end": "2023-12-07 18:00:00",
+    "address": "ul. Handlowa 18, Wrocław",
+    "description": "Dołącz do elitarnej grupy specjalistów od sprzedaży na targach SalesElite Expo. Poznaj nowoczesne strategie sprzedażowe i zdobądź nową pracę.",
+    "display_description": "Targi Sprzedaży",
+    "branches": [
+      "Sprzedaż"
+    ],
+    "organizer": 9
+  },
+  "23": {
+    "name": "ITInnovation Job Fair",
+    "date_start": "2023-11-23 11:30:00",
+    "date_end": "2023-11-23 19:30:00",
+    "address": "ul. Innowacyjna 19, Warszawa",
+    "description": "Odkryj najnowsze innowacje w branży IT na targach ITInnovation Job Fair. Poznaj liderów technologicznych i rozwijaj swoją karierę w dynamicznym środowisku IT.",
+    "display_description": "Targi Innowacyjne",
+    "branches": [
+      "IT"
+    ],
+    "organizer": 6
+  },
+  "24": {
+    "name": "FutureLeadership Career Fair",
+    "date_start": "2023-11-19 12:00:00",
+    "date_end": "2023-11-19 20:00:00",
+    "address": "ul. Przyszłościowa 20, Łódź",
+    "description": "Targi pracy dla przyszłych liderów w branżach IT, administracji biurowej, zdrowia i sprzedaży. Spotkaj inspirujących liderów i rozwijaj swoje umiejętności.",
+    "display_description": "Targi Liderów",
+    "branches": [
+      "IT",
+      "Administracja Biura",
+      "Zdrowie",
+      "Sprzedaż"
+    ],
+    "organizer": 3
+  },
+  "25": {
+    "name": "GreenTech Expo",
+    "date_start": "2023-12-09 09:00:00",
+    "date_end": "2023-12-09 17:00:00",
+    "address": "ul. Zielona 21, Kraków",
+    "description": "Rozwijaj swoją karierę w zielony sposób na targach GreenTech Expo. Spotkaj pracodawców związanych z zrównoważonym rozwojem i odkryj nowe możliwości pracy.",
+    "display_description": "Targi Ekologiczne",
+    "branches": [
+      "IT",
+      "Zdrowie"
+    ],
+    "organizer": 5
+  },
+  "26": {
+    "name": "TechFuture Job Fair",
+    "date_start": "2023-11-24 10:30:00",
+    "date_end": "2023-11-24 18:30:00",
+    "address": "ul. Przyszłościowa 22, Gdańsk",
+    "description": "Odkryj przyszłość w branży technologicznej na targach TechFuture Job Fair. Poznaj najnowsze trendy i zdobądź pracę marzeń w świecie IT.",
+    "display_description": "Targi Technologiczne",
+    "branches": [
+      "IT"
+    ],
+    "organizer": 3
+  },
+  "27": {
+    "name": "EduCareer Expo",
+    "date_start": "2023-12-05 11:00:00",
+    "date_end": "2023-12-05 19:00:00",
+    "address": "ul. Edukacyjna 23, Wrocław",
+    "description": "Rozwijaj swoją karierę w edukacji na targach EduCareer Expo. Poznaj oferty pracy od renomowanych szkół i placówek edukacyjnych.",
+    "display_description": "Targi Edukacyjne",
+    "branches": [
+      "IT",
+      "Administracja Biura",
+      "Zdrowie",
+      "Sprzedaż"
+    ],
+    "organizer": 10
+  },
+  "28": {
+    "name": "AdminInnovation Expo",
+    "date_start": "2023-11-29 09:00:00",
+    "date_end": "2023-11-29 17:00:00",
+    "address": "ul. Innowacyjna 24, Katowice",
+    "description": "Odkryj innowacyjne możliwości w administracji biurowej na targach AdminInnovation Expo. Poznaj nowoczesne rozwiązania i zdobądź pracę marzeń.",
+    "display_description": "Targi Administracyjne",
+    "branches": [
+      "Administracja Biura"
+    ],
+    "organizer": 1
+  },
+  "29": {
+    "name": "MedTech Careers Fair",
+    "date_start": "2023-11-22 10:30:00",
+    "date_end": "2023-11-22 18:30:00",
+    "address": "ul. Zdrowotna 25, Łódź",
+    "description": "Spotkaj liderów w branży medycznej na targach MedTech Careers Fair. Poznaj najnowsze technologie i zdobądź pracę w obszarze medycyny.",
+    "display_description": "Targi Zdrowotne",
+    "branches": [
+      "Zdrowie"
+    ],
+    "organizer": 4
+  }
+}

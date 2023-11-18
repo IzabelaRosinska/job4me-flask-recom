@@ -1,5 +1,6 @@
 import os
 import random
+from datetime import datetime
 
 import numpy as np
 import pyodbc
@@ -48,6 +49,15 @@ def reset_table(table_name, with_id=True):
     cursor.execute(f'DELETE FROM {table_name};')
     if with_id:
         cursor.execute(f"DBCC CHECKIDENT ('{table_name}', RESEED, 0);")
+
+
+def reset_job_fairs():
+    reset_table('dbo.job_fair_employer_participantions')
+    reset_table('dbo.job_fairs')
+
+
+def reset_organizers():
+    reset_table('dbo.organizers')
 
 
 def add_simple_rows(table_name, values):
@@ -220,6 +230,53 @@ def add_employees():
         add_list_values_to_employee(i + 1, 'dbo.skills', employee['skills'])
 
 
+def add_organizers():
+    organizers = read_json('../files/organizers.json')
+    for organizer in organizers.values():
+        email = organizer['email']
+        locked = 0
+        password = None
+        telephone = organizer['telephone']
+        role = None
+        description = organizer['description']
+        organizer_name = organizer['name']
+        contact_email = organizer['contact_email']
+        query = f"INSERT INTO dbo.organizers (email, locked, password, telephone, role, description, organizer_name, " \
+                f"contact_email) VALUES (?, ?, ?, ?, ?, ?, ?, ?); "
+        cursor.execute(query, (email, locked, password, telephone, role, description, organizer_name, contact_email))
+
+
+def get_employers_dict():
+    cursor.execute('SELECT id, company_name FROM dbo.employers')
+    rows = cursor.fetchall()
+    return {name: employer_id for employer_id, name in rows}
+
+
+def add_job_fairs():
+    job_fairs = read_json('../files/job_fairs.json')
+    connections = read_json('../files/job_fairs_employers_connection.json')
+    employers_dict = get_employers_dict()
+
+    for job_fair_id, job_fair in job_fairs.items():
+        address = job_fair['address']
+        data_end = datetime.strptime(job_fair['data_end'], "%Y-%m-%d %H:%M:%S")
+        data_start = job_fair['data_start']
+        description = job_fair['description']
+        display_description = job_fair['display_description']
+        name = job_fair['name']
+        photo = "https://picsum.photos/100/100"
+        organizer_id = job_fair['organizer']
+
+        query = f"INSERT INTO dbo.job_fairs (address, data_end, data_start, description, display_description, name, " \
+                f"photo, organizer_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?); "
+        cursor.execute(query, (address, data_end, data_start, description, display_description, name, photo,
+                               organizer_id))
+
+    for job_fair_id, is_active, employer in connections:
+        query = f"INSERT INTO dbo.job_fair_employer_participantions (employer_id, job_fair_id) VALUES (?, ?); "
+        cursor.execute(query, (employers_dict[employer], int(job_fair_id)))
+
+
 def reset_verification_tokens():
     reset_table('dbo.verification_token')
 
@@ -231,10 +288,14 @@ industries = ['IT', 'Sprzedaż', 'Administracja Biura', 'Zdrowie']
 
 reset_liked()
 reset_verification_tokens()
+reset_job_fairs()
+reset_organizers()
 reset_employees()
 reset_offers()
 reset_employers()
 add_all_simple_rows()
+add_organizers()
+add_job_fairs()
 add_employers()
 add_offers(True)
 add_employees()

@@ -52,7 +52,7 @@ def remove_small_companies(percent: float = 0.8):
     write_json('../files/companies.json', new_companies, 2)
 
 
-def get_companies_branches(companies: dict, offers: dict):
+def get_companies_branches(companies: dict, offers: dict, return_companies_branches=False):
     companies_branches = {name: set() for name in companies}
     for offer in offers.values():
         if offer['company'] in companies:
@@ -61,7 +61,7 @@ def get_companies_branches(companies: dict, offers: dict):
     for company, branches in companies_branches.items():
         for branch in branches:
             branches_dict[branch].add(company)
-    return branches_dict
+    return branches_dict, companies_branches if return_companies_branches else branches_dict
 
 
 def change_company():

@@ -11,7 +11,7 @@ def read_jsonl(file_path) -> list[dict]:
         return [json.loads(row) for row in file]
 
 
-def write_json(file_path, data: dict, indent: int = None):
+def write_json(file_path, data: dict | list, indent: int = None):
     with open(file_path, 'w', encoding='utf-8') as file:
         json.dump(data, file, ensure_ascii=False, indent=indent)
 
