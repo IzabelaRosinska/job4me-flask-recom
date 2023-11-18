@@ -260,7 +260,7 @@ def add_job_fairs():
     for job_fair_id, job_fair in job_fairs.items():
         address = job_fair['address']
         data_end = datetime.strptime(job_fair['data_end'], "%Y-%m-%d %H:%M:%S")
-        data_start = job_fair['data_start']
+        data_start = datetime.strptime(job_fair['data_start'], "%Y-%m-%d %H:%M:%S")
         description = job_fair['description']
         display_description = job_fair['display_description']
         name = job_fair['name']
