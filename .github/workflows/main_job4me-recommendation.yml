@@ -45,27 +45,32 @@ jobs:
             release.zip
             !venv/
 
-#  deploy:
-#    runs-on: ubuntu-latest
-#    needs: build
-#    if: github.event_name == 'push'
-#    environment:
-#      name: 'Production'
-#      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-#
-#    steps:
-#      - name: Download artifact from build job
-#        uses: actions/download-artifact@v3
-#        with:
-#          name: python-app
-#
-#      - name: Unzip artifact for deployment
-#        run: unzip release.zip
-#
-#      - name: 'Deploy to Azure Web App'
-#        uses: azure/webapps-deploy@v2
-#        id: deploy-to-webapp
-#        with:
-#          app-name: 'job4me-recommendation'
-#          slot-name: 'Production'
-#          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E71DD7E3B21D4950A8DB2BA8B3304D16 }}
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.event_name == 'push'
+    environment:
+      name: 'Production'
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+
+    steps:
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v3
+        with:
+          name: python-app
+
+      - name: Unzip artifact for deployment
+        run: unzip release.zip
+
+      - name: 'Deploy to Azure Web App'
+        uses: azure/webapps-deploy@v2
+        id: deploy-to-webapp
+        with:
+          app-name: 'job4me-recommendation'
+          slot-name: 'Production'
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E71DD7E3B21D4950A8DB2BA8B3304D16 }}
+          env: |
+            AZURE_DB_USER: ${{ secrets.AZURE_DB_USER }}
+            AZURE_DB_PASSWORD: ${{ secrets.AZURE_DB_PASSWORD }}
+            AZURE_DB: ${{ secrets.AZURE_DB }}
+            API_KEY: ${{ secrets.API_KEY }}
