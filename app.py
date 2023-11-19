@@ -3,9 +3,9 @@ import os
 import pyodbc
 from flask import Flask, request, jsonify
 
-from db_connection.db_connect import get_all_offers, get_employee_by_id, get_offer_by_id
-from file_reader import load_labels
-from recommendation import Recommender
+from connection.db_connect import get_all_offers, get_employee_by_id, get_offer_by_id
+from utils.file_reader import load_labels
+from matching.recommendation import Recommender
 
 app = Flask(__name__)
 
