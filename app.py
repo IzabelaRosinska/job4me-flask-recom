@@ -1,21 +1,22 @@
 import os
 
-from flask import Flask, jsonify, request
+import pyodbc
+from flask import Flask, request, jsonify
 
-from api_autentication import *
-from recommendation import Recommender
-from file_reader import *
-from db_connection.db_connect import *
+from connection.db_connect import get_all_offers, get_employee_by_id, get_offer_by_id
+from utils.file_reader import load_labels
+from matching.recommendation import Recommender
 
 app = Flask(__name__)
 
-server = os.environ['DB_SERVER']
-database = 'miwm'
-username = os.environ['DB_USERNAME']
-password = os.environ['DB_PASSWORD']
-driver = '{ODBC Driver 17 for SQL Server}'
-conn = pyodbc.connect(f'SERVER={server};DATABASE={database};UID={username};PWD={password};DRIVER={driver}')
+username = os.getenv('AZURE_DB_USER')
+password = os.getenv('AZURE_DB_PASSWORD')
+server = os.getenv('AZURE_DB')
 
+database = 'miwm'
+driver = '{ODBC Driver 17 for SQL Server}'
+
+conn = pyodbc.connect(f'SERVER={server};DATABASE={database};UID={username};PWD={password};DRIVER={driver}')
 cursor = conn.cursor()
 
 labels_data, branches_weights = load_labels([('IT', 'files/labels_IT.json', 3),
@@ -25,22 +26,19 @@ labels_data, branches_weights = load_labels([('IT', 'files/labels_IT.json', 3),
                                              ('Ogólne', 'files/labels_soft_skills.json', 1),
                                              ('Języki', 'files/labels_languages.json', 5)])
 
-
 offers, offers_embeddings = get_all_offers(cursor)
 
 recommender = Recommender(cursor, labels_data)
 recommender.load_offers(offers, branches_weights,
-                        labels=read_json("files/offers_labels.json"),
                         embeddings=offers_embeddings)
 
 
-@app.route('/', methods=['GET'])
+@app.route('/')
 def index():
-    return 'Hello!'
+    return 'choose service'
 
 
 @app.route('/recommend/<job_fairs_id>/<employee_id>', methods=['GET'])
-@api_key_recommend
 def recommend(job_fairs_id, employee_id: str):
     filter_params = {}
     if loc := request.args.get('loc'):
@@ -78,7 +76,6 @@ def recommend(job_fairs_id, employee_id: str):
 
 
 @app.route('/process/<offer_id>', methods=['GET'])
-@api_key_process
 def process(offer_id):
     try:
         if not (offer := get_offer_by_id(cursor, int(offer_id))):
