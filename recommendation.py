@@ -25,7 +25,7 @@ class Recommender:
         if weights_cv:
             self.weights_cv = weights_cv
         else:
-            self.weights_cv = {"education": 2, "work_experience": 50, "projects": 50,
+            self.weights_cv = {"education": 2, "work_experience": 200, "projects": 25,
                                "skills": 5, "about_me": 2, "hobbies": 1}
         if weights_offers:
             self.weights_offers = weights_offers
