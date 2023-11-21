@@ -7,8 +7,7 @@ def put_offer_list_values(cursor, offer, offer_id):
     offer['extra_skills'] = [data[0] for data in cursor.fetchall()]
     cursor.execute(f'SELECT description FROM dbo.requirements WHERE job_offer_id = {offer_id};')
     offer['requirements'] = [data[0] for data in cursor.fetchall()]
-    cursor.execute(f'SELECT i.name FROM dbo.industries i JOIN dbo.job_offer_industries oi ON oi.industry_id = i.id '
-                   f'WHERE oi.job_offer_id = {offer_id};')
+    cursor.execute(f'SELECT industry_id FROM dbo.job_offer_industries WHERE job_offer_id = {offer_id};')
     offer['branches'] = [data[0] for data in cursor.fetchall()]
     cursor.execute(f'SELECT level_id FROM dbo.job_offer_levels WHERE job_offer_id = {offer_id};')
     offer['levels'] = [data[0] for data in cursor.fetchall()]
@@ -23,26 +22,32 @@ def put_offer_list_values(cursor, offer, offer_id):
 def put_all_offers_list_values(cursor, offers):
     cursor.execute(f'SELECT job_offer_id, description FROM dbo.extra_skills;')
     for row in cursor.fetchall():
-        offers[row[0]]['extra_skills'] = row[1]
+        offers[row[0]].setdefault('extra_skills', [])
+        offers[row[0]]['extra_skills'].append(row[1])
     cursor.execute(f'SELECT job_offer_id, description FROM dbo.requirements;')
     for row in cursor.fetchall():
-        offers[row[0]]['requirements'] = row[1]
-    cursor.execute(f'SELECT oi.job_offer_id, i.name FROM dbo.industries i '
-                   f'JOIN dbo.job_offer_industries oi ON oi.industry_id = i.id;')
+        offers[row[0]].setdefault('requirements', [])
+        offers[row[0]]['requirements'].append(row[1])
+    cursor.execute(f'SELECT job_offer_id, industry_id FROM dbo.job_offer_industries;')
     for row in cursor.fetchall():
-        offers[row[0]]['branches'] = row[1]
+        offers[row[0]].setdefault('branches', [])
+        offers[row[0]]['branches'].append(row[1])
     cursor.execute(f'SELECT job_offer_id, level_id FROM dbo.job_offer_levels;')
     for row in cursor.fetchall():
-        offers[row[0]]['levels'] = row[1]
+        offers[row[0]].setdefault('levels', [])
+        offers[row[0]]['levels'].append(row[1])
     cursor.execute(f'SELECT job_offer_id, contract_type_id FROM dbo.job_offer_contract_types;')
     for row in cursor.fetchall():
-        offers[row[0]]['contract_types'] = row[1]
+        offers[row[0]].setdefault('contract_types', [])
+        offers[row[0]]['contract_types'].append(row[1])
     cursor.execute(f'SELECT job_offer_id, employment_form_id FROM dbo.job_offer_employment_forms;')
     for row in cursor.fetchall():
-        offers[row[0]]['forms'] = row[1]
+        offers[row[0]].setdefault('forms', [])
+        offers[row[0]]['forms'].append(row[1])
     cursor.execute(f'SELECT job_offer_id, localization_id FROM dbo.job_offer_localizations;')
     for row in cursor.fetchall():
-        offers[row[0]]['localizations'] = row[1]
+        offers[row[0]].setdefault('localizations', [])
+        offers[row[0]]['localizations'].append(row[1])
 
 
 def get_condition_string(condition):
@@ -61,31 +66,38 @@ def put_filtered_offers_list_values(cursor, offers, condition):
     cursor.execute(f'SELECT ex.job_offer_id, ex.description FROM dbo.extra_skills ex JOIN dbo.job_offers jo '
                    f'ON ex.job_offer_id = jo.id {condition_string};')
     for row in cursor.fetchall():
-        offers[row[0]]['extra_skills'] = row[1]
+        offers[row[0]].setdefault('extra_skills', [])
+        offers[row[0]]['extra_skills'].append(row[1])
     cursor.execute(f'SELECT r.job_offer_id, r.description FROM dbo.requirements r JOIN dbo.job_offers jo '
                    f'ON r.job_offer_id = jo.id {condition_string};')
     for row in cursor.fetchall():
-        offers[row[0]]['requirements'] = row[1]
-    cursor.execute(f'SELECT oi.job_offer_id, i.name FROM dbo.industries i JOIN dbo.job_offer_industries oi '
-                   f'ON oi.industry_id = i.id JOIN dbo.job_offers jo ON jo.id = oi.job_offer_id {condition_string};')
+        offers[row[0]].setdefault('requirements', [])
+        offers[row[0]]['requirements'].append(row[1])
+    cursor.execute(f'SELECT oi.job_offer_id, oi.industry_id FROM dbo.job_offer_industries oi JOIN dbo.job_offers jo '
+                   f'ON oi.job_offer_id = jo.id {condition_string};')
     for row in cursor.fetchall():
-        offers[row[0]]['branches'] = row[1]
+        offers[row[0]].setdefault('branches', [])
+        offers[row[0]]['branches'].append(row[1])
     cursor.execute(f'SELECT l.job_offer_id, l.level_id FROM dbo.job_offer_levels l JOIN dbo.job_offers jo '
                    f'ON l.job_offer_id = jo.id {condition_string};')
     for row in cursor.fetchall():
-        offers[row[0]]['levels'] = row[1]
+        offers[row[0]].setdefault('levels', [])
+        offers[row[0]]['levels'].append(row[1])
     cursor.execute(f'SELECT ct.job_offer_id, ct.contract_type_id FROM dbo.job_offer_contract_types ct '
                    f'JOIN dbo.job_offers jo ON ct.job_offer_id = jo.id {condition_string};')
     for row in cursor.fetchall():
-        offers[row[0]]['contract_types'] = row[1]
+        offers[row[0]].setdefault('contract_types', [])
+        offers[row[0]]['contract_types'].append(row[1])
     cursor.execute(f'SELECT f.job_offer_id, f.employment_form_id FROM dbo.job_offer_employment_forms f '
                    f'JOIN dbo.job_offers jo ON f.job_offer_id = jo.id {condition_string};')
     for row in cursor.fetchall():
-        offers[row[0]]['forms'] = row[1]
+        offers[row[0]].setdefault('forms', [])
+        offers[row[0]]['forms'].append(row[1])
     cursor.execute(f'SELECT l.job_offer_id, l.localization_id FROM dbo.job_offer_localizations l '
                    f'JOIN dbo.job_offers jo ON l.job_offer_id = jo.id {condition_string};')
     for row in cursor.fetchall():
-        offers[row[0]]['localizations'] = row[1]
+        offers[row[0]].setdefault('localizations', [])
+        offers[row[0]]['localizations'].append(row[1])
 
 
 def get_offer_by_id(cursor: pyodbc.Cursor, offer_id):
