@@ -28,6 +28,12 @@ class Labels_Matcher:
 
     def match(self, text: str, branches: list[str], return_word_position: bool = False
               ) -> dict[str, list[str | tuple[str, int, int]]]:
+        def add_new_label(i):
+            if return_word_position:
+                labels.append((candidate[0], i, i + depth + 1))
+            else:
+                labels.append(candidate[0])
+
         if not text:
             return {branch: [] for branch in branches}
         words = lemmatize(text.lower())
@@ -45,10 +51,7 @@ class Labels_Matcher:
                         current_node = current_node[next_word]
                         depth += 1
                     elif candidate is not None:
-                        if return_word_position:
-                            labels.append((candidate[0], i, i + depth + 1))
-                        else:
-                            labels.append(candidate[0])
+                        add_new_label(i)
                         i += depth
                         candidate = None
                         break
@@ -57,10 +60,7 @@ class Labels_Matcher:
                     if '_label_id' in current_node:
                         candidate = (current_node['_label_id'], depth)
                 if candidate is not None:
-                    if return_word_position:
-                        labels.append((candidate[0], i, i + depth + 1))
-                    else:
-                        labels.append(candidate[0])
+                    add_new_label(i)
                     i += depth
             all_labels[branch] = labels
         return all_labels

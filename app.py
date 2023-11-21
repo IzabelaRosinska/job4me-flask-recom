@@ -1,9 +1,8 @@
 import os
 
-import pyodbc
 from flask import Flask, request, jsonify
 
-from connection.db_connect import get_all_offers, get_employee_by_id, get_offer_by_id
+from connection.db_connect import *
 from utils.file_reader import load_labels
 from matching.recommendation import Recommender
 
@@ -12,7 +11,6 @@ app = Flask(__name__)
 username = os.getenv('AZURE_DB_USER')
 password = os.getenv('AZURE_DB_PASSWORD')
 server = os.getenv('AZURE_DB')
-
 database = 'miwm'
 driver = '{ODBC Driver 17 for SQL Server}'
 
@@ -27,10 +25,11 @@ labels_data, branches_weights = load_labels([('IT', 'files/labels_IT.json', 3),
                                              ('Języki', 'files/labels_languages.json', 5)])
 
 offers, offers_embeddings = get_all_offers(cursor)
+employees, employees_embeddings = get_all_employees(cursor)
 
-recommender = Recommender(cursor, labels_data)
-recommender.load_offers(offers, branches_weights,
-                        embeddings=offers_embeddings)
+recommender = Recommender(labels=labels_data, branches_weights=branches_weights)
+recommender.load_offers(offers, offers_embeddings)
+recommender.load_employees(employees, employees_embeddings)
 
 
 @app.route('/')
@@ -63,24 +62,72 @@ def recommend(job_fairs_id, employee_id: str):
             filter_params['levels'] = [int(level) for level in levels.split(';')]
         except ValueError:
             pass
-    response = []
     try:
-        if not (employee := get_employee_by_id(cursor, int(employee_id))):
-            return {'error': 'Employee not found'}
+        employee_id = int(employee_id)
     except ValueError:
         return {'error': 'Wrong id'}
-    ranking = recommender.get_offers_ranking(employee, filter_params, branches_weights)
-    for offer in ranking:
-        response.append(offer)
+    response = recommender.get_offers_ranking(int(employee_id), filter_params)
     return jsonify(data=response)
 
 
-@app.route('/process/<offer_id>', methods=['GET'])
-def process(offer_id):
+@app.route('/update_offer/<offer_id>', methods=['GET'])
+def update_offer(offer_id):
     try:
         if not (offer := get_offer_by_id(cursor, int(offer_id))):
             return {'error': 'Offer not found'}
     except ValueError:
         return {'error': 'Wrong id'}
-    recommender.load_and_save_offer(offer_id, offer, branches_weights)
-    return "Success"
+    recommender.update_offer_labels(int(offer_id), offer)
+    return "Offer labels updated successfully"
+
+
+@app.route('/update_offers_embeddings', methods=['GET'])
+def update_offers_embeddings():
+    embeddings = get_offers_embeddings_only(cursor)
+    recommender.update_offers_embeddings(embeddings)
+    return "Offers embeddings updated successfully"
+
+
+@app.route('/update_employee/<employee_id>', methods=['GET'])
+def update_employee(employee_id):
+    try:
+        if not (employee := get_offer_by_id(cursor, int(employee_id))):
+            return {'error': 'Employee not found'}
+    except ValueError:
+        return {'error': 'Wrong id'}
+    recommender.update_employee_labels(int(employee_id), employee)
+    return "Employee labels updated successfully"
+
+
+@app.route('/update_employees_embeddings', methods=['GET'])
+def update_employees_embeddings():
+    embeddings = get_employees_embeddings_only(cursor)
+    recommender.update_employees_embeddings(embeddings)
+    return "Employees embeddings updated successfully"
+
+
+@app.route('/remove_offer/<offer_id>', methods=['GET'])
+def remove_offer(offer_id):
+    try:
+        offer_id = int(offer_id)
+    except ValueError:
+        return {'error': 'Wrong id'}
+    if check_if_offer_is_disabled(cursor, offer_id):
+        recommender.remove_offer(offer_id)
+        return 'Offer removed from service memory'
+    else:
+        return {'error': 'Offer is still active'}
+
+
+@app.route('/remove_employee/<employee_id>', methods=['GET'])
+def remove_employee(employee_id):
+    try:
+        employee_id = int(employee_id)
+    except ValueError:
+        return {'error': 'Wrong id'}
+    if check_if_employee_is_deleted(cursor, employee_id):
+        recommender.remove_employee(employee_id)
+        return 'Emloyee removed from service memory'
+    else:
+        return {'error': 'Employee is still in database'}
+

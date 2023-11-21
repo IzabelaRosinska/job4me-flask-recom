@@ -7,8 +7,8 @@ def put_offer_list_values(cursor, offer, offer_id):
     offer['extra_skills'] = [data[0] for data in cursor.fetchall()]
     cursor.execute(f'SELECT description FROM dbo.requirements WHERE job_offer_id = {offer_id};')
     offer['requirements'] = [data[0] for data in cursor.fetchall()]
-    cursor.execute(f'SELECT name FROM dbo.industries i JOIN dbo.job_offer_industries oi ON oi.industry_id = i.id WHERE '
-                   f'oi.job_offer_id = {offer_id};')
+    cursor.execute(f'SELECT i.name FROM dbo.industries i JOIN dbo.job_offer_industries oi ON oi.industry_id = i.id '
+                   f'WHERE oi.job_offer_id = {offer_id};')
     offer['branches'] = [data[0] for data in cursor.fetchall()]
     cursor.execute(f'SELECT level_id FROM dbo.job_offer_levels WHERE job_offer_id = {offer_id};')
     offer['levels'] = [data[0] for data in cursor.fetchall()]
@@ -45,6 +45,45 @@ def put_all_offers_list_values(cursor, offers):
         offers[row[0]]['localizations'] = row[1]
 
 
+def put_filtered_offers_list_values(cursor, offers, condition):
+    if condition == 'a':
+        condition_string = 'WHERE jo.is_active=1'
+    elif condition == 'c':
+        condition_string = 'WHERE jo.is_embedding_current=0 OR jo.is_embedding_current IN NULL'
+    elif condition == 'ac':
+        condition_string = 'WHERE (jo.is_embedding_current=0 OR jo.is_embedding_current) IN NULL AND jo.is_active=1'
+    else:
+        condition_string = ''
+    cursor.execute(f'SELECT ex.job_offer_id, ex.description FROM dbo.extra_skills ex JOIN dbo.job_offers jo '
+                   f'ON ex.job_offer_id = jo.id {condition_string};')
+    for row in cursor.fetchall():
+        offers[row[0]]['extra_skills'] = row[1]
+    cursor.execute(f'SELECT r.job_offer_id, r.description FROM dbo.requirements r JOIN dbo.job_offers jo '
+                   f'ON r.job_offer_id = jo.id {condition_string};')
+    for row in cursor.fetchall():
+        offers[row[0]]['requirements'] = row[1]
+    cursor.execute(f'SELECT oi.job_offer_id, i.name FROM dbo.industries i JOIN dbo.job_offer_industries oi '
+                   f'ON oi.industry_id = i.id JOIN dbo.job_offers jo ON jo.id = oi.job_offer_id {condition_string};')
+    for row in cursor.fetchall():
+        offers[row[0]]['branches'] = row[1]
+    cursor.execute(f'SELECT l.job_offer_id, l.level_id FROM dbo.job_offer_levels l JOIN dbo.job_offers jo '
+                   f'ON l.job_offer_id = jo.id {condition_string};')
+    for row in cursor.fetchall():
+        offers[row[0]]['levels'] = row[1]
+    cursor.execute(f'SELECT ct.job_offer_id, ct.contract_type_id FROM dbo.job_offer_contract_types ct '
+                   f'JOIN dbo.job_offers jo ON ct.job_offer_id = jo.id {condition_string};')
+    for row in cursor.fetchall():
+        offers[row[0]]['contract_types'] = row[1]
+    cursor.execute(f'SELECT f.job_offer_id, f.employment_form_id FROM dbo.job_offer_employment_forms f '
+                   f'JOIN dbo.job_offers jo ON f.job_offer_id = jo.id {condition_string};')
+    for row in cursor.fetchall():
+        offers[row[0]]['forms'] = row[1]
+    cursor.execute(f'SELECT l.job_offer_id, l.localization_id FROM dbo.job_offer_localizations l '
+                   f'JOIN dbo.job_offers jo ON l.job_offer_id = jo.id {condition_string};')
+    for row in cursor.fetchall():
+        offers[row[0]]['localizations'] = row[1]
+
+
 def get_offer_by_id(cursor: pyodbc.Cursor, offer_id):
     cursor.execute(f'SELECT offer_name, salary_from, duties, description, duties_embeddings, '
                    f'description_embeddings, skills_embeddings FROM dbo.job_offers WHERE id = {offer_id};')
@@ -52,11 +91,9 @@ def get_offer_by_id(cursor: pyodbc.Cursor, offer_id):
     if not row:
         return None
     offer = {'name': row[0], 'min_salary': row[1], 'duties': row[2], 'description': row[3]}
-    offer_embeddings = {'duties': np.frombuffer(row[4], dtype=np.float32),
-                        'description': np.frombuffer(row[5], dtype=np.float32),
-                        'requirements+extra_skills': np.frombuffer(row[6], dtype=np.float32)}
+    embeddings = convert_embeddings({'duties': row[4], 'description': row[5], 'requirements+extra_skills': row[6]})
     put_offer_list_values(cursor, offer, offer_id)
-    return offer, offer_embeddings
+    return offer, embeddings
 
 
 def get_all_offers(cursor: pyodbc.Cursor):
@@ -67,32 +104,20 @@ def get_all_offers(cursor: pyodbc.Cursor):
     offers_embeddings = {}
     for row in rows:
         offers[row[0]] = {'name': row[1], 'min_salary': row[2], 'duties': row[3], 'description': row[4]}
-        embeddings = {}
-        if row[5]:
-            embeddings['duties'] = np.frombuffer(row[5], dtype=np.float32)
-        if row[6]:
-            embeddings['description'] = np.frombuffer(row[6], dtype=np.float32)
-        if row[7]:
-            embeddings['requirements+extra_skills'] = np.frombuffer(row[7], dtype=np.float32)
+        embeddings = convert_embeddings({'duties': row[5], 'description': row[6], 'requirements+extra_skills': row[7]})
         offers_embeddings[row[0]] = embeddings
     put_all_offers_list_values(cursor, offers)
     return offers, offers_embeddings
 
 
-def save_offer_embeddings(cursor, offer_id, embeddings):
-    query = f'UPDATE dbo.job_offers SET duties_embeddings = ?, description_embeddings = ?, skills_embeddings = ? ' \
-            f'WHERE id = {offer_id}; '
-    cursor.execute(query, (embeddings["duties"].tobytes() if "duties" in embeddings else None,
-                           embeddings["description"].tobytes() if "description" in embeddings else None,
-                           embeddings["requirements+extra_skills"].tobytes() if "requirements+extra_skills" in
-                                                                                embeddings else None))
-
-
 def get_employee_by_id(cursor: pyodbc.Cursor, employee_id: int):
-    cursor.execute(f'SELECT about_me, interests FROM dbo.employees WHERE id = {employee_id};')
+    cursor.execute(f'SELECT about_me, interests, experience_embeddings, skills_embeddings, description_embeddings '
+                   f'FROM dbo.employees WHERE id = {employee_id};')
     row = cursor.fetchone()
     if not row:
         return None
+    embeddings = convert_embeddings({'work_experience+projects': row[2], 'skills': row[3], 'about_me+hobbies': row[4]})
+
     employee = {'about_me': row[0], 'hobbies': row[1]}
     cursor.execute(f'SELECT description FROM dbo.education WHERE employee_id = {employee_id};')
     employee['education'] = [data[0] for data in cursor.fetchall()]
@@ -102,13 +127,19 @@ def get_employee_by_id(cursor: pyodbc.Cursor, employee_id: int):
     employee['projects'] = [data[0] for data in cursor.fetchall()]
     cursor.execute(f'SELECT description FROM dbo.skills WHERE employee_id = {employee_id};')
     employee['skills'] = [data[0] for data in cursor.fetchall()]
-    return employee
+    return employee, embeddings
 
 
 def get_all_employees(cursor: pyodbc.Cursor):
-    cursor.execute(f'SELECT id, about_me, interests FROM dbo.employees;')
+    cursor.execute(f'SELECT id, about_me, interests, experience_embeddings, skills_embeddings, description_embeddings '
+                   f'FROM dbo.employees;')
     rows = cursor.fetchall()
     employees = {row[0]: {'about_me': row[1], 'hobbies': row[2]} for row in rows}
+    employees_embeddings = {}
+    for row in rows:
+        embeddings = convert_embeddings({'work_experience+projects': row[3], 'skills': row[4],
+                                         'about_me+hobbies': row[5]})
+        employees_embeddings[row[0]] = embeddings
     cursor.execute(f'SELECT employee_id, description FROM dbo.education;')
     for row in cursor.fetchall():
         employees[row[0]]['education'] = row[1]
@@ -121,4 +152,38 @@ def get_all_employees(cursor: pyodbc.Cursor):
     cursor.execute(f'SELECT employee_id, description FROM dbo.skills;')
     for row in cursor.fetchall():
         employees[row[0]]['skills'] = row[1]
-    return employees
+    return employees, employees_embeddings
+
+
+def convert_embeddings(embeddings: dict[str, bytes]):
+    converted_embeddings = {}
+    for key, val in embeddings.items():
+        if val:
+            converted_embeddings[key] = np.frombuffer(val, dtype=np.float32)
+    return converted_embeddings
+
+
+def get_offers_embeddings_only(cursor: pyodbc.Cursor):
+    cursor.execute(f'SELECT id, duties_embeddings, description_embeddings, skills_embeddings FROM dbo.job_offers;')
+    rows = cursor.fetchall()
+    return {row[0]: convert_embeddings({'duties': row[1], 'description': row[2], 'requirements+extra_skills': row[3]})
+            for row in rows}
+
+
+def get_employees_embeddings_only(cursor: pyodbc.Cursor):
+    cursor.execute(f'SELECT id, experience_embeddings, skills_embeddings, description_embeddings FROM dbo.employees;')
+    rows = cursor.fetchall()
+    return {row[0]: convert_embeddings({'work_experience+projects': row[1], 'skills': row[2],
+                                        'about_me+hobbies': row[3]}) for row in rows}
+
+
+def check_if_offer_is_disabled(cursor: pyodbc.Cursor, offer_id: int):
+    cursor.execute(f'SELECT is_active FROM dbo.job_offers WHERE id = {offer_id};')
+    rows = cursor.fetchall()
+    return not rows or rows[0][0] == 0
+
+
+def check_if_employee_is_deleted(cursor: pyodbc.Cursor, employee_id: int):
+    cursor.execute(f'SELECT id FROM dbo.employees WHERE id = {employee_id};')
+    rows = cursor.fetchall()
+    return not rows
