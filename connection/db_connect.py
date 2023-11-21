@@ -101,26 +101,27 @@ def put_filtered_offers_list_values(cursor, offers, condition):
 
 
 def get_offer_by_id(cursor: pyodbc.Cursor, offer_id):
-    cursor.execute(f'SELECT offer_name, salary_from, duties, description, duties_embeddings, '
+    cursor.execute(f'SELECT offer_name, salary_from, duties, description, employer_id, duties_embeddings, '
                    f'description_embeddings, skills_embeddings FROM dbo.job_offers WHERE id = {offer_id};')
     row = cursor.fetchone()
     if not row:
         return None
-    offer = {'name': row[0], 'min_salary': row[1], 'duties': row[2], 'description': row[3]}
-    embeddings = convert_embeddings({'duties': row[4], 'description': row[5], 'requirements+extra_skills': row[6]})
+    offer = {'name': row[0], 'min_salary': row[1], 'duties': row[2], 'description': row[3], 'company': row[4]}
+    embeddings = convert_embeddings({'duties': row[5], 'description': row[6], 'requirements+extra_skills': row[7]})
     put_offer_list_values(cursor, offer, offer_id)
     return offer, embeddings
 
 
 def get_all_offers(cursor: pyodbc.Cursor):
-    cursor.execute(f'SELECT id, offer_name, salary_from, duties, description, duties_embeddings, '
+    cursor.execute(f'SELECT id, offer_name, salary_from, duties, description, employer_id, duties_embeddings, '
                    f'description_embeddings, skills_embeddings FROM dbo.job_offers;')
     rows = cursor.fetchall()
     offers = {}
     offers_embeddings = {}
     for row in rows:
-        offers[row[0]] = {'name': row[1], 'min_salary': row[2], 'duties': row[3], 'description': row[4]}
-        embeddings = convert_embeddings({'duties': row[5], 'description': row[6], 'requirements+extra_skills': row[7]})
+        offers[row[0]] = {'name': row[1], 'min_salary': row[2], 'duties': row[3], 'description': row[4],
+                          'company': row[5]}
+        embeddings = convert_embeddings({'duties': row[6], 'description': row[7], 'requirements+extra_skills': row[8]})
         offers_embeddings[row[0]] = embeddings
     put_all_offers_list_values(cursor, offers)
     return offers, offers_embeddings
@@ -173,14 +174,15 @@ def get_all_employees(cursor: pyodbc.Cursor):
 
 def get_filtered_offers(cursor: pyodbc.Cursor, condition):
     condition_string = get_condition_string(condition)
-    cursor.execute(f'SELECT id, offer_name, salary_from, duties, description, duties_embeddings, '
+    cursor.execute(f'SELECT id, offer_name, salary_from, duties, description, employer_id, duties_embeddings, '
                    f'description_embeddings, skills_embeddings FROM dbo.job_offers jo {condition_string};')
     rows = cursor.fetchall()
     offers = {}
     offers_embeddings = {}
     for row in rows:
-        offers[row[0]] = {'name': row[1], 'min_salary': row[2], 'duties': row[3], 'description': row[4]}
-        embeddings = convert_embeddings({'duties': row[5], 'description': row[6], 'requirements+extra_skills': row[7]})
+        offers[row[0]] = {'name': row[1], 'min_salary': row[2], 'duties': row[3], 'description': row[4],
+                          'company': row[5]}
+        embeddings = convert_embeddings({'duties': row[6], 'description': row[7], 'requirements+extra_skills': row[8]})
         offers_embeddings[row[0]] = embeddings
     put_filtered_offers_list_values(cursor, offers, condition)
     return offers, offers_embeddings
@@ -218,3 +220,10 @@ def check_if_employee_is_deleted(cursor: pyodbc.Cursor, employee_id: int):
     cursor.execute(f'SELECT id FROM dbo.employees WHERE id = {employee_id};')
     rows = cursor.fetchall()
     return not rows
+
+
+def get_employers_on_job_fairs(cursor: pyodbc.Cursor, job_fairs_id: int):
+    cursor.execute(f'SELECT employer_id FROM dbo.job_fair_employer_participation '
+                   f'WHERE job_fair_id = {job_fairs_id} AND is_accepted = 1;')
+    rows = cursor.fetchall()
+    return set(row[0] for row in rows)
