@@ -45,15 +45,19 @@ def put_all_offers_list_values(cursor, offers):
         offers[row[0]]['localizations'] = row[1]
 
 
-def put_filtered_offers_list_values(cursor, offers, condition):
+def get_condition_string(condition):
     if condition == 'a':
-        condition_string = 'WHERE jo.is_active=1'
+        return 'WHERE jo.is_active=1'
     elif condition == 'c':
-        condition_string = 'WHERE jo.is_embedding_current=0 OR jo.is_embedding_current IN NULL'
+        return 'WHERE jo.is_embedding_current=0 OR jo.is_embedding_current IN NULL'
     elif condition == 'ac':
-        condition_string = 'WHERE (jo.is_embedding_current=0 OR jo.is_embedding_current) IN NULL AND jo.is_active=1'
+        return 'WHERE (jo.is_embedding_current=0 OR jo.is_embedding_current) IN NULL AND jo.is_active=1'
     else:
-        condition_string = ''
+        return ''
+
+
+def put_filtered_offers_list_values(cursor, offers, condition):
+    condition_string = get_condition_string(condition)
     cursor.execute(f'SELECT ex.job_offer_id, ex.description FROM dbo.extra_skills ex JOIN dbo.job_offers jo '
                    f'ON ex.job_offer_id = jo.id {condition_string};')
     for row in cursor.fetchall():
@@ -153,6 +157,21 @@ def get_all_employees(cursor: pyodbc.Cursor):
     for row in cursor.fetchall():
         employees[row[0]]['skills'] = row[1]
     return employees, employees_embeddings
+
+
+def get_filtered_offers(cursor: pyodbc.Cursor, condition):
+    condition_string = get_condition_string(condition)
+    cursor.execute(f'SELECT id, offer_name, salary_from, duties, description, duties_embeddings, '
+                   f'description_embeddings, skills_embeddings FROM dbo.job_offers jo {condition_string};')
+    rows = cursor.fetchall()
+    offers = {}
+    offers_embeddings = {}
+    for row in rows:
+        offers[row[0]] = {'name': row[1], 'min_salary': row[2], 'duties': row[3], 'description': row[4]}
+        embeddings = convert_embeddings({'duties': row[5], 'description': row[6], 'requirements+extra_skills': row[7]})
+        offers_embeddings[row[0]] = embeddings
+    put_filtered_offers_list_values(cursor, offers, condition)
+    return offers, offers_embeddings
 
 
 def convert_embeddings(embeddings: dict[str, bytes]):

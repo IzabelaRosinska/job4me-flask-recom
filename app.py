@@ -24,7 +24,7 @@ labels_data, branches_weights = load_labels([('IT', 'files/labels_IT.json', 3),
                                              ('Ogólne', 'files/labels_soft_skills.json', 1),
                                              ('Języki', 'files/labels_languages.json', 5)])
 
-offers, offers_embeddings = get_all_offers(cursor)
+offers, offers_embeddings = get_filtered_offers(cursor, 'a')
 employees, employees_embeddings = get_all_employees(cursor)
 
 recommender = Recommender(labels=labels_data, branches_weights=branches_weights)
