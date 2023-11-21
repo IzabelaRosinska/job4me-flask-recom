@@ -5,6 +5,7 @@ from flask import Flask, request, jsonify
 from connection.db_connect import *
 from utils.file_reader import load_labels
 from matching.recommendation import Recommender
+from connection.api_authentication import *
 
 app = Flask(__name__)
 
@@ -38,6 +39,7 @@ def index():
 
 
 @app.route('/recommend/<job_fairs_id>/<employee_id>', methods=['GET'])
+@api_key_recommend
 def recommend(job_fairs_id, employee_id: str):
     filter_params = {}
     if loc := request.args.get('loc'):
@@ -76,6 +78,7 @@ def recommend(job_fairs_id, employee_id: str):
 
 
 @app.route('/update_offer/<offer_id>', methods=['GET'])
+@api_key_update_offer
 def update_offer(offer_id):
     try:
         if not (offer := get_offer_by_id(cursor, int(offer_id))):
@@ -87,6 +90,7 @@ def update_offer(offer_id):
 
 
 @app.route('/update_offers_embeddings', methods=['GET'])
+@api_key_update_offers_embeddings
 def update_offers_embeddings():
     embeddings = get_offers_embeddings_only(cursor)
     recommender.update_offers_embeddings(embeddings)
@@ -94,6 +98,7 @@ def update_offers_embeddings():
 
 
 @app.route('/update_employee/<employee_id>', methods=['GET'])
+@api_key_update_employee
 def update_employee(employee_id):
     try:
         if not (employee := get_offer_by_id(cursor, int(employee_id))):
@@ -105,6 +110,7 @@ def update_employee(employee_id):
 
 
 @app.route('/update_employees_embeddings', methods=['GET'])
+@api_key_update_employees_embeddings
 def update_employees_embeddings():
     embeddings = get_employees_embeddings_only(cursor)
     recommender.update_employees_embeddings(embeddings)
@@ -112,6 +118,7 @@ def update_employees_embeddings():
 
 
 @app.route('/remove_offer/<offer_id>', methods=['GET'])
+@api_key_remove_offer
 def remove_offer(offer_id):
     try:
         offer_id = int(offer_id)
@@ -125,6 +132,7 @@ def remove_offer(offer_id):
 
 
 @app.route('/remove_employee/<employee_id>', methods=['GET'])
+@api_key_remove_employee
 def remove_employee(employee_id):
     try:
         employee_id = int(employee_id)
