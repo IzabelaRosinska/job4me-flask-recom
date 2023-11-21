@@ -72,7 +72,10 @@ def check_salary(offer_salary: str, filter_salary: int | None) -> bool:
     return True
 
 
-def filter_offers(offers: dict[dict[str | list[str]]], filter_params: dict) -> list:
+def filter_offers(offers: dict[dict[str | list[str]]], employers_on_job_fairs: set[int] = None,
+                  filter_params: dict = None) -> list:
+    if employers_on_job_fairs is not None:
+        offers = {offer_id: offer for offer_id, offer in offers.items() if offer['company'] in employers_on_job_fairs}
     if not filter_params:
         return list(offers.keys())
     accepted = []

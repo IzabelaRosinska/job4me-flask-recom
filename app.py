@@ -65,8 +65,13 @@ def recommend(job_fairs_id, employee_id: str):
     try:
         employee_id = int(employee_id)
     except ValueError:
-        return {'error': 'Wrong id'}
-    response = recommender.get_offers_ranking(int(employee_id), filter_params)
+        return {'error': 'Wrong employee id'}
+    try:
+        job_fairs_id = int(job_fairs_id)
+    except ValueError:
+        return {'error': 'Wrong job fair id'}
+    employers_on_job_fairs = get_employers_on_job_fairs(cursor, job_fairs_id)
+    response = recommender.get_offers_ranking(employee_id, employers_on_job_fairs, filter_params)
     return jsonify(data=response)
 
 

@@ -58,7 +58,7 @@ class Recommender:
 
     def extract_filter_params_from_offer(self, offer_id, offer):
         offer_filter_params = {'localizations': offer['localizations'], 'min_salary': offer['min_salary'],
-                               'levels': offer['levels'], 'branches': offer['branches'],
+                               'levels': offer['levels'], 'branches': offer['branches'], 'company': offer['company'],
                                'contract_types': offer['contract_types'], 'forms': offer['forms']}
         self.offers_filter_params[offer_id] = offer_filter_params
 
@@ -127,13 +127,13 @@ class Recommender:
             total_weight += weight
         return score / total_weight if total_weight != 0 else 0
 
-    def get_offers_ranking(self, employee_id, filter_params: dict, number_to_pass_to_embeddings=20,
-                           embeddings_weight=0.5) -> list[int] | dict:
+    def get_offers_ranking(self, employee_id, employers_on_job_fairs, filter_params: dict,
+                           number_to_pass_to_embeddings=20, embeddings_weight=0.5) -> list[int] | dict:
         if employee_id not in self.employees_labels:
             return {'error': 'Employee not found'}
         employee_labels = self.employees_labels[employee_id]
         ranking = [(offer_id, self.get_labels_sim(employee_labels, self.offers_labels[offer_id]))
-                   for offer_id in filter_offers(self.offers_filter_params, filter_params)]
+                   for offer_id in filter_offers(self.offers_filter_params, employers_on_job_fairs, filter_params)]
         ranking = sorted(ranking, key=lambda x: x[1], reverse=True)
         if employee_id in self.employees_embeddings and (employee_embeddings := self.employees_embeddings[employee_id]):
             new_ranking = []
