@@ -33,7 +33,7 @@ class Recommender:
         else:
             self.branches_weights = {'IT': 3, 'Sprzedaż': 2, 'Zdrowie': 2, 'Administracja Biura': 2,
                                      'Ogólne': 1, 'Języki': 5}
-        self.offers = {}
+        self.offers_filter_params = {}
         self.offers_labels = {}
         self.offers_embeddings = {}
         self.employees_labels = {}
@@ -56,9 +56,16 @@ class Recommender:
             return {label: weight / sum_of_weights for label, weight in labels.items()}
         return labels
 
+    def extract_filter_params_from_offer(self, offer_id, offer):
+        offer_filter_params = {'localizations': offer['localizations'], 'min_salary': offer['min_salary'],
+                               'levels': offer['levels'], 'branches': offer['branches'],
+                               'contract_types': offer['contract_types'], 'forms': offer['forms']}
+        self.offers_filter_params[offer_id] = offer_filter_params
+
     def load_offers(self, offers: dict[str, dict], embeddings: dict[str, dict],
                     labels: dict[str, dict[str, float]] = None):
-        self.offers.update(offers)
+        for offer_id, offer in offers.items():
+            self.extract_filter_params_from_offer(offer_id, offer)
         self.offers_embeddings.update(embeddings)
         if labels:
             self.offers_labels.update(labels)
@@ -76,7 +83,7 @@ class Recommender:
                 self.employees_labels[employee_id] = self.get_labels(employee, False)
 
     def update_offer_labels(self, offer_id, offer: dict):
-        self.offers[offer_id] = offer
+        self.extract_filter_params_from_offer(offer_id, offer)
         self.offers_labels[offer_id] = self.get_labels(offer, True)
 
     def update_offers_embeddings(self, offers_embeddings: dict):
@@ -89,8 +96,8 @@ class Recommender:
         self.employees_embeddings.update(employees_embeddings)
 
     def remove_offer(self, offer_id: int):
-        if offer_id in self.offers:
-            del self.offers[offer_id]
+        if offer_id in self.offers_filter_params:
+            del self.offers_filter_params[offer_id]
         if offer_id in self.offers_labels:
             del self.offers_labels[offer_id]
         if offer_id in self.offers_embeddings:
@@ -126,7 +133,7 @@ class Recommender:
             return {'error': 'Employee not found'}
         employee_labels = self.employees_labels[employee_id]
         ranking = [(offer_id, self.get_labels_sim(employee_labels, self.offers_labels[offer_id]))
-                   for offer_id in filter_offers(self.offers, filter_params)]
+                   for offer_id in filter_offers(self.offers_filter_params, filter_params)]
         ranking = sorted(ranking, key=lambda x: x[1], reverse=True)
         if employee_id in self.employees_embeddings and (employee_embeddings := self.employees_embeddings[employee_id]):
             new_ranking = []
