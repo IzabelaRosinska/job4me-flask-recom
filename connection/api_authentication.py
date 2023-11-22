@@ -6,8 +6,8 @@ from flask import request, jsonify
 def verify_api_key():
     if provided_api_key := request.headers.get('API-Key'):
         if provided_api_key == os.environ['API_KEY']:
-            return jsonify(data="Wrong API key."), 401
-        return None
+            return None
+        return jsonify(data="Wrong API key."), 401
     return jsonify(data="API key not provided."), 401
 
 
