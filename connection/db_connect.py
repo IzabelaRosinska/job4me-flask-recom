@@ -159,16 +159,20 @@ def get_all_employees(cursor: pyodbc.Cursor):
         employees_embeddings[row[0]] = embeddings
     cursor.execute(f'SELECT employee_id, description FROM dbo.education;')
     for row in cursor.fetchall():
-        employees[row[0]]['education'] = row[1]
+        employees[row[0]].setdefault('education', [])
+        employees[row[0]]['education'].append(row[1])
     cursor.execute(f'SELECT employee_id, description FROM dbo.experience;')
     for row in cursor.fetchall():
-        employees[row[0]]['experience'] = row[1]
+        employees[row[0]].setdefault('experience', [])
+        employees[row[0]]['experience'].append(row[1])
     cursor.execute(f'SELECT employee_id, description FROM dbo.projects;')
     for row in cursor.fetchall():
-        employees[row[0]]['projects'] = row[1]
+        employees[row[0]].setdefault('projects', [])
+        employees[row[0]]['projects'].append(row[1])
     cursor.execute(f'SELECT employee_id, description FROM dbo.skills;')
     for row in cursor.fetchall():
-        employees[row[0]]['skills'] = row[1]
+        employees[row[0]].setdefault('skills', [])
+        employees[row[0]]['skills'].append(row[1])
     return employees, employees_embeddings
 
 
