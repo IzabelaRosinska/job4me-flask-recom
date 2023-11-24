@@ -82,7 +82,7 @@ def recommend(job_fairs_id, employee_id: str):
     conn.close()
 
     response = recommender.get_offers_ranking(employee_id, employers_on_job_fairs, filter_params)
-    return jsonify(data=response)
+    return response
 
 
 @app.route('/update_offer/<offer_id>', methods=['GET'])
