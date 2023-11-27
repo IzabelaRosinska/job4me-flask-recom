@@ -85,7 +85,7 @@ def recommend(job_fairs_id, employee_id: str):
     return response
 
 
-@app.route('/update_offer/<offer_id>', methods=['GET'])
+@app.route('/update-offer/<offer_id>', methods=['GET'])
 @api_key_update_offer
 def update_offer(offer_id):
     try:
@@ -101,7 +101,7 @@ def update_offer(offer_id):
     return "Offer labels updated successfully"
 
 
-@app.route('/update_offers_embeddings', methods=['GET'])
+@app.route('/update-offers-embeddings', methods=['GET'])
 @api_key_update_offers_embeddings
 def update_offers_embeddings():
     conn = pyodbc.connect(f'SERVER={server};DATABASE={database};UID={username};PWD={password};DRIVER={driver}')
@@ -112,7 +112,7 @@ def update_offers_embeddings():
     return "Offers embeddings updated successfully"
 
 
-@app.route('/update_employee/<employee_id>', methods=['GET'])
+@app.route('/update-employee/<employee_id>', methods=['GET'])
 @api_key_update_employee
 def update_employee(employee_id):
     try:
@@ -128,7 +128,7 @@ def update_employee(employee_id):
     return "Employee labels updated successfully"
 
 
-@app.route('/update_employees_embeddings', methods=['GET'])
+@app.route('/update-employees-embeddings', methods=['GET'])
 @api_key_update_employees_embeddings
 def update_employees_embeddings():
     conn = pyodbc.connect(f'SERVER={server};DATABASE={database};UID={username};PWD={password};DRIVER={driver}')
@@ -139,7 +139,7 @@ def update_employees_embeddings():
     return "Employees embeddings updated successfully"
 
 
-@app.route('/remove_offer/<offer_id>', methods=['GET'])
+@app.route('/remove-offer/<offer_id>', methods=['GET'])
 @api_key_remove_offer
 def remove_offer(offer_id):
     try:
@@ -157,7 +157,7 @@ def remove_offer(offer_id):
         return {'error': 'Offer is still active'}
 
 
-@app.route('/remove_employee/<employee_id>', methods=['GET'])
+@app.route('/remove-employee/<employee_id>', methods=['GET'])
 @api_key_remove_employee
 def remove_employee(employee_id):
     try:
