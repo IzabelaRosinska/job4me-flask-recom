@@ -1,6 +1,5 @@
-import os
 
-from flask import Flask, request, jsonify
+from flask import Flask
 
 from connection.db_connect import *
 from utils.file_reader import load_labels
@@ -12,7 +11,7 @@ app = Flask(__name__)
 username = os.getenv('AZURE_DB_USER')
 password = os.getenv('AZURE_DB_PASSWORD')
 server = os.getenv('AZURE_DB')
-database = 'miwm'
+database = 'job4me'
 driver = '{ODBC Driver 17 for SQL Server}'
 
 conn = pyodbc.connect(f'SERVER={server};DATABASE={database};UID={username};PWD={password};DRIVER={driver}')
@@ -94,8 +93,12 @@ def update_offer(offer_id):
         return {'error': 'Wrong id'}
     conn = pyodbc.connect(f'SERVER={server};DATABASE={database};UID={username};PWD={password};DRIVER={driver}')
     cursor = conn.cursor()
-    if not (offer := get_offer_by_id(cursor, offer_id)):
+    offer = get_offer_by_id(cursor, offer_id)
+    if not offer:
         return {'error': 'Offer not found'}
+    if check_if_offer_is_disabled(cursor, offer_id):
+        conn.close()
+        return 'Offer is not active'
     conn.close()
     recommender.update_offer_labels(offer_id, offer)
     return "Offer labels updated successfully"
@@ -121,7 +124,8 @@ def update_employee(employee_id):
         return {'error': 'Wrong id'}
     conn = pyodbc.connect(f'SERVER={server};DATABASE={database};UID={username};PWD={password};DRIVER={driver}')
     cursor = conn.cursor()
-    if not (employee := get_offer_by_id(cursor, employee_id)):
+    employee = get_offer_by_id(cursor, employee_id)
+    if not employee:
         return {'error': 'Employee not found'}
     conn.close()
     recommender.update_employee_labels(employee_id, employee)
