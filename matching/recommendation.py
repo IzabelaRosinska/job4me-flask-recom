@@ -57,9 +57,13 @@ class Recommender:
         return labels
 
     def extract_filter_params_from_offer(self, offer_id, offer):
-        offer_filter_params = {'localizations': offer['localizations'], 'min_salary': offer['min_salary'],
-                               'levels': offer['levels'], 'branches': offer['branches'], 'company': offer['company'],
-                               'contract_types': offer['contract_types'], 'forms': offer['forms']}
+        offer_filter_params = {'localizations': offer['localizations'] if 'localization' in offer else [],
+                               'min_salary': offer['min_salary'] if 'min_salary' in offer else None,
+                               'levels': offer['levels'] if 'levels' in offer else [],
+                               'branches': offer['branches'] if 'branches' in offer else [],
+                               'company': offer['company'] if 'company' in offer else None,
+                               'contract_types': offer['contract_types'] if 'contract_types' in offer else [],
+                               'forms': offer['forms'] if 'forms' in offer else []}
         self.offers_filter_params[offer_id] = offer_filter_params
 
     def load_offers(self, offers: dict[str, dict], embeddings: dict[str, dict],
