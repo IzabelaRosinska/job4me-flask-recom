@@ -54,9 +54,9 @@ def get_condition_string(condition):
     if condition == 'a':
         return 'WHERE jo.is_active=1'
     elif condition == 'c':
-        return 'WHERE jo.is_embedding_current=0 OR jo.is_embedding_current IN NULL'
+        return 'WHERE jo.is_embedding_current=0 OR jo.is_embedding_current IS NULL'
     elif condition == 'ac':
-        return 'WHERE (jo.is_embedding_current=0 OR jo.is_embedding_current) IN NULL AND jo.is_active=1'
+        return 'WHERE (jo.is_embedding_current=0 OR jo.is_embedding_current) IS NULL AND jo.is_active=1'
     else:
         return ''
 
