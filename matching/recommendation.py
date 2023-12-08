@@ -22,12 +22,12 @@ class Recommender:
         if weights_cv:
             self.weights_cv = weights_cv
         else:
-            self.weights_cv = {"education": 2, "work_experience": 200, "projects": 25,
+            self.weights_cv = {"education": 2, "experience": 1000, "projects": 100,
                                "skills": 5, "about_me": 2, "hobbies": 1}
         if weights_offers:
             self.weights_offers = weights_offers
         else:
-            self.weights_offers = {"name": 100, "requirements": 20, "extra_skills": 5, "duties": 2, "description": 1}
+            self.weights_offers = {"name": 2000, "requirements": 50, "extra_skills": 5, "duties": 2, "description": 1}
         if branches_weights:
             self.branches_weights = branches_weights
         else:
@@ -118,7 +118,9 @@ class Recommender:
         score = 0
         shared = set(employee_labels.keys()) & set(offer_labels.keys())
         for label in shared:
-            score += (cur_sim := min(employee_labels[label], offer_labels[label]))
+            score += (min(employee_labels[label], offer_labels[label]) * 10) ** 2
+        for label in (set(offer_labels.keys()) - shared):
+            score -= (offer_labels[label] * 5) ** 2
         return score
 
     def get_cos_sim(self, employee_embeddings, offer_embeddings) -> float:
@@ -132,7 +134,7 @@ class Recommender:
         return score / total_weight if total_weight != 0 else 0
 
     def get_offers_ranking(self, employee_id, employers_on_job_fairs, filter_params: dict,
-                           number_to_pass_to_embeddings=20, embeddings_weight=0.5) -> list[int] | dict:
+                           number_to_pass_to_embeddings=20, embeddings_weight=5) -> list[int] | dict:
         if employee_id not in self.employees_labels:
             return {'error': 'Employee not found'}
         employee_labels = self.employees_labels[employee_id]
